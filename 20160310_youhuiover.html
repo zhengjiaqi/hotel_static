@@ -1,0 +1,663 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <title>免费送你逼格变身神器，去哪儿找毛毛迅探寻城市印象</title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        html, body {
+            -webkit-touch-callout: none; /*长按时不触发系统的菜单, 可用在图片上加这个属性禁止下载图片*/
+            -webkit-user-select: none; /*设置为无法选择文本*/
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-font-smoothing: antialiased;
+        }
+        body, div, ul, li, h2, h3, p {margin:0; padding:0; font-family:'微软雅黑'; font-size: 14px;}
+        li {list-style: none;}
+        a {text-decoration: none; color: #000;}
+
+        body {background: #f7f7f7; line-height: 1;}
+
+        .header {width: 100%; min-width: 320px; margin-bottom: 10px;}
+        .header .banner {position: relative; text-align: center; width:100%;}
+        .header .banner img {display: block; width:100%;}
+        .header .banner .btn {position: absolute; bottom: 12%; right: 6px;}
+        .header .banner .btn a {display: block; width: 80px; height: 28px; line-height: 28px; border-radius: 8px; font-size: 12px; text-align: center; color: #fff; background: #b0652e;}
+        .header .banner .btn a:active {background: #6b330a;}
+
+        .body {width: 100%; min-width: 320px;}
+        .body .activity {width: 92.5%; margin: 0 auto 10px; padding: 0;}
+        .activity .head {position: relative; height: 58px; padding-top: 12px; background-position: left bottom; background-size: auto 100%; background-repeat: no-repeat;}
+        .activity .head h1 {margin: 0 auto 5px 95px; font-size: 16px;}
+        .activity .head h2 {margin: 0 auto 0 95px; font-size: 14px; font-weight: normal; color: #666;}
+        .activity .head .btn1 {position: absolute; right: 0; bottom: 15px; padding: 0 20px 0s 10px; font-size: 14px; font-weight: bold; color: #ff5d57;}
+        .activity .head .btn1::after {content: '\0020'; display: inline-block; width: 8px; height: 14px; margin: 0 0 -2px 3px; background: url(http://simg1.qunarzz.com/site/images/zhuanti/huodong/rightarrow.png) no-repeat right center; background-size: 8px 12px;}
+        .activity .content {padding: 10px 5px 15px; border-radius: 0 4px 4px 4px; overflow: hidden;}
+        .activity .content.sale {padding: 0; border-radius: 4px;}
+        /*.activity .content.sale .img img{height: 7rem;}*/
+        .activity .content.sale .info {display: none;}
+        .activity .content .img img {display: block; width: 100%;}
+        .activity .content .info {position: relative; padding: 10px 6px; background: #fff;}
+        .activity .content .info h3 {margin: 0 0 10px; font-size: 16px; color: #333;}
+        .activity .content .info  p {margin: 0 0 14px; font-size: 14px; font-weight: normal; color: #666;}
+        .activity .content .info .price-info {margin: 0;}
+        .activity .content .price-info .yen {font-size: 12px; color: #fb524a; vertical-align: baseline;}
+        .activity .content .price-info .price {font-size: 20px; color: #fb524a; vertical-align: baseline;}
+        .activity .content .price-info .af {font-size: 14px; color: #666; vertical-align: baseline;}
+        .activity .content .btn2 {position: absolute; right: 6px; bottom: 10px; width: 4rem; height: 30px; line-height: 30px; border-radius: 2px; font-size: 14px; text-align: center; color: #fff; background: #fb524a;}
+        .activity .content .btn2:active {background: #cd3826;}
+
+        footer {width: 100%; min-width: 320px;}
+        .footer {width: 100%; display:none}
+        .footer img {display: block; width:100%;}
+
+        .hide {display: none;}
+
+        .qt-popup-wrap{
+            position: fixed;
+            top:50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%,-50%,10px);
+            z-index: 1002;
+        }
+        .qt-popup{
+            background: #fff;
+            -webkit-border-radius: 8px;
+        }
+        .qt-popup-mask{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: rgba(0,0,0,.5);
+        }
+        .qt-popup-btns{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            line-height: 30px;
+            text-align: center;
+            color: #006AFD;
+            border-top: 1px solid #ddd;
+        }
+        .qt-popup-btns > div{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            border-left: 1px solid #ddd;
+            line-height: 40px;
+        }
+        .qt-popup-btns > div:first-child{
+            border-left: 0;
+        }
+        .qt-popup-btns > div:active{
+            background: #ddd;
+        }
+
+        .qt-popup-content{
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+        .qt-popup-title{
+            padding: 0 10px;
+            line-height: 30px;
+        }
+
+        .popUp {
+            -webkit-animation-name: popUp;
+        }
+        @-webkit-keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+                -webkit-transform: scale(0);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                -webkit-transform: scale(1);
+            }
+        }
+        .zoomOut {
+            -webkit-animation-name: zoomOut;
+        }
+        @-webkit-keyframes zoomOut {
+            from {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+        .fadeIn {
+            -webkit-animation-name: fadeIn;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+        .fadeOut {
+            -webkit-animation-name: fadeOut;
+        }
+        @-webkit-keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .rule-title{
+            text-align: center;
+            padding: 1rem 0 0 0;
+            color: #a03435;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .rule-content{
+            padding-bottom: 10px;
+        }
+        .rule-content >span{
+            display: inline-block;
+            color: #a03435;
+            font-size: 16px;
+            font-weight: bold;
+            padding: .5rem 0;
+        }
+        .rule-content >div{
+            color: #333;
+            font-size: 14px;
+            line-height: 18px;
+        }
+        .close {
+            position: relative;
+        }
+        .close:before {
+            content: '';
+            top: 45%;
+            left: 10%;
+            width: 80%;
+            display: block;
+            position: absolute;
+            border-top: 2px solid;
+            transform: rotate(45deg);
+        }
+        .close:after {
+            content: '';
+            top: 45%;
+            left: 10%;
+            width: 80%;
+            display: block;
+            position: absolute;
+            border-top: 2px solid;
+            transform: rotate(-45deg);
+        }
+
+        .rule-close{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 10px;
+            top:10px;
+            color: #a03435;
+            border: 1px solid;
+            -webkit-border-radius: 50%;
+        }
+
+        .spot {
+            position: relative;
+            padding: 0 15px;
+        }
+        .spot:before {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            display: block;
+            border-radius: 50%;
+            background: #a03435;
+            left: 0;
+            top: 50%;
+            margin-top:-2px;
+        }
+        .spot:after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            display: block;
+            border-radius: 50%;
+            background: #a03435;
+            right: 0;
+            top: 50%;
+            margin-top:-2px;
+        }
+        .line{
+            padding: 0 50px;
+            position: relative;
+        }
+        .line:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 1px;
+            display: block;
+            background: #a03435;
+            left: 0;
+            top: 50%;
+        }
+        .line:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 1px;
+            display: block;
+            background: #a03435;
+            right: 0;
+            top: 50%;
+        }
+
+        .red-bg{
+            background: #a03435;
+            color: #fff;
+            padding: 0 4px;
+        }
+        .red{
+            color: #a03435;
+        }
+        .barcode_wrap{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            padding-top: .4rem;
+        }
+        .barcode_wrap>div:first-child{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        .barcode_wrap>div:last-child{
+            width: 80px;
+            padding-left: 8px;
+            text-align: center;
+        }
+        .barcode_wrap>div:last-child>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="main"></div>
+<div class="alert-init"></div>
+</body>
+
+<script src='http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014072116184502.js'></script>
+<script src='http://m.qunar.com/zhuanti/qua.js'></script>
+<script src='http://m.qunar.com/zhuanti/qpopup.js'></script>
+<script type="text/template" id="ruletpl">
+    <div class="rule">
+        <div class="close rule-close"></div>
+        <div class="rule-title">
+            <span class="line">
+                <span class="spot">活动规则</span>
+            </span>
+        </div>
+        <div class="rule-content">
+            <span>活动时间：</span>
+            <div>2016年3月15日-2016年4月16日</div>
+            <span>奖品：</span>
+            <div>
+                <div>1、时尚生活家毛毛迅原创设计禅风系列时尚道袍</div>
+                <div>2、CJ卡武郡复古领海魂条纹白衬衫</div>
+                <div>2、CJ卡武郡运动风格条纹度假长衫</div>
+            </div>
+            <span>获奖方式：</span>
+            <div>
+                <div>
+                    <span class="red-bg">方式1</span>
+                    即日起用户通过去哪儿旅行APP上的城市印象主题活动<span class="red">下单</span>,
+                    即可有机会赢取。
+                </div>
+                <div class="barcode_wrap">
+                    <div>
+                        <span class="red-bg">方式2</span>
+                        在去哪儿旅行APP上找到页面中的毛毛迅带你探寻城市印象活动图，点击图片，分享活动至朋友圈，
+                        记得将转发截图发到<span class="red">去哪儿团</span>的公众账号哦！
+                    </div>
+                    <div>
+                        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/2Dbarcode.jpg">
+                        <span >去哪儿团</span>
+                    </div>
+                </div>
+            </div>
+            <span>中奖规则：</span>
+            <div>
+                活动截止日期后将从符合要求的用户中随机抽取12名幸运之星，并在去哪儿团上公布名单，奖品系列随机分配。
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+<script>
+    var bd_source = getUrlParam("bd_source") || '',
+            sourceType = getUrlParam('sourceType') || '';
+    //html模板
+    var tpl =  [
+        '<header class="header">',
+        '<div class="banner">',
+        '<% if (header.url) { %>',
+//            '<a href="<%= getSchema(header.url) %>"><img src="<%= header.img %>" alt=""></a>',
+        '<img src="<%= header.img %>" alt="">',
+        '<% } else { %>',
+        '<img src="<%= header.img %>" alt="">',
+        '<% } %>',
+        '</div>',
+        '</header>',
+        '<section class="body">',
+        '<% _.each(list, function (val, idx) { %>',
+        '<div id="<%= val.id %>" class="activity">',
+        '<% if(val.headImg || val.txtH1) { %>',
+        '<div class="head" style="background-image: url(<%= val.headImg %>);">',
+        '<h1 style="color:<%= val.colorH1||val.colorBackground %>"><%= val.txtH1 %></h1>',
+        '<% if(val.txtH2) { %>',
+        '<h2><%= val.txtH2 %></h2>',
+        '<% } %>',
+        '<% if(val.txtBtn1) { %>',
+        '<a href="<%= getSchema(val.url) %>"><div class="btn1"><%= val.txtBtn1 %></div></a>',
+        '<% } %>',
+        '</div>',
+        '<% } %>',
+        '<% if(val.txtTitle) { %>',
+        '<div class="content" style="background:<%= val.colorBackground%>">',
+        '<% } else { %>',
+        '<div class="content sale">',
+        '<% } %>',
+        '<a href="<%= getSchema(val.url) %>">',
+        '<div class="img"><img src="<%= val.img %>" alt="<%= val.txtTitle?val.txtTitle:val.id %>"></div>',
+        '<div class="info">',
+        '<h3><%= val.txtTitle %></h3>',
+        '<p><%= val.txtAddr %></p>',
+        '<p class="price-info"><span class="yen">&yen;</span><span class="price"><%= val.txtPrice %></span><span class="af"><%= val.txtPriceAfter %></span></p>',
+        '<div class="btn2"><%= val.txtBtn2 %></div>',
+        '</div>',
+        '</a>',
+        '</div>',
+        '</div>',
+        '<% }); %>',
+        '</section>',
+        '<footer>',
+        '<div class="footer">',
+        '<% if (footer.url) { %>',
+        '<a href="<%= getSchema(footer.url) %>"><img src="<%= footer.img %>" alt=""></a>',
+        '<% } else { %>',
+        '<img src="<%= footer.img %>" alt="">',
+        '<% } %>',
+        '</div>',
+        '</footer>'
+    ].join('');
+
+    //标示常量
+    var TYPE_SALE = 'TYPE_SALE',
+            TYPE_HOTEL = 'TYPE_HOTEL';
+            //酒店数据
+            var data = {
+                title: '免费送你逼格变身神器，去哪儿找毛毛迅探寻城市印象',
+                header: {
+                    url: 'http://touch.qunar.com/h5/red/giftpacket_v2?bd_source=dalibao_qunarapp', // 头图跳转链接 不跳转则留空
+                    img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/f4/95726e3c54ee91f7.jpg'  // 头图地址
+                },
+                list: [
+                    {
+                        id: '昆明', // 活动标识  给自己看 对页面不产生影响
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=kunming', // 秒杀活动图跳转链接  不跳转则留空
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/b0/4d57b57362ef4af7.jpg' // 秒杀活动图片地址
+                    },
+
+
+
+
+                    {
+                        id: '丽江', // 活动标识  给自己看 对页面不产生影响
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=lijiang', // 秒杀活动图跳转链接  不跳转则留空
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/d3/1c74eee96cdf9f7.jpg' // 秒杀活动图片地址
+                    },
+
+                    {
+
+                        id: '杭州', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=hangzhou', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/ce/03492c8aa5c8f0f7.jpg' // 秒杀活动图片地址
+                    },
+
+
+
+
+
+                    {
+
+                        id: '上海', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=shanghai', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/c2/f1117f4dd943d4f7.jpg' // 秒杀活动图片地址
+                    },
+
+
+
+                    {
+
+                        id: '南京', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=nanjing', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/a3/01bfb11274c518f7.jpg' // 秒杀活动图片地址
+                    },
+
+                    {
+
+                        id: '北京', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=beijing', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/d3/48bb17658ed464f7.jpg' // 秒杀活动图片地址
+                    },
+
+                    {
+
+                        id: '成都', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=chengdu', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/f9/93d3ef45e917bff7.jpg' // 秒杀活动图片地址
+                    },
+
+
+
+                    {
+
+                        id: '三亚', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=sanya', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/5e/61034fa69612d2f7.jpg' // 秒杀活动图片地址
+                    },
+
+
+                    {
+
+                        id: '广州', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=guangzhou', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/82/fa3b5117394edef7.jpg' // 秒杀活动图片地址
+                    },
+
+
+                    {
+
+                        id: '深圳', // 活动标识  给自己看 对页面不产生影响
+
+                        type: TYPE_SALE, // 秒杀、抢购活动类标志
+
+                        url: 'http://m.qunar.com/zhuanti/20160303-readTheme.html?city=shenzhen', // 秒杀活动图跳转链接  不跳转则留空
+
+                        img: 'http://img1.qunarzz.com/m_appPromotion/wap/1603/84/ec8d9bc81fd227f7.jpg' // 秒杀活动图片地址
+                    },
+
+
+
+                ],
+
+                footer: {
+                    url: '', // 底部图片跳转链接   不跳转则留空
+                    img: 'http://simg1.qunarzz.com/site/images/zhuanti/huodong/151201_hd_footer.png'
+                }
+            };
+
+    //schema替换
+    function getSchema(url){
+        url=addUrlParam(url, {'bd_source':bd_source,'sourceType':sourceType});
+        var href = "://web/url?url=" + encodeURIComponent(url);
+        if(qua.iphonePro) return "qunariphonepro" + href;
+        if(qua.iphoneLife) return "qunariphonelife" + href;
+        if(qua.iphone) return "qunariphone" + href;
+        if(qua.androidLife) return "qunaraphonelife" + href;
+        if(qua.android) return "qunaraphone" + href;
+        return url;
+    }
+
+    //渲染页面
+    function render() {
+        document.title = data.title;
+        var html = _.template(tpl)(data);
+        $('.main').html(html);
+    }
+
+    //事件绑定
+    function bindEvent() {
+        $('.banner').on('tap',function(){
+            var alertConfig={
+                noHeader:true,
+                noFooter:true,
+                content: $('#ruletpl').html(),
+                height:'90%',
+                autoFixHeight: true,
+                width: '90%',
+//                noScroll:true,
+                noAnimit:false,
+                animitTime:.3
+
+            };
+            var qpopup=new QPopup('.alert-init',alertConfig);
+            qpopup.show();
+        })
+    }
+
+    //执行函数
+    render();
+    bindEvent();
+
+    function addUrlParam(url, obj) {
+        var returnUrl = url;
+        for (var key in obj){
+            returnUrl = addUrlPar(returnUrl, key, obj[key]);
+        }
+        return returnUrl;
+
+        function addUrlPar(url, name, value){
+            var currentUrl = url.split('#')[0];
+            if (/\?/g.test(currentUrl)) {
+                if (/name=[-\w]{4,25}/g.test(currentUrl)) {
+                    currentUrl = currentUrl.replace(/name=[-\w]{4,25}/g, name + "=" + value);
+                } else {
+                    currentUrl += "&" + name + "=" + value;
+                }
+            } else {
+                currentUrl += "?" + name + "=" + value;
+            }
+            if (url.split('#')[1]) {
+                currentUrl = currentUrl + '#' + url.split('#')[1];
+            } else {
+                currentUrl = currentUrl;
+            }
+            return currentUrl;
+        }
+
+    }
+
+
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return ''; //返回参数值
+    }
+
+    //百度统计
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+</script>
+</html>

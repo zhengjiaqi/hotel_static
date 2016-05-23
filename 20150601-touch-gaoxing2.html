@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>去哪儿千万红包大放送</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <style type="text/css">
+      *{padding:0;margin:0;}
+      body{background-color:#ed2438;}
+      .wrap{
+        min-width:320px;
+        height:100%;
+        text-align:center;
+        font-size:0;
+        padding:10px 0 20px 0;
+      }
+      .logo{
+        width:30%;
+        /*height:44px;*/
+      }
+      .zhe_div{
+        padding:0 10px 0 20px;
+      }
+      .zhe_div >img{
+        width:100%;
+      }
+      .txt_area{
+        padding:20px 0;
+        background:#fff;
+        margin:0 20px;
+        box-shadow: -5px 5px 2px #cb1f30;
+      }
+      .txt1{
+        font-size:18px;
+        line-height:40px;
+      }
+      .sheng:before{
+        content:'';
+        display:inline-block;
+        height:15px;
+        width:15px;
+        position:relative;
+        top:2px;
+        right:4px;
+        background:url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_yen.png) 0 0 no-repeat;
+        background-size:15px 15px;
+      }
+      .txt2{
+        font-size:14px;
+      }
+      .red{
+        color:#ed2438;
+      }
+      .fan:before{
+        content:'';
+        display:inline-block;
+        height:20px;
+        width:15px;
+        position:relative;
+        top:2px;
+        right:4px;
+        background:url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_location.png) 0 0 no-repeat;
+        background-size:15px 20px;
+      }
+      .jiu:before{
+        content:'';
+        display:inline-block;
+        height:15px;
+        width:15px;
+        position:relative;
+        top:2px;
+        right:4px;
+        background:url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_hotel.png) 0 0 no-repeat;
+        background-size:15px 15px;
+      }
+      .huodong{
+        background:#ffff66;
+        margin:20px;
+        padding:10px 0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+      }
+      .huodong>img{
+        width:60%;
+      }
+      .huoqu{
+        color:#fff;
+        background:#990000;
+        font-size:14px;
+        margin:20px;
+        padding:5px 0;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+      }
+      .liucheng_area{
+        margin:0 20px;
+        background:#fff;
+        border-radius:5px;
+        -webkit-border-radius:5px;  
+        color:#666666;
+        padding:20px 0;
+      }
+      .liucheng_area>div{
+        display:-webkit-box;
+        font-size:14px;
+        margin:0 auto;
+        width:270px;
+        -webkit-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .introduce{
+        width:120px;
+        text-align:left;
+        padding:0 10px;
+        line-height:20px;
+        box-sizing: border-box;
+      }
+      .img_div{
+        width:150px;
+      }
+      .img_div>img{
+        width:100%;
+      }
+      .zfb{
+        text-align:right;
+      }
+    </style>
+</head>
+<body >
+  <div class="wrap">
+    <img class='logo' src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_logo.png" alt="" />
+    <div class='zhe_div'>
+      <img class='zhe' src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_5zhe.png" alt="" />
+    </div>
+    <div class='txt_area'>
+      <div class='txt1 sheng'>省钱狠!</div>
+      <div class='txt2'>预定酒店最高可省<span class='red'>150元</span></div>
+      <div class='txt1 fan'>范围广!</div>
+      <div class='txt2'>全国<span class='red'>300+</span>城市可用</div>
+      <div class='txt1 jiu'>酒店多!</div>
+      <div class='txt2'>全国<span class='red'>20万+</span>酒店参与</div>
+    </div>
+    <div class='huodong'><img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_canjiahuodong.png"></div>
+    <div class='huoqu'>如何获取红包？</div>
+    <div class='liucheng_area'>
+      <div>
+        <div class="introduce">选择酒店近日报价页，点击<span class='red'>“五折大促”</span>标签的报价</div>
+        <div class="img_div"><img src='http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_stap1.png'></div>
+      </div>
+      <div>
+        <div class="img_div"><img src='http://source.qunar.com/site/images/wap/touch/images/v2/images1x/gx_stap2.png'></div>
+        <div class="introduce zfb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绑定银行卡/支付宝立得<div class='red'>500元周边红包</div></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0"></script>
+  <script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+  <script>
+    window.onload= function(){
+      var bdSource=getUrlParam('bd_source') || 'laxin_gaoxing';
+      ua = navigator.userAgent,
+
+      map={
+          laxin_gaoxing:'3934'
+      },
+      log={
+          laxin_gaoxing_app:'3070',
+          laxin_gaoxing_q:'3071'
+      };
+      var fromForLog=log[bdSource] || '3070',cid=map[bdSource] || 3934;
+      var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+      var date=new Date();
+      var fromData= $.getDateString(date);
+      date.setDate(date.getDate()+1);
+      var toData= $.getDateString(date);
+      var cityUrl='beijing_city';
+
+      // if(ua.toLowerCase().indexOf('qunar')!==-1 ){
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+        function myFun(result){
+            cityName = result && result.name;
+            if(!cityName){
+                cityName='';
+            }else if(/香港/.test(cityName)){
+                cityName='香港';
+            }else if(/澳门/.test(cityName)){
+                cityName='澳门';
+            }else{
+                cityName=cityName.split('市')[0];
+            }
+            $.ajax({
+                url: 'http://touch.qunar.com/h5/commonControl?action=getCityUrlByName',
+                type: 'GET',
+                dataType: "json",
+                data: {
+                    'cityName':cityName
+                },
+                error: function (xhr) {
+                    console.log('無法取得資料!');
+                },
+                success: function (response) {
+                    cityUrl=response.cityUrl;
+                    $('.wrap').on('click',function(){
+                      skip();
+                    });
+                }
+            });
+        }
+      // }else{
+      //   $('.wrap').on('click',function(){
+      //     skip();
+      //   });
+      // }
+
+      
+
+      
+      function skip(){
+        var scheme='hotel/search?cityUrl='+encodeURIComponent(cityUrl)+'&fromDate='+fromData+'&toDate='+toData+'&cat='+encodeURIComponent(bdSource)+'&fromForLog='+fromForLog;
+        var href='://'+scheme;
+        var url="";
+        if(qua.iphonePro){
+            url="qunariphonepro" + href;
+        }else if(qua.iphoneLife){
+            url="qunariphonelife" + href;
+        }else if(qua.iphone){
+            url="qunariphone" + href;
+        }else if(qua.androidLife){
+            url="qunaraphonelife" + href;
+        }else if(qua.android){
+            url="qunaraphone" + href;
+        }else if(ua.toLowerCase().indexOf('android')!==-1 ){
+          // url='http://wap.qunarzz.com/fed_download/wap/Qunar_alex_C'+(map[bdSource])+'.apk?from='+bdSource;
+          url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl=download?bd_source='+bdSource;
+          // setTimeout(function(){
+          //   location.href='http://activity.hotel.qunar.com/spring.html?bd_source='+bdSource;  
+          // },300);
+        }else{
+          url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl=download?bd_source='+bdSource;
+        }
+        window.location.href =url;
+        
+      }
+      $.get('http://touch.qunar.com/h5/monitor?name=gaoxing_'+bdSource);
+    }
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return ''; //返回参数值
+    }
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</body>
+</html>

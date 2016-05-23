@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>去哪儿千万红包大放送</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <style type="text/css">
+      *{padding:0;margin:0;}
+      body{
+        background: #4D1039;
+      }
+      .wrap{
+        min-width:320px;
+        height:100%;
+        width: 100%;
+        text-align:center;
+      }
+      .wrap img{
+        width:100%;
+      }
+      .download{
+        width: 100%;
+      }
+
+    </style>
+
+</head>
+<body>
+  <div class="wrap">
+      <div class='download'id='download'>
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/5fd854c4f44c958144b88ad689fbe555.png">
+      </div>
+
+  </div>
+
+  <script>
+    window.onload= function(){
+      var a = document.getElementById('download'),
+          ua = navigator.userAgent,
+          bdSource=getUrlParam('bd_source') || 'qunar';
+//      setTimeout(function(){
+//        skip();
+//      },5000)
+
+      function skip(){
+        location.href='http://touch.qunar.com/h5/download?bd_source='+bdSource;
+      }
+      a.onclick=function(){
+        skip();
+      }
+
+      function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return ''; //返回参数值
+      }
+    }
+  </script>
+
+</body>
+</html>

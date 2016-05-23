@@ -1,0 +1,1381 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>星级酒店一元秒杀</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" />
+    <script>
+
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #f8be00;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+        }
+        /*.content{height: 100px}*/
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .main{
+            font-size:0;
+        }
+        .img_div{
+            position: relative;
+            overflow: hidden;
+        }
+        .img_div>img{
+            width: 100%;
+        }
+        .miaosha_content_div{
+            padding:10px 10px 80px 10px;
+            position: relative;
+            background: #f8be00;
+        }
+        .miaoshaqu{
+            position: absolute;
+            height: 1.5rem;
+            width:6.5rem;
+            top:-0.75rem;
+            left:50%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .miaoshaqu>img{
+            width: 100%;
+        }
+        .hotel_img{
+            height: 7rem;
+            position: relative;
+            background: #ddd;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_img>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_txt{
+            font-size: .7rem;
+            background: #fff;
+            padding: 10px;
+            border-radius:0 0 8px 8px;
+        }
+        .hotel_title{
+            font-size: 0.8rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .hotel_address{
+            font-size: 0.6rem;
+            line-height: 1rem;
+            color:#666 ;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .qi{
+            display: inline-block;
+            width: 2.25rem;
+            height: 1.125rem;
+        }
+        .qi>img{
+            width: 100%;
+            height: 100%;
+        }
+        .xiangqing{
+            display: inline-block;
+            padding: .5rem 1rem;
+            color:#fff;
+            /*float: right;*/
+            background: #ff5d57;
+            border-radius: 8px;
+        }
+        .disable{
+            color: #ddd;
+            background: #a3a3a3;
+        }
+        .look:active,.list_hotel_watch_div:active{
+            color: #ddd;
+            background: #f1332b;
+        }
+        .price_div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            position: relative;
+        }
+        .qi_div{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        #hotelmask{
+            position: absolute;
+            font-size: .7rem;
+            right: .4rem;
+            top:-.15rem;
+            height: 3.625rem;
+            width: 3rem;
+            /*background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yijishu.png) 0 0 no-repeat;*/
+            background-size:100% 100%;
+            /*color:#d4d4d4;*/
+        }
+        #hotelmask>div{
+            position: absolute;
+            width: 2.25rem;
+            line-height: .7rem;
+            top:35% ;
+            text-align: center;
+            left:45%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .jieshu{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_js.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#d4d4d4;
+        }
+        .jinxing{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_jx.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+        .kaimiao{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_ks2.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+
+        .tehui_content{
+            padding: 1.25rem 0.325rem;
+            border-top: 1px dashed #19a870;
+            position: relative;
+            background: #250749;
+        }
+        .nav{
+            font-size: .7rem;
+            color:#572700;
+            line-height: 1.5rem;
+        }
+        .nav_table {
+            width: 100%;
+            padding: .15rem;
+            font-size: 0;
+            box-sizing: border-box;
+            background: #f8be00;
+        }
+        .nav_table div:not(.more_city_div) {
+            line-height: 1.5rem;
+            text-align: center;
+            vertical-align: middle;
+            /*border:3px solid transparent;*/
+            display: inline-block;
+            background: #fff15f;
+            box-sizing: border-box;
+            width: 24.9%;
+            font-size: .7rem;
+            border:.15rem solid #f8be00;
+        }
+        .list_hotel_img{
+            height:4.75rem;
+            width: 100%;
+            background: #ddd;
+        }
+        .list_hotel_img>img{
+            height:100%;
+            width: 100%;
+        }
+        /*.hotel_list{*/
+        /*padding: 1px;*/
+        /*overflow: hidden;*/
+        /*}*/
+        .list{
+            /*padding: 1px;*/
+            /*overflow: hidden;*/
+            font-size: 0;
+        }
+        .list >div{
+            display: inline-block;
+            width: 49.9%;
+            padding: .3rem;
+            box-sizing: border-box;
+        }
+        .list_hotel_txt{
+            padding: .25rem;
+            background: #fff;
+            /*border-radius: 0 0 5px 5px;*/
+        }
+        .list_hotel_title{
+            font-size: .7rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_address{
+            font-size: .6rem;
+            line-height: 1rem;
+            height: 1rem;
+            color:#666;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_priceDiv{
+            font-size: .7rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .list_hotel_price{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            font-size: .6rem;
+        }
+        .list_hotel_watch_div{
+            padding: .3rem .3rem;
+            background: #ff5d57;
+            color:#fff;
+        }
+        .list_hotel_watch{
+            border:.05rem solid #ff5d57;
+            padding: .05rem;
+        }
+        .list_hotel_price{
+            color:#666;
+
+        }
+        .yen{
+            font-size: .6rem;
+            color:#ff5d57 ;
+        }
+        .price{
+            font-size: .9rem;
+            color:#ff5d57 ;
+            position: relative;
+            top:.05rem
+        }
+        .nav_table .nav_active{
+            background: #fff7a4!important;
+            color:#921100;
+        }
+        .nav_table div:not(.more_city_div):active{
+            background: #eed123!important;
+        }
+        .alert {
+            position: fixed;
+            z-index: 1001;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            background: #fff;
+            ##display: none;
+            background: #fff;
+            ##min-height:100px;
+            font-size:14px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        .alt-mask{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            ##display: none;
+            background: rgba(0,0,0,.5);
+        }
+        .al-title{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            box-sizing: border-box;
+            padding:10px;
+            position: relative;
+            text-align:center
+        }
+        .al-txt{
+            font-size: 14px;
+            line-height: 20px;
+            color: #888888;
+            box-sizing: border-box;
+
+        }
+        .msg{
+            width:100%;
+            box-sizing: border-box;
+            padding:0 15px 15px 15px
+        }
+        .al-txtDiv{
+            min-height:30px;
+        }
+
+        .hidden{display:none}
+        .more_city_div{
+            height:0px;
+            overflow: hidden;
+            transition:height .7s;
+            -webkit-transition:height .7s;
+            width: 100%;
+        }
+        .more_city_div_show{
+            /*height:auto;*/
+            /*height:5.6rem;*/
+        }
+        .kaimiao >div{
+            top: 33% !important;
+            left: 47% !important;
+        }
+        .hotel_area{
+            padding:.25rem;
+        }
+        .tip-mask{color:#fff;font-size:14px;position: fixed;top:0;width: 100%;height: 100%;z-index: 1000;background: rgba(0,0,0,.5);}
+        .mask_div{width:100%;text-align:center}
+        .fenxiang{line-height:80px;width:180px;margin:0 auto}
+        .right_top{padding-top:100px;background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/lb_arrows.png) right 10px no-repeat;background-size:75px 100px;margin:0 10px;line-}
+
+        .yuan_div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            position: absolute;
+            top:0
+        }
+        /*.qi_div span{display: inline-block}*/
+        .yuan{color:#ff5d57;font-size: 1.5rem;font-weight: bolder;font-style:oblique;}
+        .yuanqi{color:#888;padding-top: .4rem;padding-left:3px}
+        /*.miaosha_disable{position: relative}*/
+        .miaosha_disable .yuan{color:#666;}
+        .miaosha_disable:after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #888;
+            position: absolute;
+            left: 0;
+            top:50%
+        }
+        .goto_zhongdianfang{
+            background: #ff9000;
+            font-size: .9rem;
+            line-height: 2rem;
+            text-align: center;
+            color:#fff;
+            border-radius: 5px;
+            margin:.5rem .25rem 0 .25rem;
+        }
+        .red_package{
+            padding-top: 20px;
+            padding-bottom: 1px;
+            width: 100%;
+        }
+        .red_package>img{
+            width: 100%;
+        }
+        .hidden_img{
+            display:none;
+        }
+        .miaosha_tab{
+            font-size: .7rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            padding-top: .3rem;
+        }
+        .miaosha_tab>div{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            text-align:center;
+            height: 1.25rem;
+            background: #3a134a;
+            color:#fff;
+            /*border-right: 3px solid #571c6f;*/
+            transform:skew(-25deg);
+            -webkit-transform:skew(-25deg);
+
+        }
+        .miaosha_tab>div:after{
+            content: '';
+            width: 100%;
+            height: .3rem;
+            display: inline-block;
+            position: absolute;
+            top:-.3rem;
+            right: 0;
+            background: #571c6f;
+            border-right: 3px solid #571c6f;
+            transform:skew(35deg);
+            -webkit-transform:skew(35deg);
+        }
+        .miaosha_tab>div>div{
+            line-height: 1.25rem;
+            transform: skew(25deg);
+            -webkit-transform:skew(25deg);
+        }
+        .miaosha_tab .active{
+            color:#921100;
+            background:#f8be00 ;
+        }
+        .miaosha_tab >div:last-child>div:after{
+            content: '';
+            width: 10%;
+            height: 110%;
+            display: inline-block;
+            position: absolute;
+            right:-4%;
+            background: #3a134a;
+        }
+        .miaosha_tab >div:first-child>div:after{
+            content: '';
+            width: 10%;
+            height: 100%;
+            display: inline-block;
+            position: absolute;
+            left:-4%;
+            background: #3a134a;
+        }
+        .miaosha_tab >div:first-child:before{
+            content: '';
+            width: 10%;
+            height: .3rem;
+            display: inline-block;
+            position: absolute;
+            left:-8%;
+            top:-.3rem;
+            transform: skew(25deg);
+            -webkit-transform:skew(25deg);
+            background: #571c6f;
+        }
+        .active>div:after{
+            background: #f8be00!important;
+        }
+        .active:after{
+            background: #ffd858!important;
+            border-color: #ffd858;
+        }
+        .active:before{
+            background: #ffd858!important;
+        }
+        .miaosha_rule{
+            font-size: .6rem;
+            position: absolute;
+            right: -.5rem;
+            bottom:.25rem;
+            padding: 2px;
+            border: 1px solid #892847;
+            border-radius: 50%;
+        }
+        .miaosha_rule>div{
+            padding: .5rem;
+            line-height: .6rem;
+            border-radius: 50%;
+            color: #fff7a4;
+            background: #892847;
+        }
+        .alert-rule{
+            font-size: .6rem;
+            width: 80%;
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            background: #fffacd;
+            border-radius: 5px;
+            z-index: 1001;
+        }
+        .arule-title{
+            line-height: 2.75rem;
+            text-align: center;
+            background: url('http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_rule_img.png');
+            background-size: 100% 100%;
+            font-size: .8rem;
+            color: #fff4d1;
+            border-radius: 5px 5px 0 0 ;
+        }
+        .arule-txtDiv{
+            width: 80%;
+            margin: 0 auto;
+            padding: 1rem 0 .5rem 0;
+        }
+        .arule-txtDiv>div{
+            line-height: 1rem;
+            padding: 3px 0;
+        }
+        .arule-txtDiv>div:before{
+            content: '';
+            display: inline-block;
+            height: .25rem;
+            width: .25rem;
+            background: #f87b00;
+            position: relative;
+            top:-.1rem;
+            margin-right:.25rem;
+        }
+        .bottom-img>img{
+            width: 100%;
+        }
+
+        .bottom-bg{
+            background: #f87b00;
+            height: 1rem;
+            border-top:3px solid #ffa52e;
+            border-radius: 0 0 5px 5px ;
+        }
+        .tip-time-div{
+            font-size: .6rem;
+            color: #572700;
+            text-align: center;
+            padding-top: .5rem;
+        }
+        .icon-small{
+            width: .6rem;
+            height: .6rem;
+            top:1px;
+            display: inline-block;
+            background: url('http://source.qunar.com/site/images/wap/touch/images/v2/images1x/small.png');
+            background-size: 100% 100%;
+            margin-right: .25rem;
+            position: relative;
+        }
+        .img-fadeIn{
+            -webkit-animation:fadeIn 1s both;
+            animation:fadeIn 1s both;
+
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .discount{
+            font-size: .6rem;
+            color: #828181;
+        }
+        .tip-end{
+            padding-top: 1rem;
+            font-size: .8rem;
+            text-align: center;
+        }
+        .gray{
+            color:#888;
+        }
+        .end-tip{
+            font-size: .8rem;
+            color: #F8C430;
+            text-align: center;
+            background: #FEF7A4;
+            padding: 2rem 0;
+        }
+    </style>
+    <script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="hidden_img">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/nvshen.png">
+    </div>
+    <div class="img_div">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/e8f07c50b51d4fb3800ef477d1ddfeb2.png">
+        <div class="miaosha_rule">
+            <div>秒杀<br>规则</div>
+        </div>
+    </div>
+    <div class="miaosha_content hidden">
+        <div class="miaosha_tab">
+            <div class="active" name="miaosha"><div>一元秒杀</div></div>
+            <div name="zhekou"><div>折扣专区</div></div>
+            <div name="tehui"><div>特惠专区</div></div>
+        </div>
+        <div class="tip-time-div">
+            <span class="icon-small"></span><span class="tip-time"></span>
+        </div>
+        <div class="miaosha_content_div">
+            <div class="miaoshaqu hidden">
+                <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yiyuan.png">
+            </div>
+            <div class="nav">
+                <div class="nav_table">
+
+                </div>
+            </div>
+            <div class="miaosha_list">
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="alert hidden">
+        <div class="al-title">去哪儿网温馨提示：</div>
+        <div class="al-txtDiv">
+            <!--<div class="al-txt msg">请输入11位有效手机号</div>-->
+        </div>
+    </div>
+    <div class="alt-mask hidden"></div>
+
+    <div class="alert-rule hidden">
+        <div class="arule-title">秒杀规则</div>
+        <div class="arule-txtDiv">
+            <div>每天10:00、19:00准时开秒;</div>
+            <div>48小时内限购1单，限当日入住;</div>
+            <div>此优惠不与其他优惠同享，酒店预订规则以实际订购页面提示为准;</div>
+            <div>参加本活动的用户应在参与前详细阅读并遵守本规则。</div>
+        </div>
+        <div class="bottom-img">
+            <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_backg.png">
+        </div>
+        <div class="bottom-bg"></div>
+    </div>
+
+    <div class="tip-mask hidden">
+        <div class="mask_div">
+            <div class="right_top">1、点击右上角&nbsp;•••</div>
+            <div class="fenxiang">2、在浏览器中打开</div>
+        </div>
+
+    </div>
+</div>
+<script type="text/template" id="citytpl">
+    <%
+    var n=0,length=count(data);
+    _.each(data,function(item,index){
+    %>
+    <%if(length>8 && n==7){%>
+    <div class="moreCity">更多城市</div>
+    <div class="more_city_div">
+        <%}%>
+        <div class="<%if(n==0){%>td1<%}%>" name="<%=index%>"><%=index%></div>
+        <%
+        n++;
+        });
+        %>
+        <%if(data.length>8){%>
+    </div>
+    <%}
+    function count(o){
+    var t = typeof o;
+    if(t == 'string'){
+    return o.length;
+    }else if(t == 'object'){
+    var n = 0;
+    for(var i in o){
+    n++;
+    }
+    return n;
+    }
+    return false;
+    };
+    %>
+</script>
+<script type="text/template" id="citytpl2">
+    <%
+    var n=0,length=count(data);
+    _.each(data,function(item,index){
+    %>
+    <%if(length>8 && n==7){%>
+    <div class="moreCity">更多城市</div>
+    <div class="more_city_div">
+        <%}%>
+        <div class="<%if(n==0){%>td1<%}%>" name="<%=item.cityName%>" cityurl="<%=item.cityUrl%>"><%=item.cityName%></div>
+        <%
+        n++;
+        });
+        %>
+        <%if(data.length>8){%>
+    </div>
+    <%}
+    function count(o){
+    var t = typeof o;
+    if(t == 'string'){
+    return o.length;
+    }else if(t == 'object'){
+    var n = 0;
+    for(var i in o){
+    n++;
+    }
+    return n;
+    }
+    return false;
+    };
+    %>
+</script>
+<script type="text/template" id="miaoshatpl">
+    <%if(data.hotels.length==0){%>
+        <div class="end-tip">该城市今日秒杀活动已结束，感谢您的参加~~</div>
+    <%}%>
+    <%_.each(data.hotels,function(item,index){%>
+    <div class="hotel_area" data-startTime="<%=data.killTime%>" data-seq="<%=item.seq%>" data-mobileRoomStatus="<%=item.mobileRoomStatus%>">
+        <div class="hotel_img" data-seq="<%=item.seq%>">
+            <%
+            var imgsrc=item.imageUrl;
+            var end=imgsrc.substr(imgsrc.length-6,6);
+            end=='76.jpg' && (imgsrc=imgsrc.replace(imgsrc.substr(imgsrc.length-6,6),'480.jpg'));
+            %>
+            <img lazy_src="<%=imgsrc%>">
+            <%if(item.mobileRoomStatus==0){ %>
+                <div id='hotelmask' class="kaimiao">
+                    <div class="mask_txt"><%=data.killTime%><br>开&nbsp;抢</div>
+                </div>
+            <%}else if(item.mobileRoomStatus==1){%>
+                <div id='hotelmask' class="jinxing">
+                    <div class="mask_txt"><%=data.killTime%><br>进行中</div>
+                </div>
+            <%}else if(item.mobileRoomStatus==-1){%>
+                <div id='hotelmask' class="jieshu">
+                    <div class="mask_txt">已结束</div>
+                </div>
+            <%}%>
+        </div>
+        <div class="hotel_txt">
+            <div class="hotel_title"><%=item.name%></div>
+            <div class="hotel_address"><%=item.area%></div>
+            <div class="price_div">
+                <div class="qi_div">
+                    <div class="yuan_div ">
+                        <div class="yuan <%if(item.mobileRoomStatus==-1){%>gray<%}%>"><%=item.mobilePrice%></div>
+                        <div class="yuanqi">元起</div>
+                    </div>
+                </div>
+                <%if(item.mobileRoomStatus==0){ %>
+                <div class="xiangqing disable" data-seq="<%=item.seq%>">即将开始</div>
+                <%}else if(item.mobileRoomStatus==1){%>
+                <div class="xiangqing " data-seq="<%=item.seq%>">立即秒杀</div>
+                <%}else if(item.mobileRoomStatus==-1){%>
+                <div class="xiangqing " data-seq="<%=item.seq%>">查看其他房型</div>
+                <%}%>
+
+            </div>
+        </div>
+    </div>
+    <%});%>
+
+</script>
+<script type="text/template" id="hoteltpl">
+    <%if(data.hotels.length==0&&data.zhekou){%>
+    <div class="end-tip">该城市今日的折扣酒店已被抢光，感谢您的参与~</div>
+    <%}else if(data.hotels.length==0){%>
+    <div class="end-tip">该城市今日的特惠酒店已被抢光，感谢您的参与~</div>
+    <%}%>
+ <div class="hotel_list">
+    <div class="list ">
+        <%_.each(data.hotels,function(item,index){%>
+        <div data-seq="<%=item.seq%>">
+            <div class="list_hotel_img">
+                <%
+                var imgsrc=item.imageUrl;
+                var end=imgsrc.substr(imgsrc.length-6,6);
+                end=='76.jpg' && (imgsrc=imgsrc.replace(imgsrc.substr(imgsrc.length-6,6),'240.jpg'));
+                %>
+                <img lazy_src="<%=imgsrc%>">
+            </div>
+            <div class="list_hotel_txt">
+                <div class="list_hotel_title"><%=item.name%></div>
+                <div class="list_hotel_address"><%=item.area%></div>
+                <div class="list_hotel_priceDiv">
+                    <div class="list_hotel_price">
+                        <span class="yen">&yen;</span>
+                        <span class="price instant-price" data-id="<%=item.hotelId%>"><%=item.mobilePrice%></span>
+                        起
+                        <%if(data.zhekou){%>
+                        <br>
+                        <span class="discount">低至<%=item.discount%>折</span>
+                        <%}%>
+                    </div>
+                    <div class="list_hotel_watch">
+                        <div class="list_hotel_watch_div" data-seq="<%=item.seq%>">去看看</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%});%>
+ </div>
+</script>
+</body>
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<!--<script type="text/javascript" src="http://m.qunar.com/zhuanti/zhongdianfangmiaosha.js"></script>-->
+<script>
+
+    $(function() {
+        var ua = navigator.userAgent;
+        var	v = ua.match(/[qQ]unar.*\/(\d{8})/g);
+        var	version = !!v && (parseInt( v[0].split('/')[1]));
+        var type=typeof(version);
+        if(ua.toLowerCase().indexOf('iphone')!=-1 ){
+            if(type=='number'&&version<80011092 ){
+                alert('请将客户端升级至最新版本参加本活动');
+            }
+        }
+
+//        if(ua.toLowerCase().indexOf('micromessenger')>=0){
+//            document.title='去哪儿网女神喊你脱单，钟点房1元抢！';
+//        }
+
+
+        var bdSource=getUrlParam('bd_source') || 'huodonga',
+            sourceType = getUrlParam('sourceType') || '';
+            city=getUrlParam('city');
+        var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+        if(!reg.test(city)){
+            city=decodeURIComponent(city);
+        }
+        var FromForLog={
+            'huodonga_miaosha':147,
+            'huodonga_zhekou':148,
+            'huodonga_tehui':149,
+            'huodonga1_miaosha':151,
+            'huodonga1_zhekou':152,
+            'huodonga1_tehui':153,
+            'huodonga2_miaosha':155,
+            'huodonga2_zhekou':156,
+            'huodonga2_tehui':157,
+            'huodonga3_miaosha':159,
+            'huodonga3_zhekou':160,
+            'huodonga3_tehui':161,
+            'huodonga4_miaosha':163,
+            'huodonga4_zhekou':164,
+            'huodonga4_tehui':165,
+            'huodonga5_miaosha':167,
+            'huodonga5_zhekou':168,
+            'huodonga5_tehui':169,
+            'huodonga6_miaosha':171,
+            'huodonga6_zhekou':172,
+            'huodonga6_tehui':173,
+            'huodonga7_miaosha':175,
+            'huodonga7_zhekou':176,
+            'huodonga7_tehui':177,
+            'huodonga8_miaosha':179,
+            'huodonga8_zhekou':180,
+            'huodonga8_tehui':181,
+            'huodonga9_miaosha':183,
+            'huodonga9_zhekou':184,
+            'huodonga9_tehui':185,
+        };
+//        var  fromForLog=FromForLog[bdSource] || 112;
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        var city_data='';
+
+        var date=$.getDateString(new Date());
+        $('.miaosha_content').removeClass('hidden');
+        setTimeout(function(){
+            $('.miaosha_tab>div[name="miaosha"]').trigger('click');
+            if(ua.toLowerCase().indexOf('micromessenger')!=-1){
+                showTipMask();
+            }
+            window.onscroll =throttle(lazy,300);
+            lazy();
+
+        },1)
+
+        $('.main').on('click','.miaosha_tab>div',function(){
+            var $me=$(this),
+                name=$me.attr('name');
+            $('.miaosha_tab>div').removeClass('active');
+            $me.addClass('active');
+            if(name=='miaosha'){
+                buildCitySelect(1)
+            }else if(name=='zhekou'){
+                buildCitySelect(3)
+            }else if(name=='tehui'){
+                buildCitySelect(2)
+            }
+
+            function buildCitySelect(type){
+                $.ajax({
+                    url     : 'http://touch.qunar.com/h5/hotel/HotelSeckillCity',
+                    data    : {
+                        type: type
+                    },
+                    dataType: 'json',
+                    success : function (data) {
+                        console.log(data);
+                        city_data=data;
+                        $('.nav_table').html('');
+                        bulidTemple({data:data},'.nav_table','#citytpl2');
+                        var hashcity=location.hash.substr(1) || city;
+                        var $chick=$('.nav_table div[name="'+hashcity+'"]');
+                        $chick.length>0?$chick.trigger('click'):$('.td1').trigger('click');
+                    },
+                    error   : function () {
+                        console.log('网络错误，请稍后重试！');
+                    }
+                })
+
+            }
+        })
+        $('.main').on('click','.miaosha_rule',function(){
+            showAlertRule();
+        })
+        function showTipMask(){
+            var _alt_mask=$('.tip-mask');
+            _alt_mask.removeClass('hidden');
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alt_mask.addClass('hidden');
+                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+                e.preventDefault();
+            });
+        }
+
+        function bulidTemple(data,element,tpl){
+            var element = $(element);
+            var tpl = $(tpl).html();
+            var render = _.template(tpl);
+            var html = render(data);
+            element.append(html);
+        }
+        function isEmptyObject(obj){
+            if(obj && typeof(obj)=='object'){
+                for(var n in obj){return false}
+            }
+            return true;
+        }
+        var intervalList={},roomIdList=[];
+        var seqString='';
+        $('.main').on('click','.nav_table div:not(.more_city_div)',function(){
+            if($(this).attr('class')!='moreCity'){
+                var     $me=$(this),
+                        city=$me.html(),
+                        cityUrl=$me.attr('cityurl');
+                location.hash=city;
+                $('.nav_table div').removeClass('nav_active');
+                $me.addClass('nav_active');
+                var avtiveName=$('.miaosha_tab .active').attr('name');
+                $('.miaosha_list').html('');
+
+
+                if(avtiveName=='miaosha'){
+
+                    getHotelListAjax(cityUrl,1,function(data){
+                        console.log(data);
+                        var miaoshaData=data;
+                        if(!isEmptyObject(miaoshaData)){
+                            $('.tip-time-div').removeClass('hidden');
+                            $('.tip-time').html(miaoshaData.globalKillMsg);
+                            bulidTemple({data:miaoshaData},'.miaosha_list','#miaoshatpl');
+                            lazy();
+                        }
+                    });
+
+                }else if(avtiveName=='zhekou'){
+                    getHotelListAjax(cityUrl,3,function(data){
+                        console.log(data);
+                        $('.tip-time-div').addClass('hidden');
+                        if(!isEmptyObject(data)){
+                            data['zhekou']=true;
+                            bulidTemple({data:data},'.miaosha_list','#hoteltpl');
+                            lazy();
+                        }
+                    });
+
+                }else if(avtiveName=='tehui'){
+                    getHotelListAjax(cityUrl,2,function(data){
+                        console.log(data);
+                        $('.tip-time-div').addClass('hidden');
+                        if(!isEmptyObject(data)){
+                            bulidTemple({data:data},'.miaosha_list','#hoteltpl');
+                            lazy();
+                        }
+                    });
+                }
+
+
+                function getHotelListAjax(cityUrl,type,fun){
+                    $.ajax({
+                        url     : 'http://touch.qunar.com/h5/hotel/HotelSeckill',
+                        data    : {
+                            cityUrl: cityUrl,
+                            type:type
+                        },
+                        dataType: 'json',
+                        success : function (data) {
+                            if(isEmptyObject(data)){
+//                                $('.miaosha_list').html('<div class="tip-end">该城市今日秒杀活动已结束，感谢您的参加~~</div>');
+                            }
+                            fun(data);
+                        },
+                        error   : function () {
+//                            $('.miaosha_list').html('<div class="tip-end">该城市今日秒杀活动已结束，感谢您的参加~~</div>');
+                            console.log('网络错误，请稍后重试！');
+                        }
+                    })
+                }
+
+
+            }else{
+                var $more_city_div=$('.more_city_div');
+                if($more_city_div.hasClass('more_city_div_show')){
+                    $more_city_div.removeClass('more_city_div_show');
+                    $more_city_div.css({height:'0'});
+                    $(this).html('更多城市');
+                }else{
+                    $more_city_div.addClass('more_city_div_show');
+                    $more_city_div.css({height:Math.ceil((count(city_data)-7)/4)*1.8+'rem'});
+                    $(this).html('收起城市');
+                }
+            }
+
+        })
+        function count(o){
+            var t = typeof o;
+            if(t == 'string'){
+                return o.length;
+            }else if(t == 'object'){
+                var n = 0;
+                for(var i in o){
+                    n++;
+                }
+                return n;
+            }
+            return false;
+        };
+
+        function showAlert(msg,title){
+            var _alert=$('.alert'),_alt_mask=$('.alt-mask');
+            _alert.removeClass('hidden');
+            _alt_mask.removeClass('hidden');
+            $('.al-title').html(title || '去哪儿网温馨提示：');
+            $('.msg').html(msg);
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alert.addClass('hidden');
+                _alt_mask.addClass('hidden');
+                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+                e.preventDefault();
+            });
+        }
+        function showAlertRule(){
+            var _alert=$('.alert-rule'),_alt_mask=$('.alt-mask');
+            _alert.removeClass('hidden');
+            _alt_mask.removeClass('hidden');
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alert.addClass('hidden');
+                _alt_mask.addClass('hidden');
+                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+                e.preventDefault();
+            });
+        }
+
+
+
+        function buildMiaosha(dom,list){
+            this.$dom=$(dom);
+            this.$list=$(list)
+            this.interval= 0;
+            this.init();
+        }
+        buildMiaosha.prototype = {
+            init:function(price){
+                var me=this,$dom=this.$dom;
+                if(price && price>0){$($dom.find('.yuan')).html(price);}
+                setState();
+                clearInterval(me.interval);
+                if($($dom.find('.mask_txt')).html()!='已结束'){
+                    me.interval=setInterval(setState,1000);
+                }
+                function setState(){
+                    var Time=getTime(),startTime=$dom.attr('data-startTime').replace('：', ':'),endTime=$dom.attr('data-endTime').replace('：', ':');
+//                console.log(Time+';startTime:'+startTime+';endTime:'+endTime);
+                    if(Time>=startTime&&Time<=endTime&&$($dom.find('.mask_txt')).html()!='进行中'){
+//            clearInterval(Interval);
+                        $($dom.find('.mask_txt')).html(startTime+'<br>进行中');
+                        $($dom.find('#hotelmask')).attr('class','jinxing');
+                        $($dom.find('.xiangqing')).removeClass('disable').addClass('look').html('立即秒杀');
+//                    $($dom.find('.qi>img')).attr('src','http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png');
+                        $($dom.find('.yuan_div')).removeClass('miaosha_disable')
+                    }else if(Time>endTime&&$($dom.find('.mask_txt')).html()!='已结束'){
+                        me.end();
+
+                    }else if(Time<startTime){
+                        $($dom.find('.mask_txt')).html(startTime+'<br>开&nbsp;抢');
+                        $($dom.find('#hotelmask')).attr('class','kaimiao');
+                        $($dom.find('.xiangqing')).addClass('disable').removeClass('look').html('即将开始');
+//                    $($dom.find('.qi>img')).attr('src','http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png');
+                        $($dom.find('.yuan_div')).removeClass('miaosha_disable')
+                    }
+                }
+            },
+            stopInterval:function(){
+                clearInterval(this.interval);
+            },
+            end:function(){
+                var me=this,$dom=this.$dom;
+                $($dom.find('.mask_txt')).html('已结束');
+                $($dom.find('#hotelmask')).attr('class','jieshu');
+                $($dom.find('.xiangqing')).removeClass('disable').addClass('look').html('查看其他房型');
+                $($dom.find('.yuan_div')).addClass('miaosha_disable');
+                setTimeout(function(){
+                    me.$list.append($dom);
+                },1);
+                clearInterval(me.interval);
+            },
+            setEnd:function(){
+                var me=this,$dom=this.$dom;
+                var Time=getTime(),startTime=$dom.attr('data-startTime').replace('：', ':');
+                if(Time>startTime){
+                    me.end();
+                }
+
+            },
+            setStart:function(price){
+                var $dom=this.$dom;
+                this.init(price);
+                this.$list.prepend($dom);
+
+            }
+        }
+
+        $('.main').on('click','.list_hotel_watch_div,.hotel_img,.list>div',function(){
+            gotoDetail(this,false);
+        });
+        $('.main').on('click','.xiangqing',function(e){
+            gotoDetail(this,true);
+        });
+        function gotoDetail(dom,needActivityType){
+            var $this=$(dom),
+                avtiveName=$('.miaosha_tab .active').attr('name');
+
+            var bd=bdSource+'_'+avtiveName,
+                fromForLog=FromForLog[bd] || 112;
+            if(!$this.hasClass('disable')){
+                var seq=$this.attr('data-seq');
+                var href='',scheme='';
+                if(needActivityType){
+                    scheme='hotel/detail?ids='+seq+'&needRoomVendor=0&activityType=3&cat='+bd+'&fromForLog='+fromForLog+'&sourceType='+sourceType;
+                }else{
+                    scheme='hotel/detail?ids='+seq+'&needRoomVendor=0&cat='+bd+'&fromForLog='+fromForLog+'&sourceType='+sourceType;
+                }
+                href='://'+scheme;
+                var url="";
+                if(qua.iphonePro){
+                    url="qunariphonepro" + href;
+                }else if(qua.iphoneLife){
+                    url="qunariphonelife" + href;
+                }else if(qua.iphone){
+                    url="qunariphone" + href;
+                }else if(qua.androidLife){
+                    url="qunaraphonelife" + href;
+                }else if(qua.android){
+                    url="qunaraphone" + href;
+                }else{
+                    var url1='hotel/hoteldetail?seq='+seq+'&bd_source='+bd;
+                    var touchUrl=encodeURIComponent(url1);
+                    url = 'http://touch.qunar.com/h5/client?bd_source='+bd+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl='+touchUrl;;
+                }
+                window.location.href =url;
+            }
+        }
+        $('.main').on('click','.goto_zhongdianfang',function(){
+            var cityName=$('.nav_active').html() || '北京',
+                cityUrl='',
+                avtiveName=$('.miaosha_tab .active').attr('name');
+            var bd=bdSource+'_'+avtiveName,
+                fromForLog=FromForLog[bd] || 112;
+            $.ajax({
+                url     : 'http://touch.qunar.com/h5/commonControl?action=getCityUrlByName',
+                data    : {
+                    cityName: cityName
+                },
+                dataType: 'json',
+                success : function (data) {
+                    cityUrl=data.cityUrl;
+                    var href='hotel/search?cityUrl='+encodeURI(cityUrl)+'&cat='+bd+'&fromForLog='+fromForLog+'&sourceType='+sourceType;
+                    var url="";
+                    if(qua.iphonePro){
+                        url="qunariphonepro://" + href;
+                    }else if(qua.iphoneLife){
+                        url="qunariphonelife://" + href;
+                    }else if(qua.iphone){
+                        url="qunariphone://" + href;
+                    }else if(qua.androidLife){
+                        url="qunaraphonelife://" + href;
+                    }else if(qua.android){
+                        url="qunaraphone://" + href;
+                    }else{
+                        var url1='hotel/hotellist?city='+encodeURI(cityName)+'&bd_source='+bd;
+                        var scheme=encodeURIComponent(href);
+                        var touchUrl=encodeURIComponent(url1);
+                        var url ='http://touch.qunar.com/h5/client?bd_source='+bd+'&sScheme=0&scheme='+scheme+'&touchUrl='+touchUrl;
+                        window.location.href=url;
+                    }
+                    window.location.href =url;
+                },
+                error   : function () {
+                    console.log('网络错误，请稍后重试！');
+                }
+            })
+
+        })
+        function getTime(){
+            var date=new Date();
+            return fixZero(date.getHours())+":"+fixZero(date.getMinutes());
+
+            function fixZero(num){
+                if(num<10){return '0'+num;}
+                return num;
+            }
+        }
+        function getfromForLog(bdSource) {
+            var bd_source= bdSource || 0;
+            return 1000 + parseInt(bd_source.replace('huodong', '') || 0);
+        };
+
+
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+        function lazy(){
+            var p=0;
+            var wSize=getWindowSize();
+            var imgCollection = $('.miaosha_list img');
+            $.each(imgCollection,function(index,item){
+                p=item.getBoundingClientRect().top;
+                if(p>=0&&p<wSize.pageHeight){
+                    var $item= $(item);
+                    $item.css({'opacity':'0'}).on('load',function(e){
+                        $(this).addClass('img-fadeIn');
+                    })
+                    $item.attr('src',$(item).attr('lazy_src'));
+                }
+            })
+
+        }
+
+        function throttle(fn, delay) {
+            var timer = null;
+            return function () {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    fn.apply(context, args);
+                }, delay);
+            };
+        }
+        function getWindowSize(){
+            var pageWidth = window.innerWidth;
+            var pageHeight = window.innerHeight;
+            if(typeof pageWidth !="number"){
+                if(document.compatMode =="CSS1Compat"){
+                    pageWidth = document.documentElement.clientWidth;
+                    pageHeight = document.documentElement.clientHeight;
+                }else{
+                    pageWidth = document.body.clientWidth;
+                    pageHeight = document.body.clientHeight;
+                }
+            }
+            return {pageWidth:pageWidth,pageHeight:pageHeight};
+        }
+
+
+    });
+
+
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</html>

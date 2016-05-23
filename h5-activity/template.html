@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>H5</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.00001,maximum-scale=1.00001,shrink-to-fit=no,user-scalable=no,minimal-ui" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <link rel="stylesheet" href="http://m.qunar.com/zhuanti/animate.css" type="text/css">
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-user-select: none;
+        }
+        img{
+            width:100%;
+        }
+        .sl_content > div{position: relative}
+
+
+    </style>
+</head>
+<body>
+<div class="init">
+    <div class="sl_slide">
+        <div class="sl_content">
+
+            <div>
+                <div class="swing infinite">aaaa</div>
+            </div>
+            <div>
+                <div class="flash " style="background: red">bbb</div>
+            </div>
+
+            <div>
+                <a href="http://live.qunar.com/wise/pushcustom?city=%E7%BB%BC%E5%90%88&amp;batch=1426840720&amp;byxy=0&amp;subject=taqingchuyou&amp;bd_source=huodong111">
+                    <img class="k-img jello infinite" src="http://source.qunar.com/site/images/wap/home/recommend/small/tqhd326.jpg">
+                    <div>
+                        <img class="k-img jello infinite" data-src="http://source.qunar.com/site/images/wap/home/recommend/small/tqhd326.jpg">
+                    </div>
+                </a>
+            </div>
+            <div>
+                <div class="line-init">
+                    <div class="sl_slide">
+                        <div class="sl_content">
+                            <div>
+                                <img class="" src="http://source.qunar.com/site/images/wap/home/recommend/small/Clarins.jpg">
+                            </div>
+                            <div>
+                                <img class="img2" src="http://source.qunar.com/site/images/wap/home/recommend/small/xcgz2.jpg">
+                            </div>
+                            <div>
+                                <img class="" src="http://source.qunar.com/site/images/wap/home/recommend/small/tqhd326.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="alert-init"></div>
+</div>
+
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/zepto.src.js"></script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/qswiper.js"></script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/qpopup.js"></script>
+
+
+<script>
+
+    (function(){
+
+
+        var config={
+            anchor:'.init',
+            vertical:true,
+            loop:false,
+            limit:0.1,
+            transitionTime:.5
+        };
+        var qswiper=new QSwiper('.init',config);
+
+        qswiper.onSlideChange(function(pos){
+
+
+        });
+
+        var config2={
+            loop:true,
+            autoplay:true,
+            intervalTime:1000,
+            touchable:true,
+            transitionTime:.5,
+            intervalTime:1500
+        };
+        var qswiper2=new QSwiper('.line-init',config2);
+
+        qswiper2.onSlideChange(function(pos){
+
+
+        });
+
+        var alertConfig={
+            buttons: [
+                {
+                    label: '取消',
+                    className: 'cancel',
+                    action: function () {
+                        alert(2)
+                    }
+                },
+                {
+                    label: '确定',
+                    className: 'ok',
+                    action: function () {
+                        alert(1)
+                    }
+                }
+            ],
+            content: '<div class="kk">sssss</div><div class="kk">sssss</div><div class="kk">sssss</div><div class="kk">sssss</div><div class="bb">bbbbb</div><div class="bb">ccc</div><div class="bb">cc</div><div class="bb">ddd</div>',
+            height:'30%',
+            width: '90%',
+            innerScroll:true,
+//            noScroll:true,
+            animitTime:.3,
+            noAnimit:false,
+            events: {
+                'tap .kk': 'al',
+                'tap .bb': 'alb',
+                'tap .qt-popup-mask': 'ppp'
+            },
+            al: function(){
+//                alert('aaaaa')
+                console.log(this);
+            },
+            alb : function(){
+                console.log(this);
+            },
+            onTapMask : function(e){
+                console.log('***showed:'+qpopup.showed);
+            },
+            ppp : function(e){
+                console.log(e)
+            },
+            onShow :function(){
+                console.log('show')
+            },
+            onHide :function(){
+                console.log('hide')
+            }
+        };
+        var qpopup=new QPopup('.alert-init',alertConfig);
+//        qpopup.show();
+        $('.flash').on('tap',function(){
+            console.log(111111+'showed:'+qpopup.showed)
+            qpopup.show();
+            console.log(222222+'showed:'+qpopup.showed)
+        })
+
+
+
+    })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>1元酒店狂欢限时抢订</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes" />
+    <meta name="browsermode" content="application" />
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" />
+    <style type="text/css">
+        body,div,span,i,h3,p{ padding: 0; margin: 0; }
+        body * {box-sizing: border-box;-webkit-user-select: none;-webkit-tap-highlight-color: rgba(255,255,255,0);-webkit-font-smoothing: antialiased;}
+        img{ border:0; width: 100%;}
+        a { text-decoration: none;} 
+        body{ font-size: 14px; color: #333; background: #de1e46;}
+        .wrap{ padding: 0 10px 10px 10px;}
+        .items{ background: #af1132; padding:5px;}
+        .items .item h3{ color: #fff; font-size: 14px; line-height: 1.5; margin-top: 5px;}
+        .items .item h3 em{ font-style: normal; color: #fed120;}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img id="banner" src="http://img1.qunarzz.com/m_appPromotion/wap/1512/f8/f01919a0ab86b0f7.png" alt="" />
+</header>
+
+<div class="wrap">
+    <div class="items" id="items"></div>
+</div>
+
+<script type="text/template" id="tplItem">
+    <div class="item">
+        <h3>{title}</h3>
+        <a href="{linkUrl}"><img src="{imgSrc}" alt="" /></a>
+    </div>
+</script>
+
+<script src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script>
+    var pageData = (function(){
+        
+        return {
+            //页面标题
+            title: '1元酒店狂欢限时抢订',
+            
+            //页面头图地址
+            banner: 'http://img1.qunarzz.com/m_appPromotion/wap/1512/f8/f01919a0ab86b0f7.png',
+            
+            /**
+            * 列表数据  变颜色<em></em>
+            * {
+            *   title: '标题',
+            *   linkUrl: '链接地址',
+            *   imgSrc: '图片地址, 580*200'
+            * }
+            */
+            list: [
+                {
+                    title: '钟点房会场 -- 每日<em>10:00</em>开抢',
+                    linkUrl: 'http://m.qunar.com/zhuanti/20151127zhongdianfangmiaosha_optimize_normal.html?bd_source=zdfangc_hotel',
+                    imgSrc: 'http://img1.qunarzz.com/m_appPromotion/wap/1512/42/4f84db93e797c2f7.jpg'
+                },
+                {
+                    title: '高星酒店会场 -- 每日<em>12:00</em>开抢',
+                    linkUrl: 'http://live.qunar.com/wise/pushcustom?city=%E7%BB%BC%E5%90%88&batch=1442565307&byxy=0&subject=%E9%AB%98%E6%98%9F%E9%85%92%E5%BA%971%E5%85%83%E8%B5%B7%E6%8A%A2150918&bd_source=huodong678',
+                    imgSrc: 'http://img1.qunarzz.com/m_appPromotion/wap/1512/89/c892285a39b6ebf7.jpg'
+                },
+                {
+                    title: '经济酒店会场 -- 每日<em>10:00</em>开抢',
+                    linkUrl: 'http://tuan.qunar.com/ext/sact/IjAjim?&bd_source=tg_hd_00231',
+                    imgSrc: 'http://img1.qunarzz.com/m_appPromotion/wap/1512/90/91abf4af16ff64f7.jpg'
+                }
+            ]
+        };
+        
+    }());
+</script>
+
+<script>
+    
+    $(function(){
+
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        
+        var initList = function(){
+            
+            var data = pageData.list.slice(0);
+
+            //随机顺序
+            data.sort(function(){
+                return Math.random() > .5 ? -1 : 1;
+            });
+            
+            var tpl = $('#tplItem').html(),
+                scheme = (function(){
+                    var str = '';
+                    if(qua.iphonePro){
+                        str = 'qunariphonepro://web/url?url=';
+                    } else if(qua.iphoneLife){
+                        str='qunariphonelife://web/url?url=';
+                    } else if(qua.iphone){
+                        str='qunariphone://web/url?url=';
+                    } else if(qua.androidLife){
+                        str='qunaraphonelife://web/url?url=';
+                    } else if(qua.android){
+                        str='qunaraphone://web/url?url=';
+                    }
+                    return str;
+                }()),
+                len = data.length,
+                i = 0,
+                html = [];
+                
+            for(; i < len ; i++){
+                html.push(
+                    tpl.replace('{title}', data[i].title)
+                       .replace('{linkUrl}', scheme ? scheme + encodeURIComponent(data[i].linkUrl) : data[i].linkUrl)
+                       .replace('{imgSrc}', data[i].imgSrc)
+                );
+            }
+            
+            $('#items').html(html.join(''));
+            
+        };
+        
+        var initPage = function(){
+            document.title = pageData.title;    
+            $('#banner').src = pageData.banner;
+            initList();
+        };
+
+        initPage();
+    });
+    
+</script>
+
+</body>
+
+</html>

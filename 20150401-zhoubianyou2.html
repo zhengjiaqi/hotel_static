@@ -1,0 +1,572 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>北京周边游</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
+    <!--<meta name="apple-touch-fullscreen" content="YES"/>-->
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black"/>-->
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #e8f5f5;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            float: left;
+        }
+       /*.content{height: 100px}*/
+       ul,li{
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           overflow: hidden;
+           display: inline-block;
+       }
+       .content{
+           padding: 10px 10px 0px 10px;
+           background: #e8f5f5;
+           /*height: 480px;*/
+           /*box-sizing: border-box;*/
+           /*width: 100%;*/
+       }
+        .content-pt10{
+            padding-top: 10px;
+        }
+       .img-div{
+           font-size: 0;
+           position: relative;
+           width: 100%;
+       }
+       .img-div img{
+           width: 100%;
+           /*height:140px*/
+       }
+       .details{
+           background: #fff;
+           padding: 0px 10px 10px 10px;
+       }
+       .address{
+           font-size: 14px;
+           color: #737373;
+           /*line-height: 25px;*/
+           padding: 8px 0 ;
+       }
+
+       .introduce{
+           display: -webkit-box;display: -webkit-flex;display: flex;
+           border-top: 1px solid #cbe0e0;
+           padding: 10px 0;
+       }
+        .introduce-img-div{
+            /*text-align: center;*/
+        }
+       .introduce-img-div img{
+           border-radius: 22px;
+           width: 45px;
+           height: 45px;
+       }
+        .left-content{
+            width: 50px;
+            padding-right: 10px;
+        }
+        .right-content{
+            flex:1;-webkit-flex:1;-webkit-box-flex:1;
+            font-size: 14px;
+            color: #737373;
+            line-height: 18px;
+        }
+        .name{
+            padding-top: 5px;
+            font-size: 12px;
+            color: #b6b6b6;
+            text-align: center;
+        }
+        .w-content{
+            display: -webkit-box;
+            /*display: -webkit-flex;*/
+            /*display: flex;*/
+            border-top: 1px solid #cbe0e0;
+            padding: 5px 0;
+            height: 32px;
+            /*position: relative;*/
+        }
+        .w-size{
+            line-height: 32px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 50px;
+            /*-webkit-box-flex: 1;*/
+        }
+        .w-matter{
+            -webkit-box-flex: 1;
+            /*-webkit-flex:1;*/
+            /*flex:1;*/
+            line-height: 32px;
+            font-size: 12px;
+        }
+        .w-butten{
+            display: inline-block;
+            height: 26px;
+            width: 50px;
+            line-height: 28px;
+            text-align: center;
+            border: 1px #50baba solid;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            margin-top: 2px;
+            font-size: 12px;
+            color: #50baba;
+        }
+        .order-butten{
+            height: 44px;
+            background: #ff6600;
+            color: #fff;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            text-align: center;
+            line-height: 44px;
+        }
+        .mask{
+            font-size: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0,0,0,.5);
+            color: #fff;
+            padding: 5px 10px;
+            box-sizing: border-box;
+        }
+        .mask-title{
+            font-size: 18px;
+        }
+        .mask-intro{
+            color: #dad9d9;
+            padding-top:4px ;
+        }
+        .mask-intro-keyword{
+            background: #6d9b36;
+            padding: 2px ;
+        }
+        .mask-intro-intro{
+            margin-left: 5px;
+        }
+        .nav-wrapper{
+            /*padding-top: 10px;*/
+            height: 38px;
+        }
+        .nav{
+            display: -webkit-box;
+            /*display: -webkit-flex;display: flex;*/
+            background: #d6eaea;
+            height: 38px;
+            padding-bottom: 2px;
+            /*color: #50baba;*/
+            /*box-sizing: border-box;*/
+            /*width: 100%;*/
+
+            /*position: fixed;*/
+            /*top:0px;*/
+            /*z-index: 999;*/
+            /*width: 100%;*/
+            /*font-size: 0;*/
+
+        }
+        .nav div{
+            -webkit-box-flex:1;
+            /*flex:1;-webkit-flex:1;*/
+            text-align: center;
+            height: 38px;
+            line-height: 38px;
+            border-top: 1px solid #98c2c2;
+            border-bottom: 1px solid #98c2c2;
+
+        }
+        .fix{
+            position: fixed;
+            top:0px;
+            z-index: 3;
+            width: 100%;
+        }
+        .show{
+            display: -webkit-box;
+        }
+        .nav div:nth-child(2){
+            border-left: 1px solid #98c2c2;
+            border-right: 1px solid #98c2c2;
+        }
+        .active{
+            background: #e8f5f5;
+            border-bottom: 1px solid #e8f5f5!important;
+        }
+        .top-img{
+            /*height: 100px;*/
+            font-size: 0;
+        }
+        .top-img img{
+             width: 100%;
+             /*height: 100px;*/
+        }
+        .main{
+            /*padding-bottom: 60px;*/
+        }
+        .ad{
+            display: -webkit-box;
+            padding:5px;
+        }
+        .ad div{
+            -webkit-box-flex:1;
+            padding:5px;
+        }
+        .ad img{
+            width: 100%;
+        }
+        .alert {
+            position: fixed;
+            z-index: 1001;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 10px;
+            display: none;
+            background: #fff;
+        }
+        .al-title{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+        }
+        .al-txt{
+            font-size: 14px;
+            line-height: 18px;
+            color: #888888;
+        }
+        .zijia{
+            margin-top: 10px;
+        }
+        .alt-mask{
+            position: fixed;
+            top:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: none;
+            background: rgba(0,0,0,.5);
+        }
+    </style>
+    <style>
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+
+        }
+        .swiper-slide {
+
+            position: static!important;
+            background: #e8f5f5;
+        }
+        .swiper-slide:nth-child(1){
+        }
+        .swiper-wrapper{
+            position: static!important;
+        }
+        .frame{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="con"></div>
+    <div class="ad">
+        <div class="ad1"><img src="http://source.qunar.com/site/images/wap/touch/images/zhoubianyou/scenicImg/nianjia.jpg"></div>
+        <div class="ad2"><img src="http://source.qunar.com/site/images/wap/theme/other/hongbao2.jpg"></div>
+    </div>
+    <div class="alert">
+        <div class="al-title">公交路线：</div>
+        <div class="al-txt transitRoute">东直门长途汽车总站乘918路，到平谷岳各庄下，转19、20路等，全程约3小时。</div>
+        <div class="al-title zijia">自驾路线：</div>
+        <div class="al-txt driveRoute">首都机场高速--京平高速，车程约2小时。</div>
+    </div>
+    <div class="alt-mask"></div>
+</div>
+
+<iframe src="" class="frame"></iframe>
+
+
+<script type="text/template" id="hoteltpl">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" >
+                <div class="top-img" >
+                    <img src="http://source.qunar.com/site/images/wap/touch/images/zhoubianyou/scenicImg/beijinzhoubian640200.jpg">
+                </div>
+                <div class="nav-wrapper">
+                    <div class="nav">
+                        <% var group = '' %>
+                        <% _.each(data, function(item,i) {%>
+                        <% if(group!=item.tabName){%>
+                            <% group = item.tabName %>
+                            <div <% if(i==0){%> class="active" <%}%> data-group="<%=item.tabName%>"><%=item.tabName%></div>
+                        <%}%>
+                        <% });%>
+                    </div>
+                </div>
+            </div>
+            <% var group2 = '' %>
+            <% _.each(data, function(item,i) {%>
+
+            <div class="swiper-slide" <% if(group2!=item.tabName){%> data-group="<%=item.tabName%>" <% group2 = item.tabName %><%}%> data-stayGrab="<%=item.stayGrab%>"
+                 data-city="<%=item.city%>" data-cityUrl="<%=item.cityUrl%>">
+                <div class="content <% if(i==0){%>content-pt10<%}%>">
+                    <div class="img-div">
+                        <img src="http://source.qunar.com/site/images/wap/touch/images/zhoubianyou/scenicImg/<%=item.scenicImgUrl%>">
+                        <div class="mask">
+                            <div class="mask-title"><%=item.scenicName%></div>
+                            <div class="mask-intro"><span class="mask-intro-keyword">关键字</span><span class="mask-intro-intro"><%=item.keyWord%></span></div>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="address">地址 ：<span><%=item.scenicAddress%></span></div>
+                        <div class="introduce">
+                            <div class="left-content">
+                                <div class="introduce-img-div">
+                                    <img src="http://source.qunar.com/site/images/wap/touch/images/zhoubianyou/headImg/<%=item.recommendedUrl%>">
+                                </div>
+                                <div class="name"><%=item.recommendedName%></div>
+                            </div>
+                            <div class="right-content">
+                                推荐理由：<span><%=item.recommendedReason%></span>
+                            </div>
+                        </div>
+                        <div class="transportation w-content">
+                            <div class="w-size">交通：</div><div class="w-matter"><%=item.transitTime%></div><div class="w-butten route" data-transitRoute="<%=item.transitRoute%>" data-driveRoute="<%=item.driveRoute%>">路线</div>
+                        </div>
+                        <div class="w-content">
+                            <div class="w-size">门票：</div><div class="w-matter"><%=item.ticket%></div><% if(item.ticketUrl){%> <div class="w-butten ticket" data-ticketUrl="<%=item.ticketUrl%>">购票</div> <%}%>
+                        </div>
+                        <div class="order-butten">预定住宿（参考价 &yen;<span><%=item.stayPrice%></span>起）</div>
+
+                    </div>
+                </div>
+            </div>
+            <% });%>
+
+        </div>
+    </div>
+
+</script>
+</body>  
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script>
+$(function() {
+//    window.location.reload();
+    var bdSource=getUrlParam('bd_source') || 'huodong519';
+    var qua = function () {
+        var ua = navigator.userAgent;
+        return {
+            iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+            iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+            iphone     : ua.indexOf("QunariPhone") !== -1,
+            androidLife: ua.indexOf("qunaraphonelife") !== -1,
+            android    : ua.indexOf("qunaraphone") !== -1,
+            ipad       : /ipad/ig.test(ua)
+        }
+    }();
+    var data={
+        data:[{"stayGrab":"平谷","stayPrice":50,"city":"北京","cityUrl":"beijing_city","tabName":"朋友","scenicName":"平谷桃花海","keyWord":"赏桃花、音乐节","scenicImgUrl":"pinggutaohuahai.jpg","scenicAddress":"北京市平谷大华山镇小峪子村","recommendedUrl":"litongxue.jpg","recommendedName":"李同学","recommendedReason":"四五月间，国际桃花音乐节将在此举办。去年参加了一次，很有feel。感兴趣的可以去看看，在粉粉花海间欣赏音乐是挺美妙的事！ ","transitTime":"全程2—3小时","transitRoute":"东直门长途汽车总站乘918路，到平谷岳各庄下，转19、20路等，全程约3小时。","driveRoute":"首都机场高速--京平高速，车程约2小时。","ticket":"桃花免费（音乐节另购票）","ticketUrl":null},
+            {"stayGrab":"圣泉山","stayPrice":96,"city":"北京","cityUrl":"beijing_city","tabName":"朋友","scenicName":"圣泉山","keyWord":"赏桃花、杏花、佛教文化","scenicImgUrl":"shengquanshan.jpg","scenicAddress":"北京市怀柔区桥梓镇口头村北","recommendedUrl":"qiaofeng.jpg","recommendedName":"乔枫","recommendedReason":"爱拍照的老婆简直停不下来，山光水色间尽情撒野，周末嘛，和好朋友在农家院里搓搓麻，很惬意，总之是个北京周边能润润肺的地方。","transitTime":"全程2—3小时","transitRoute":"东直门乘坐936路慕田峪专线，到圣泉山景区下车，全程约3小时。","driveRoute":"京承高速--13号北台路出口，根据路标提示直达圣泉山，全程约2小时。","ticket":"成人26元（参考价）","ticketUrl":4257869066},
+            {"stayGrab":"赵县","stayPrice":65,"city":"石家庄","cityUrl":"shijiazhuang","tabName":"朋友","scenicName":"赵县梨花节","keyWord":"梨花节、当地美食","scenicImgUrl":"zhaoxianlihuajie.jpg","scenicAddress":"河北省石家庄市区东南40公里","recommendedUrl":"huoguomei.jpg","recommendedName":"火锅妹","recommendedReason":"大概每年4月10日左右是花的盛期，当然也要看当年的气温。附近可去赵州桥景区看看。尝尝特色的赵州咸驴肉、油酥烧饼、范庄饸饹、大锅菜。","transitTime":"全程4—5小时","transitRoute":"北京西站乘坐G513次列车，至高邑西站，驾车至赵州桥景区，全程约4小时。","driveRoute":"京石高速--青银高速--308国道--赵辛线--沿赵州桥路直达，全程约4.5小时。","ticket":"成人40元（参考价，售票点购买）","ticketUrl":null},
+            {"stayGrab":"千佛山","stayPrice":45,"city":"济南","cityUrl":"jinan","tabName":"朋友","scenicName":"千佛山","keyWord":"登山俯瞰、佛教祈福","scenicImgUrl":"qianfoshan.jpg","scenicAddress":"山东省济南市历下区经十一路18号","recommendedUrl":"zhaoxiaomei.jpg","recommendedName":"赵小美","recommendedReason":"与趵突泉、大明湖并称为“济南三大名胜”，登上山顶能俯瞰济南市区全景。那里的“坐鳌巨佛”很可能是世界上迄今为止最大的人工佛像景观。","transitTime":"全程4—5小时","transitRoute":"北京南站乘动车（G185次等）于济南站下车，乘公交至千佛山公园，全程约4小时。","driveRoute":"京津高速一京台高速—京沪高速—京台高速，全程约5小时。","ticket":"成人26元（参考价）","ticketUrl":3840604594},
+            {"stayGrab":"青州市","stayPrice":37,"city":"潍坊","cityUrl":"weifang","tabName":"朋友","scenicName":"仰天山国家森林公园","keyWord":"天然森林、山珍野味","scenicImgUrl":"yangtianshanguojiasenlingongyuan.jpg","scenicAddress":"山东省潍坊市青州市王坟镇 ","recommendedUrl":"Mr.li.jpg","recommendedName":"Mr.li ","recommendedReason":"大部分区域为天然次生林，盛产山参、木耳、蘑菇、等山珍野味，盘山公路似群龙起舞，无限风光尽收眼底，是踏春的好去处。","transitTime":"全程约6小时","transitRoute":"北京南站乘高铁（G185次等）于潍坊站下车，潍坊市里可乘坐青州至仰天山的旅游专线车，每20分钟一班车，车票10元，全程约6小时。","driveRoute":"高速驾车全程约6小时。","ticket":"成人60元（参考价）","ticketUrl":2617650175},
+            {"stayGrab":"五台山","stayPrice":68,"city":"忻州","cityUrl":"xinzhou","tabName":"朋友","scenicName":"五台山","keyWord":"洗涤心灵、佛教祈福","scenicImgUrl":"wutaishan.jpg","scenicAddress":"山西省忻州市五台县境内","recommendedUrl":"tianluoguniang.jpg","recommendedName":"田螺姑娘","recommendedReason":"中国佛教四大名山之一，寺庙建筑众多，东台看云海日出，非常壮观。和朋友一同去感受的，震撼，佛教文化确实给我们带来了内心的平静。","transitTime":"全程约5小时","transitRoute":"六里桥客运站乘坐北京--五台山的大巴，全程约5小时。","driveRoute":"北京六环—京昆高速—保阜高速--忻阜高速，全程约5小时。","ticket":"成人168元（参考价，售票点购买）","ticketUrl":null},
+            {"stayGrab":"盘山","stayPrice":110,"city":"天津","cityUrl":"tianjin_city","tabName":"朋友","scenicName":"盘山","keyWord":"山水人文，祈福","scenicImgUrl":"panshan.jpg","scenicAddress":"天津市蓟县西北15公里处","recommendedUrl":"datoubaba.jpg","recommendedName":"大头爸爸","recommendedReason":"听说乾隆皇帝曾 32 次游历盘山，并感叹到“早知有盘山，何必下江南”。“盘山庙会”时和朋友来此敬香许愿，尝了地方的特色小吃，还挺热闹！","transitTime":"全程约2.5小时","transitRoute":"北京东直门有直达盘山的旅游专线大巴，全程约2.5小时。","driveRoute":"机场高速--京平高速，按路标向北行驶，全程约2.5小时。","ticket":"成人88元（参考价）","ticketUrl":2140799835},
+            {"stayGrab":"宁河县","stayPrice":50,"city":"天津","cityUrl":"tianjin_city","tabName":"朋友","scenicName":"七里海国家湿地公园","keyWord":"天然氧吧、亲水垂钓","scenicImgUrl":"qilihaiguojiashidigongyuan.jpg","scenicAddress":"天津市宁河县七里海大街","recommendedUrl":"jiangxiansen.jpg","recommendedName":"江先森","recommendedReason":"天津最大的后花园，空气清新，负氧离子含量极高，极佳的洗肺圣地。风景棒，片子拍出来很带感，钓螃蟹还蛮有趣。","transitTime":"全程3—3.5小时","transitRoute":"北京南站（G381）到天津站，换574路公交车直达景区，全程约3.5小时。","driveRoute":"北京-京津2线100公里-芦台-津宁高速-七里海出口，约3小时。","ticket":"成人49元（参考价）","ticketUrl":2056977745},
+            {"stayGrab":"桃源仙谷","stayPrice":93,"city":"北京","cityUrl":"beijing_city","tabName":"亲子","scenicName":"桃源仙谷","keyWord":"赏桃花、杏花、农家乐","scenicImgUrl":"taoyuanxiangu.jpg","scenicAddress":"北京市密云县石城乡南石城村","recommendedUrl":"shuke.jpg","recommendedName":"舒克 ","recommendedReason":"桃花、杏花、野山花漫山遍野的，是个摄影采风的好地方。带孩子去亲近大自然，润润肺，吃吃农家饭菜，挺放松的。","transitTime":"全程2—3小时","transitRoute":"东直门乘980、987、970路公交车至密云县城下车，转乘去石城镇的小公共，全程约3小时。","driveRoute":"京承高速—密云收费站出口—密云水库—桃源仙谷，车程约2小时。","ticket":" 成人34元/学生20元(参考价)","ticketUrl":3376558736},
+            {"stayGrab":"云蒙山","stayPrice":80,"city":"北京","cityUrl":"beijing_city","tabName":"亲子","scenicName":"云蒙山国家森林公园","keyWord":"赏杜鹃花、映山红，号称“小黄山”","scenicImgUrl":"yunmengshanguojiasenlingongyuan.jpg","scenicAddress":"北京市怀柔区琉璃庙镇后山铺村","recommendedUrl":"quan.jpg","recommendedName":"泉","recommendedReason":"奇松怪石、飞瀑流泉，能玩水的地方不少，山还是蛮高，云雾缭绕。4—5月有映山红观赏节，漫山遍野红彤彤的，很喜庆。","transitTime":"全程2—4小时","transitRoute":"东直门外站乘坐867路在于家园下车，转乘 h11路,云蒙山站下车，步行260米到达，全程约4小时。\n","driveRoute":"由北京城区走101国道京密路至怀柔开放路环岛，向北走111国道至公园，无高速费，北京至景区2小时左右","ticket":" 成人23元（参考价）","ticketUrl":2981604559},
+            {"stayGrab":"兴寿镇","stayPrice":142,"city":"北京","cityUrl":"beijing_city","tabName":"亲子","scenicName":"第三届农业嘉年华","keyWord":"亲子采摘、农活体验","scenicImgUrl":"disanjienongyejianianhua.jpg","scenicAddress":"北京市昌平区兴寿镇香屯","recommendedUrl":"dashouxiaoshou.jpg","recommendedName":"大手小手","recommendedReason":"场地规模很大，各种农业创意非常有趣，胳膊肘粗的大羊肉串和铁板鱿鱼味道好。孩子体验了推碾子、压饸饹、打年糕等农活，还有草莓可以免费领取哦。","transitTime":"全程1.5—2小时","transitRoute":"地铁5号线天通苑北站，换乘537路或昌59路香屯站下车即到，全程约2小时。","driveRoute":"京承高速北京方向至昌金路出口，全程约1.5小时。","ticket":"成人42元（参考价）","ticketUrl":2193104796},
+            {"stayGrab":"杨家埠民间艺术大观园","stayPrice":50,"city":"潍坊","cityUrl":"weifang","tabName":"亲子","scenicName":"潍坊杨家埠民间艺术大观园","keyWord":"年画风筝、民俗艺术","scenicImgUrl":"weifangyangjiafuminjianyishudaguanyuan.jpg","scenicAddress":"山东省潍坊市寒亭区渤海路与富亭街交叉路口","recommendedUrl":"kaima.jpg","recommendedName":"凯妈 ","recommendedReason":"特地带孩子来体验风筝扎制和年画印刷的乐趣，让他感受下我们小时候玩儿的东西，没想到他挺感兴趣，长了不少见识，临走还选了喜欢的风筝回去放飞。","transitTime":"全程约6小时","transitRoute":"北京南站乘高铁（G185次等）于潍坊站下车，市里乘坐5路公交车即可，全程约6小时。","driveRoute":"高速驾车全程约6小时。","ticket":"成人48元/儿童25元（参考价）","ticketUrl":1433610478},
+            {"stayGrab":"滨海新区","stayPrice":36,"city":"天津","cityUrl":"tianjin_city","tabName":"亲子","scenicName":"天津滨海航母主题公园","keyWord":"军事航母、真人CS","scenicImgUrl":"tianjinbinhaihangmuzhutigongyuan.jpg","scenicAddress":"天津市滨海新区汉沽汉北路269号","recommendedUrl":"Mike.jpg","recommendedName":"Mike","recommendedReason":"很适合带小朋友去开拓眼界，军事迷对这个肯定感兴趣。真人CS等娱乐活动还挺丰富的，景区内的建筑和表演以俄罗斯风情为主，女孩子也会喜欢。","transitTime":"全程3—4小时","transitRoute":"北京南站（G381）到天津站，换462路，全程约4小时。","driveRoute":"京津高速北塘出口直行经彩虹桥或中央大道7公里即至，约3小时。","ticket":"成人215元（参考价）","ticketUrl":3492570154},
+            {"stayGrab":"海昌极地海洋世界","stayPrice":49,"city":"天津","cityUrl":"tianjin_city","tabName":"亲子","scenicName":"天津海昌极地海洋世界","keyWord":"极地动物、海豚表演","scenicImgUrl":"tianjinhaichangjidihaiyangshijie.jpg","scenicAddress":"天津市滨海新区响螺湾商务区61号","recommendedUrl":"xixitaba.jpg","recommendedName":"喜喜他爹","recommendedReason":"号称华北规模最大、展示极地海洋生物品种最全的，本来不信，但北极狐、北极狼还真是第一次见。海豚和海狮的表演很精彩，宝宝开心极了！","transitTime":"全程2.5—3小时","transitRoute":"北京南站到塘沽站下换乘821路，海昌商业街站下，全程3小时。","driveRoute":"京津塘高速--塘沽收费站，经过海门大桥即到，全程约2.5小时。","ticket":" 成人134元/学生61元（参考价）","ticketUrl":3305260824},
+            {"stayGrab":"滨海新区","stayPrice":36,"city":"天津","cityUrl":"tianjin_city","tabName":"亲子","scenicName":"天津方特欢乐世界","keyWord":"科幻主题公园、3D+4D体验 ","scenicImgUrl":"tianjinfangtehuanleshijie.jpg","scenicAddress":"天津市滨海新区中新生态城中生大道","recommendedUrl":"longdashu.jpg","recommendedName":"龙大叔","recommendedReason":"高科技主题公园，刺激！孩子像哈利波特那样，来这体验了一把魔法学院，经历了一次诡异的魔法考验。","transitTime":"全程2.5—4小时","transitRoute":"北京南站到天津站，乘坐528路直达，全程约4小时。","driveRoute":"京津高速--北塘收费站，全程约2.5小时。","ticket":"成人174元/儿童125（参考价）","ticketUrl":728251717},
+            {"stayGrab":"蟒山国家森林公园","stayPrice":96,"city":"北京","cityUrl":"beijing_city","tabName":"情侣","scenicName":"蟒山国家森林公园","keyWord":"北京最长登山台阶","scenicImgUrl":"mangshanguojiasenlingongyuan.jpg","scenicAddress":"北京市昌平区蟒山路2号","recommendedUrl":"momo.jpg","recommendedName":"默默","recommendedReason":"据说是北京面积最大的国家森林公园，有北京最长的登山台阶，山顶上景色不错，能看到水库，是个天然大氧吧，登山踏青感觉很舒服。","transitTime":"全程2—3.5小时","transitRoute":"地铁2号线积水潭站下车，步行至德胜门西站，乘坐888路，于蟒山国家森林公园站下车，全程约3.5小时。","driveRoute":"北京二环—京藏高速公路—蟒山国家森林公园，全程约2小时。","ticket":"成人17元（参考价）","ticketUrl":953670832},
+            {"stayGrab":"古北水镇","stayPrice":140,"city":"北京","cityUrl":"beijing_city","tabName":"情侣","scenicName":"古北水镇 ","keyWord":"北方“乌镇” 、司马台原始长城","scenicImgUrl":"gubeishuizhen.jpg","scenicAddress":"北京市密云县古北口镇司马台村","recommendedUrl":"xiaoyu.jpg","recommendedName":"小宇","recommendedReason":"午后和女朋友牵手在青石板的老街上散步，在古朴的民居中穿行，恍惚间仿佛到了乌镇。第二天起来再爬爬司马台长城，采采风，美！","transitTime":"全程2.5—3.5小时","transitRoute":"东直门乘980或980（快）车，到密云西大桥站下，换乘51路到司马台村站，全程约3.5小时。","driveRoute":"京承高速司马台长城出口离开，左转进入马北路，全程约2.5小时。","ticket":" 成人150元（参考价）","ticketUrl":1433128305},
+            {"stayGrab":"十渡风景区","stayPrice":60,"city":"北京","cityUrl":"beijing_city","tabName":"情侣","scenicName":"十渡风景区","keyWord":"真人CS、蹦极、农家乐","scenicImgUrl":"shidufengjingqu.jpg","scenicAddress":"北京市房山区十渡镇十渡村","recommendedUrl":"siyu.jpg","recommendedName":"思雨 ","recommendedReason":"幸福就是和爱的人在好风景里接个吻，一起去体验蹦极，牵手漫游长长的铁索桥。十渡的农家乐很完善，老板们热情周到，游玩和食宿都很方便。","transitTime":"全程2.5—6小时","transitRoute":"前门西站乘坐901快在大董村站下车，乘坐836路在九渡村站下车，步行即可，全程约6小时。","driveRoute":"北京六环—京昆联络线—京昆高速—涞宝路，全程约2.5小时。","ticket":"成人20元（参考价）","ticketUrl":4212929001},
+            {"stayGrab":"泰山桃花峪","stayPrice":42,"city":"泰安","cityUrl":"taian","tabName":"情侣","scenicName":"泰山桃花峪","keyWord":"山水人文、赏桃花","scenicImgUrl":"taishantaohuayu.jpg","scenicAddress":"山东省泰安市岱岳区泰山风景区","recommendedUrl":"Lisa.jpg","recommendedName":"Lisa","recommendedReason":"泰山桃花峪很适合这个季节去，男朋友把我和桃花都拍的美美哒~~两个人登山特别有趣，累了的时候他还会背我，感觉超幸福！","transitTime":"全程4—5.5小时","transitRoute":"北京南站乘高铁（G119次等）于泰安站下车，站前广场有16路专线旅游公交车往返，全程约4小时。","driveRoute":"高速驾车全程约5.5小时。","ticket":"成人122元（参考价）","ticketUrl":1363641676},
+            {"stayGrab":"梨木台","stayPrice":92,"city":"天津","cityUrl":"tianjin_city","tabName":"情侣","scenicName":"梨木台风景区","keyWord":"赏野生杜鹃花、农家风情 ","scenicImgUrl":"limutaifengjingqu.jpg","scenicAddress":"天津市蓟县蓟县下营镇船舱峪村","recommendedUrl":"dashan.jpg","recommendedName":"大山","recommendedReason":"两千多亩的野生杜鹃花很是壮观，山里的潭、瀑和溪水数不胜数。采摘、住农家院、吃农家饭，一系列的农家乐趣让老婆很舍不得离开。","transitTime":"全程2.5—3小时","transitRoute":"北京四惠长途客运站乘中巴车到蓟县，转乘蓟县--小港的中巴客车即可到梨木台景区，全程约3小时。","driveRoute":"京通快速--京哈高速—蓟县收费站，根据路标即可到达梨木台景区，约2.5小时。","ticket":"成人43元（参考价）","ticketUrl":3429564770},
+            {"stayGrab":"白蛇谷","stayPrice":107,"city":"天津","cityUrl":"tianjin_city","tabName":"情侣","scenicName":"白蛇谷原生态景区","keyWord":"天然氧吧、农家田园","scenicImgUrl":"baisheguyuanshengtaijingqu.jpg","scenicAddress":"天津市蓟县黄崖关长城北一公里处","recommendedUrl":"huwaikun.jpg","recommendedName":"户外昆","recommendedReason":"景区内负氧离子含量高，神龙瀑布、清凉谷风景棒，适合周末带女朋友去透透气，清清神。第二天登上黄崖关古长城俯瞰，历史的沧桑很带感。","transitTime":"全程2—3小时","transitRoute":"北京四惠长途客运站--蓟县--县城西关红绿灯--黄崖关长城景区班车，全程约3小时。","driveRoute":"北京六环--京平高速--蓟平高速--蓟州站，沿津围公路北上29公里即可，全程约2小时。","ticket":"成人38元（参考价）","ticketUrl":705404710}]
+    };
+    bulidTemple(data);
+    function bulidTemple(data){
+        var element = $('.con');
+        var tpl = $('#hoteltpl').html();
+        var render = _.template(tpl);
+        var html = render(data);
+        element.html(html);
+    }
+    var groupum={};
+    setTimeout(function () {
+
+        var group = '';
+        _.each(data.data, function(item,i){
+            if(group!=item.tabName){
+                group = item.tabName;
+                var height=$('.swiper-slide[data-group="'+group+'"]').offset().top-$('.nav-wrapper')[0].offsetHeight;
+//                console.log(height+group);
+                groupum[height]=group;
+            }
+        });
+//        console.log(groupum);
+    },1);
+
+
+
+    window.onscroll=function(e){
+        var scroll=window.scrollY;
+        if(scroll>=$('.nav-wrapper').offset().top){
+            $('.nav').addClass('fix');
+        }else{
+            $('.nav').removeClass('fix');
+        }
+//        var now;
+//        _.each(groupum, function(item,i){
+//            if(scroll>=i){
+//                now=item;
+//            }
+//        });
+//        console.log(now);
+//        console.log(scroll);
+//        if(now){
+//            $('.nav>div').removeClass('active');
+//            $('.nav>div[data-group="'+now+'"]').addClass('active');
+//        }
+    }
+    $('.ad1').on('click', function () {
+        $('.frame').attr('src','http://touch.qunar.com/h5/monitor?name=zhoubianyou-ad1');
+        window.location.href='http://touch.qunar.com/h5/hotel/HotelPriceFilter?bd_source=505';
+    });
+    $('.ad2').on('click', function () {
+        $('.frame').attr('src','http://touch.qunar.com/h5/monitor?name=zhoubianyou-ad2');
+        window.location.href='http://touch.qunar.com/h5/red/springred?bd_source='+bdSource;
+    });
+    $('.con').on('click','.nav div',function(){
+        var $this=$(this);
+        var group=$this.attr('data-group');
+        var dom=$('.swiper-slide[data-group="'+group+'"]')[0];
+        dom.scrollIntoView();
+        $('.nav>div').removeClass('active');
+        $('.nav>div[data-group="'+group+'"]').addClass('active');
+    });
+
+    $('.con').on('click','.route',function(e){
+        $('.frame').attr('src','http://touch.qunar.com/h5/monitor?name=zhoubianyou-route');
+        var $this=$(this);
+        var transitRoute=$this.attr('data-transitRoute');
+        var driveRoute=$this.attr('data-driveRoute');
+        $('.transitRoute').html(transitRoute);
+        $('.driveRoute').html(driveRoute);
+        $('.alert').css({display:'block'});
+        $('.alt-mask').css({display:'block'});
+        e.stopPropagation();
+        e.preventDefault();
+        $('.main').one('click',function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $('.alert').css({display:'none'});
+            $('.alt-mask').css({display:'none'});
+            $('.main').unbind('touchmove');
+        }).on('touchmove',function(e){
+            e.preventDefault();
+        });
+    });
+    $('.con').on('click','.alt-mask',function(){
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    $('.con').on('click','.ticket',function(){
+        $('.frame').attr('src','http://touch.qunar.com/h5/monitor?name=zhoubianyou-ticket');
+        var $this=$(this);
+        var ticketUrl=$this.attr('data-ticketUrl');
+        if(ticketUrl){
+            var href='://sight/detail?id='+ticketUrl+'&in_track='+bdSource+'&ex_track='+bdSource;
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                url='http://touch.piao.qunar.com/touch/detail.htm?id='+ticketUrl+'&from='+bdSource;
+            }
+            document.location.href =url;
+        }
+    });
+    $('.con').on('click','.order-butten',function(){
+        gotoList(this);
+    });
+    $('.con').on('click','.img-div',function(){
+        gotoList(this);
+    });
+
+
+    function gotoList(me){
+        var $this=$(me);
+        var $swiper=$this.parents('.swiper-slide');
+        var keywords=$swiper.attr('data-stayGrab');
+        var city=$swiper.attr('data-city');
+        var cityUrl=$swiper.attr('data-cityUrl');
+        var date=new Date();
+        var fromData= $.getDateString(date);
+        date.setDate(date.getDate()+1);
+        var toData= $.getDateString(date);
+        console.log(fromData+toData);
+        var href='://hotel/search?q='+encodeURI(keywords)+'&cityUrl='+encodeURI(cityUrl)+'&fromDate='+fromData+'&toDate='+toData+'&fromForLog='+encodeURI(bdSource);
+        var url="";
+        if(qua.iphonePro){
+            url="qunariphonepro" + href;
+        }else if(qua.iphoneLife){
+            url="qunariphonelife" + href;
+        }else if(qua.iphone){
+            url="qunariphone" + href;
+        }else if(qua.androidLife){
+            url="qunaraphonelife" + href;
+        }else if(qua.android){
+            url="qunaraphone" + href;
+        }else{
+            url='http://touch.qunar.com/h5/hotel/hotellist?city='+city+'&keywords='+keywords+'&cityUrl='+cityUrl+'&bd_source='+bdSource;
+        }
+        document.location.href =url;
+    }
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return ''; //返回参数值
+    }
+
+});
+(function() {
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    var hm = document.createElement("script");
+    hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</html>

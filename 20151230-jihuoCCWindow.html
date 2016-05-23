@@ -1,0 +1,161 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>酒店5折</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection"/>
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport"/>
+    <style type="text/css">
+        body,html{
+            overflow: hidden;
+            /*background: red;*/
+        }
+        .main >img{
+            width: 100%;
+            /*height: 100%;*/
+        }
+        .main{
+            padding: 0 10px;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/wuzhecc.png">
+</div>
+
+</body>
+<!--<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>-->
+<script>
+
+    (function () {
+        var $main=document.querySelector('.main');
+        if(navigator.userAgent.toLowerCase().indexOf('iphone')>0){
+            $main.style.position='fixed';
+        }
+        $main.addEventListener('touchmove',function(e){
+            e.preventDefault();
+        });
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        var bdSource= getUrlParam('bd_source') || '',
+            fromForLog= getUrlParam('fromForLog') || '',
+//            cityUrl= getUrlParam('cityUrl') || '',
+            currLatitude = getUrlParam('currLatitude') || '',
+            currLongitude = getUrlParam('currLongitude') || '',
+            coordinate = getUrlParam('coordinate') || '',
+            fromDate= getUrlParam('fromDate') || '',
+            toDate= getUrlParam('toDate') || '';
+        document.querySelector('.main>img').addEventListener('click',function(e){
+//            $.get('http://touch.qunar.com/h5/monitor?name=jihuoCCWindow_click');
+            ajaxrequest("http://touch.qunar.com/h5/monitor?name=jihuoCCWindow_click"+"_"+bdSource,"get",true,createxml(),'',document);
+            var href='',scheme='';
+            if(currLatitude && currLongitude && coordinate){
+                scheme='hotel/search?cat='+bdSource+'&fromForLog='+fromForLog+'&currLatitude='+currLatitude+'&currLongitude='+currLongitude+'&coordinate='+coordinate+'&fromDate='+fromDate+'&toDate='+toDate;
+            }else{
+                scheme='hotel/main?cat='+bdSource+'&fromForLog='+fromForLog+'&fromDate='+fromDate+'&toDate='+toDate;
+            }
+            href='://'+scheme;
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                var url1='http://touch.qunar.com/h5/hotel/?bd_source='+bdSource;
+                var touchUrl=encodeURIComponent(url1);
+                url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl='+touchUrl;
+            }
+            window.location.href =url;
+        })
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+
+
+        /**
+         * 得到ajax对象
+         */
+        function getajaxHttp() {
+            var xmlHttp;
+            try {
+                // Firefox, Opera 8.0+, Safari
+                xmlHttp = new XMLHttpRequest();
+            } catch (e) {
+                // Internet Explorer
+                try {
+                    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
+                    try {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        alert("您的浏览器不支持AJAX！");
+                        return false;
+                    }
+                }
+            }
+            return xmlHttp;
+        }
+        /**
+         * 发送ajax请求
+         * url--url
+         * methodtype(post/get)
+         * con (true(异步)|false(同步))
+         * parameter(参数)
+         * functionName(回调方法名，不需要引号,这里只有成功的时候才调用)
+         * (注意：这方法有二个参数，一个就是xmlhttp,一个就是要处理的对象)
+         * obj需要到回调方法中处理的对象
+         */
+        function ajaxrequest(url,methodtype,con,parameter,functionName,obj){
+            var xmlhttp=getajaxHttp();
+            xmlhttp.onreadystatechange=function(){
+                if(xmlhttp.readyState==4){
+                    //HTTP响应已经完全接收才调用
+                    functionName(xmlhttp,obj);
+                }
+            };
+            xmlhttp.open(methodtype,url,con);
+            xmlhttp.send(parameter);
+        }
+//这就是参数
+        function createxml(){
+            var xml="<user><userid>asdfasdfasdf<\/userid><\/user>";//"\/"这不是大写V而是转义是左斜杠和右斜杠
+            return xml;
+        }
+//测试
+
+    })()
+</script>
+
+</html>

@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>品特色酒店，探寻城市印象</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0000,maximum-scale=1.0000,shrink-to-fit=no,user-scalable=no,minimal-ui" name="viewport">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <link rel="stylesheet" href="http://m.qunar.com/zhuanti/animate.css" type="text/css">
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            overflow: hidden;
+
+        }
+
+        img{
+            width:100%;
+        }
+        .sl_content > div{position: relative;}
+        body{
+            /*overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-scrolling: touch;*/
+        }
+        .index-page{
+            background: url('');
+            background-size: 100% 100%;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .index-page .title-container{
+            text-align: center;
+            padding-top: 15rem;
+        }
+        .index-page .title-container .title-text{
+            display: inline-block;
+            font-size: 0.6rem;
+            width: 13rem;
+            text-align: left;
+            color: #333;
+            line-height: 0.85rem;
+        }
+
+        .index-page .tips-container{
+            bottom: 2rem;
+            color: #fff;
+        }
+        .index-page .tips-container .arrow-wrap .up-arrow{
+            border: solid 0.15rem #fff;
+        }
+
+        .tips-container{
+            position: absolute;
+            text-align: center;
+            font-size: 0.6rem;
+            width: 100%;
+        }
+
+        .tips-container  .arrow-wrap{
+            height: 0.45rem;
+            overflow: hidden;
+            padding-top: 0.2rem;
+            animation: moveTo 1s infinite;
+            -webkit-animation: moveTo 1s infinite;
+        }
+
+
+        .tips-container  .arrow-wrap .up-arrow{
+            display: inline-block;
+            height: 0.7rem;
+            width: 0.6rem;
+            transform:rotate(45deg);
+            -webkit-transform:rotate(45deg);
+        }
+
+
+        /*酒店*/
+        .hotel-container{
+            width: 100%;
+            height: 100%;
+        }
+        .hotel-container .img-container{
+            position: relative;
+            min-height: 14rem;
+        }
+        .hotel-container .img-container .hotel-img{
+            height: 14rem
+        }
+        .hotel-container .img-container img{
+            width: 100%;
+        }
+        .hotel-container .img-container .touchbar-wrapper{
+            /*display: none;*/
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0.5rem;
+        }
+        .hotel-container .img-container .touchbar-wrapper  .icon-wrapper{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 3rem;
+            background: #1284a6;
+            text-align: center;
+            line-height: 2rem;
+            font-size: 1.2rem;
+        }
+        .hotel-container .img-container .touchbar-wrapper  .icon-wrapper .menu{
+            width: 1rem;
+        }
+
+        .hotel-container  .detail-container{
+            margin-top:0.2rem;
+            padding-right: 0.5rem;
+        }
+        .hotel-container  .detail-container .detail-title{
+            display: flex;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            position: relative;
+            height: 2.1rem;
+        }
+        .hotel-container  .detail-container .detail-title .title-index{
+            width: 2.1rem;
+            background: #1284a6;
+            color: #fff;
+            font-size: 1.8rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            -webkit-box-pack: center;
+            align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            -webkit-box-align: center;
+            text-align: center;
+
+        }
+
+        .hotel-container  .detail-container .detail-title .hotel-name-wrapper{
+            padding-left: 0.4rem;
+            font-size: 0.6rem;
+            color: #888;
+        }
+        .hotel-container  .detail-container .detail-title .hotel-name-wrapper .hotel-comment{
+            color: #888;
+        }
+        .hotel-container  .detail-container .detail-title .hotel-name-wrapper .hotel-name{
+            font-size: 0.9rem;
+            font-weight: bolder;
+            align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            -webkit-box-align: center;
+            width: 10.75rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -webkit-text-overflow: ellipsis;
+            -webkit-white-space: nowrap;
+            margin-bottom: 0.25rem;
+            color:#333;
+        }
+        .hotel-container  .detail-container .detail-title .hotel-name-wrapper>span{
+            font-size: 0.6rem;
+        }
+        .hotel-about{
+            position: absolute;bottom:0;
+            left: 2.5rem;
+        }
+        .hotel-container  .detail-container .detail-title .hotel-name-wrapper .hotel-mark{
+            color:#1ba9ba;
+        }
+
+        .hotel-container  .detail-container .detail-title .price-wrapper{
+            position: absolute;
+            right: 0.6rem;
+            bottom: 0;
+            font-size: 0.6rem;
+        }
+        .hotel-container  .detail-container .detail-title .price-wrapper>span{
+            color: #ff4500;
+        }
+        .hotel-container  .detail-container .detail-title .hotel-price{
+            font-size: 1.2rem;
+        }
+
+        .hotel-container  .detail-container .description-wrapper{
+            padding: 0 0 0 0.6rem;
+            margin: 0.4rem 0 0 0;
+        }
+        .hotel-container  .detail-container .description-wrapper .icon-location{
+            width: 0.6rem;
+            height: 0.7rem;
+            vertical-align: text-bottom;
+            margin-right: 0.25rem;
+        }
+        .hotel-container  .detail-container .description-wrapper .icon-home{
+            width: 0.6rem;
+            height: 0.6rem;
+            vertical-align: text-bottom;
+            margin-right: 0.25rem;
+        }
+        .hotel-container  .detail-container .description-wrapper .hotel-description{
+          font-size: 0.7rem;
+          color: #666;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+
+        .hotel-container  .detail-container .description-wrapper>p{
+            font-size: 0.6rem;
+            color: #888;
+            margin-top: 0.4rem;
+        }
+        .hotel-container  .detail-container .description-wrapper>p+p{
+            margin-top: 0.25rem;
+        }
+        .hotel-container  .operation-container{
+            position: absolute;
+            bottom: 0.1rem;
+            width: 100%;
+        }
+        .hotel-container  .operation-container .button-area{
+            text-align: center;
+        }
+        .hotel-container  .operation-container .button-area .button{
+            height: 1rem;
+            line-height: 1rem;
+            width: 17rem;
+            display: inline-block;
+            margin: 0.5rem 5% 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-radius: 0.2rem;
+            text-decoration: none;
+            padding: 0.5rem 0;
+        }
+        .hotel-container  .operation-container .button-area .detail-link{
+            background: #ff4500;
+            color: #fff;
+        }
+        .hotel-container  .operation-container .button-area .more-link{
+            border: solid 0.075rem #1ba9bb;
+            color: #1ba9bb;
+        }
+        .hotel-container  .tips-container{
+            color: #a5a5a5;
+            bottom: 1rem;
+            position: inherit;
+            margin-top: 0.5rem;
+        }
+        .hotel-container  .tips-container .arrow-wrap .up-arrow{
+            border: solid 0.15rem #888;
+        }
+
+        .pop-wrapper{
+            overflow: hidden;
+        }
+
+        .pop-wrapper  .small-list{
+            list-style: none;
+            overflow: hidden;
+        }
+        .pop-wrapper .small-list .small-item{
+            width: 8.325rem;
+            float: left;
+            background: #f7f7f7;
+            border-radius: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .pop-wrapper .small-list .small-item:nth-child(2n+1){
+            margin-left: 0.5rem;
+        }
+        .pop-wrapper .small-list .small-item:nth-child(2n+2){
+            margin-left: 0.35rem;
+        }
+        .pop-wrapper  .small-list .small-item .small-img{
+            width: 100%;
+            height:5.5rem;
+        }
+        .pop-wrapper  .description-container{
+            font-size: 0.6rem;
+            color: #666;
+            height: 2.25rem;
+            padding: 0 0.2rem;
+        }
+        .pop-wrapper  .description-container>p{
+            font-size: 0.7rem;
+            margin-bottom: 0.2rem;
+            width: 8.125rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            -webkit-text-overflow: ellipsis;
+            -webkit-white-space: nowrap;
+        }
+        .pop-wrapper  .description-container .price-container{
+            float: right;
+        }
+        .pop-wrapper  .description-container .small-price{
+            font-size: 0.8rem;
+            color: #ff4c3d;
+        }
+        .pop-wrapper  .description-container .small-position{
+            font-size: 0.8rem;
+        }
+        .pop-wrapper  .description-container .small-location{
+            width: 0.6rem;
+            height: 0.7rem;
+            vertical-align: middle;
+            margin-right: 0.25rem;
+        }
+
+        .pop-mask{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000;
+            opacity: 0.7;
+            z-index: 1000;
+            display: none;
+        }
+        .pop-wrapper{
+            z-index: 1001;
+            height: 26.175rem;
+            width: 18rem;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin: -13.0875rem 0 0 -9rem;
+            display: none;
+            background: #fff;
+            border-radius: 0.4rem;
+            overflow: hidden;
+        }
+        .pop-wrapper .pop-head{
+            height:2.75rem;
+            font-size: 0.7rem;
+            line-height: 2.75rem;
+        }
+        .pop-wrapper .pop-head .pop-title{
+            text-align: center;
+        }
+        .pop-wrapper .pop-head h3{
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        .pop-wrapper .pop-head .hotel-num{
+            color:#ff4c3d;
+        }
+        .pop-wrapper .small-warpper{
+            height: 22.725rem;
+            overflow-y: scroll;
+            position: relative;
+        }
+        .close-pop{
+            height: 1.5rem;
+            line-height: 1.5rem;
+            width:1.5rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            -webkit-box-pack: center;
+            align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            -webkit-box-align: center;
+            position: absolute;
+            right: 0.4rem;
+            top:0.625rem;
+            border-radius: 1.5rem;
+            border: solid 0.075rem #1ba9bb;
+            vertical-align: middle;
+        }
+        .close-icon{
+            background: url('http://img1.qunarzz.com/m_appPromotion/wap/1603/40/9d2dc788b7692cf7.png');
+            background-size: 0.6rem 0.6rem;
+            display: inline-block;
+            width: 0.6rem;
+            height: 0.6rem;
+            z-index: 1002;
+        }
+
+        #hotelList,#smallTpl{
+            visibility: hidden;
+        }
+
+        .transprant{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 2rem;
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.5) 51%, rgba(255, 255, 255, 1) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.5) 51%, rgba(255, 255, 255, 1) 100%);
+            z-index: 1002;
+        }
+
+        @keyframes moveTo{
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+                -webkit-transform: translate(0, 0);
+            }
+            100%   {
+                opacity: 0;
+                transform: translate(0, -0.5rem);
+                -webkit-transform: translate(0, -0.5rem);
+            }
+        }
+
+        @-webkit-keyframes moveTo{
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+                -webkit-transform: translate(0, 0);
+            }
+            100%   {
+                opacity: 0;
+                transform: translate(0, -0.5rem);
+                -webkit-transform: translate(0, -0.5rem);
+            }
+        }
+    </style>
+    <script>
+        (function (doc, win) {    //设置rem基准
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="init">
+    <div class="sl_slide">
+        <div class="sl_content">
+            <!--大屏-->
+            <div class="index-page">
+                <div class="title-container">
+                    <!-- <span class="title-text">草长茑飞二月天，拂提杨柳醉春烟。石林九乡最特别，阿哥阿妹游昆明；饵块饵丝最味美，春城美食诱人来~</span> -->
+                </div>
+                <div class="tips-container">
+                    <div class="arrow-wrap">
+                        <i class="up-arrow"></i>
+                    </div>
+                    <span class="tip-text">上滑</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pop-mask">
+</div>
+<div class="pop-wrapper">
+    <div class="pop-head">
+        <div class="pop-title">
+            <h3>酒店列表</h3>(<span class="hotel-num">10</span>家)
+      <span class="close-pop">
+        <i class="close-icon"></i>
+      </span>
+        </div>
+    </div>
+</div>
+
+<script type="text/template" id="hotelList">
+    <%_.each(data, function(item ,index){ %>
+    <div class="hotel-container">
+        <div class="img-container">
+            <img src="<%= item.hotelImg %>" alt="酒店图片" class="hotel-img"/>
+            <div class="touchbar-wrapper">
+                <div class="icon-wrapper">
+                    <img src="http://img1.qunarzz.com/m_appPromotion/wap/1603/8a/71519f27e42493f7.png" class="menu"></i>
+                </div>
+            </div>
+        </div>
+        <div class="detail-container">
+            <div class="detail-title">
+                <div class="title-index">
+                    <span><%= index+1 %></span>
+                </div>
+                <div class="hotel-name-wrapper">
+                    <p class="hotel-name"><%= item.hotelName %></p>
+                    <p class="hotel-about"><span class="hotel-mark"><%= item.hotelMark %>分</span>/<span class="hotel-comment"><%= item.hotelComment %>条评论</span></p>
+                </div>
+                <div class="price-wrapper">
+                    <span class="yen">&yen;</span><span class="hotel-price" data-seq="<%=item.hotelSeq%>"><%= item.hotelPrice %></span>起
+                </div>
+            </div>
+
+            <div class="description-wrapper">
+                <div class="hotel-description">
+                    <%= item.hotelDesc %>
+                </div>
+                <p><img src="http://img1.qunarzz.com/m_appPromotion/wap/1603/b6/a7f87009c7d7c2f7.png" class="icon-location"></i><%= item.hotelLocation %></p>
+                <p><img src="http://img1.qunarzz.com/m_appPromotion/wap/1603/57/b5fa0a328afe36f7.png" class="icon-home"></i><%= item.hotelArea %></p>
+            </div>
+        </div>
+        <div class="operation-container">
+            <div class="button-area">
+                <a class="detail-link button" data-href="<%= item.hotelurl %>">去看看吧</a>
+                <%if(index+1 == data.length) {%>
+                <a class="more-link button">点击查看更多酒店</a>
+                <%}%>
+                <% if( index +1 < data.length ){ %>
+                <div class="tips-container">
+                    <div class="arrow-wrap">
+                        <i class="up-arrow"></i>
+                    </div>
+                    <span class="tip-text">上滑</span>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%  }) %>
+</script>
+
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/qswiper.js"></script>
+
+<script>
+    var data = {
+        "shanghai": {
+            cityChinese: '上海',
+            cityUrl: 'shanghai_city',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/d5/93334977bd2222f7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201507/12/HJI_JOQfv6TRSDsJD720.jpg","hotelName":"上海苏荷精选花园酒店泰安小筑店","hotelMark":4.5,"hotelSeq":"shanghai_city_23094","hotelComment":314,"hotelPrice":331,"hotelDesc":"位于原法租界泰安路别墅区的花园酒店，靠近法租界内无数名人故居和大上海年代的老公馆。这里老洋房味道依旧，为如今的上海增添了几分风情","hotelLocation":"上海长宁区泰安路115弄9号","hotelCity":"上海","hotelArea":"宋庆龄故居"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201201/05/NNNN2dHJdw4xQxicN720.jpg","hotelName":"上海苏州河畔国际青年旅舍苏荷总店","hotelMark":4.4,"hotelSeq":"shanghai_city_5726","hotelComment":5556,"hotelPrice":34,"hotelDesc":"原为杜月笙仓库，历史悠久，环境古朴优雅。该建筑是联合国教科文组织颁发的亚太地区文物遗产保护奖，中国地区唯一获得此殊荣的老仓库建筑","hotelLocation":"上海黄浦区南苏州路1307号","hotelCity":"上海","hotelArea":"自然博物馆"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/03/77H0167XmjkV0VoH7720.jpg","hotelName":"上海浦江饭店","hotelMark":4.6,"hotelSeq":"shanghai_city_153","hotelComment":930,"hotelPrice":824,"hotelDesc":"虽经历了一百六十余年的历史变迁，但仍然保持着其原有的建筑风貌和历史痕迹。她犹如一幢历史丰碑昂然屹立，叠影出上海变迁的缩影","hotelLocation":"上海市虹口区黄浦路15号","hotelCity":"上海","hotelArea":"北外滩"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/20/66I5P25h-rCVMyXM6720.jpg","hotelName":"上海窝家青旅","hotelMark":4.6,"hotelSeq":"shanghai_city_23081","hotelComment":933,"hotelPrice":36,"hotelDesc":"在原法租界核心区，周围建筑大都保持原有的老上海风貌、年老的法国梧桐、古朴的砖瓦巷子、古老与现代的碰撞、传统与国际的融合被完美诠释","hotelLocation":"上海市徐汇区宝庆路18弄3号","hotelCity":"上海","hotelArea":"静安寺"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201503/19/66I5P26UnR5cGZMA6720.jpg","hotelName":"蓝山国际青年旅舍上海卢湾店","hotelMark":4.5,"hotelSeq":"shanghai_city_2846","hotelComment":1828,"hotelPrice":35,"hotelDesc":"国内外热爱自助旅行的背包客的好评。清洁, 舒适,友好热情的员工，来自世界各地的旅友，一切的一切都在热情地欢迎您","hotelLocation":"上海黄浦区瞿溪路1072弄1号甲2楼","hotelCity":"上海","hotelArea":"鲁班路站"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/02/66I5P26LElJJ0quS6720.jpg","hotelName":"上海新易途国际青年旅舍","hotelMark":4.4,"hotelSeq":"shanghai_city_514","hotelComment":800,"hotelPrice":40,"hotelDesc":"上海的老式住宅风格，结构设计将她与周围的高楼大厦区分开。旅舍有露天小院，房子上的老砖瓦诉说着这里的历史，体现了这里的弄堂文化","hotelLocation":"上海黄浦区江阴路55号","hotelCity":"上海","hotelArea":"人民广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/16/66I5P25-ypjQVRfK6720.jpg","hotelName":"上海朱家角窝UmaHostel青年旅舍","hotelMark":4.7,"hotelSeq":"shanghai_city_10164","hotelComment":228,"hotelPrice":158,"hotelDesc":"UMA意为“生命的大屋”，已经100多岁，比朱家角最大的花园课植园，更古老。现今保留漂亮的雕花梁柱，砖雕门头亦显现岁月经历","hotelLocation":"朱家角古镇西井街103弄4号","hotelCity":"上海","hotelArea":"朱家角古镇"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201311/22/Z7-ECT9_uusNWId1Z720.jpg","hotelName":"上海威斯汀大饭店","hotelMark":4.6,"hotelSeq":"shanghai_city_468","hotelComment":2849,"hotelPrice":1058,"hotelDesc":"地理位置绝佳，奢华购物场所和观光景点均近在咫尺。璀璨的皇冠金光之顶，典雅的建筑风格，勾勒出外滩中心最光彩耀眼的标志性的现代建筑","hotelLocation":"上海市黄浦区河南中路88号 ","hotelCity":"上海","hotelArea":"人民广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/03/66I5P25tmidXvpom6720.jpg","hotelName":"上海金门大酒店","hotelMark":4.3,"hotelSeq":"shanghai_city_143","hotelComment":840,"hotelPrice":619,"hotelDesc":"当时名流淑媛精英荟萃的地方。座落于今日上海最繁华的“中华第一街”南京路钻石地段的豪华名宅依然保存了古朴、典雅的意大利精美风格","hotelLocation":"上海市黄浦区南京西路108号","hotelCity":"上海","hotelArea":"人民广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201104/20/NNNN2dNl3vPqNzRhN720.jpg","hotelName":"上海和平饭店","hotelMark":4.8,"hotelSeq":"shanghai_city_513","hotelComment":1212,"hotelPrice":1630,"hotelDesc":"黄浓墨重彩的辉煌历史让远东其他所有酒店都黯然失色。在过去的八十多年里，这座备受瞩目的地标性建筑一直是上海滩的社交中心和游乐之地","hotelLocation":"上海黄浦区南京东路20号","hotelCity":"上海","hotelArea":"外滩"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201501/06/66I5P269Q9QBxpfZ6720.jpg","hotelName":"上海徐家汇白玉兰酒店","hotelMark":4.3,"hotelSeq":"shanghai_city_2366","hotelComment":685,"hotelPrice":290,"hotelDesc":"酒店临近上海世博会纪念馆、卢浦大桥、新天地；周边还有淮海路、徐家汇、南京路步行街、城隍庙、梅赛德斯艺术中心等知名景点，性价比高","hotelLocation":"上海市黄浦区斜土路456号","hotelCity":"上海","hotelArea":"上海世博会纪念馆"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/23/66I5P25g470PPgpQ6720.jpg","hotelName":"上海门堂旅舍浦东机场店","hotelMark":4.8,"hotelSeq":"shanghai_city_20926","hotelComment":749,"hotelPrice":34,"hotelDesc":"位于浦东新区青厦路，近妙沁苑、华夏文化公园，地段优越，周边生活、休闲配套资源丰富，打造惬意休眠空间，忘却旅途的舟车劳顿","hotelLocation":"上海市浦东新区青厦路18号","hotelCity":"上海","hotelArea":"浦东机场商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/24/66I5P25dVq9yrklm6720.jpg","hotelName":"上海前景小筑酒店 ","hotelMark":4.4,"hotelSeq":"shanghai_city_18691","hotelComment":429,"hotelPrice":224,"hotelDesc":"“酒香不怕巷子深一样”，隐匿在弄堂深处别具一格的设计风格，简约的中世纪的钟表，老式的窗格，朱红色的地毯，像是进了古堡的酒窖！","hotelLocation":"上海市浙江中路108弄37号 ","hotelCity":"上海","hotelArea":"人民广场"}]
+        },
+
+
+        "hangzhou": {
+            cityChinese: '杭州',
+            cityUrl: 'hangzhou',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/bd/fc4fadf64a4bd7f7.jpg",//封面地址
+            hotelData: [{"hotelImg":"http://userimg.qunar.com/imgs/201305/03/JhS1_tJUZZ29zlppJ720.jpg","hotelName":"杭州五洋客栈御街店","hotelMark":4.5,"hotelSeq":"hangzhou_8171","hotelComment":5729,"hotelPrice":60,"hotelDesc":"位于中华美食园，吴山城隍阁与其相望，太庙遗址相近比邻，胡雪岩故居隔街而居，皇城根下鼓楼徒步可至，购物、美食都使您流连忘返，回味无穷","hotelLocation":"杭州上城区中山南路363号","hotelCity":"杭州","hotelArea":"鼓楼美食街"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201407/24/JhS1_t5xW7vbx1MKJ720.jpg","hotelName":"杭州风荷国际青年旅舍","hotelMark":4.4,"hotelSeq":"hangzhou_11861","hotelComment":2001,"hotelPrice":27,"hotelDesc":"客房以简约木质风格为主，公共花园露台，种满了植物和藤蔓，为您营造自然、舒适的悠闲时光","hotelLocation":"杭州市西湖区曙光路174号","hotelCity":"杭州","hotelArea":"西湖灵隐景观区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201602/02/66I5P2-VU1Cri7MM6720.jpg","hotelName":"杭州五洋公馆西湖店","hotelMark":4.5,"hotelSeq":"hangzhou_14687","hotelComment":3083,"hotelPrice":174,"hotelDesc":"离西湖仅百米之遥，以“浪漫、怀旧”为主题，是一幢有着历史记忆的建于民国年间的四层建筑，富有特色的主题酒店","hotelLocation":"杭州上城区解放路199号","hotelCity":"杭州","hotelArea":"南宋御街河坊街，西湖"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201412/19/Z7-ECTZYOm1_WkZwZ720.jpg","hotelName":"杭州江南驿国际青年旅舍","hotelMark":4.6,"hotelSeq":"hangzhou_12177","hotelComment":586,"hotelPrice":35,"hotelDesc":"，旅舍改造设计定位具有简朴而高品质的国际气氛。改造过程中为实现环保，尽量保留了原有的设计和材料，并使用了再利用、再生材料","hotelLocation":"杭州市余杭区良渚文化村玉鸟流苏苑01幢","hotelCity":"杭州","hotelArea":"良渚文化村"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201408/22/JhS1_t5wRETb3ClOJ720.jpg","hotelName":"杭州夏目客栈","hotelMark":4.6,"hotelSeq":"hangzhou_9832","hotelComment":828,"hotelPrice":28,"hotelDesc":"近邻植物园、浙大玉泉校区，东靠曲院风荷，西邻九里松、灵隐等景点。简洁的白色基调配以木质结构，使人轻松自在，放松发懒","hotelLocation":"西湖区玉古路青芝坞114号","hotelCity":"杭州","hotelArea":"西湖灵隐度假景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/25/66I5P25dkMIDMiLA6720.jpg","hotelName":"杭州银图电影主题酒店西溪湿地店","hotelMark":4.7,"hotelSeq":"hangzhou_16566","hotelComment":1062,"hotelPrice":238,"hotelDesc":"一家以电影艺术为主题的酒店。酒店拥有约93种电影主题，乐视电视、智能门锁、千兆WiFi，大厅配备观影厅，科技感十足","hotelLocation":"杭州西湖区区西溪路908号A座","hotelCity":"杭州","hotelArea":"西溪国家湿地公园南门"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201511/12/JhS1_thyHgKL_A7kJ720.jpg","hotelName":"杭州西湖远近客栈雷峰塔店","hotelMark":4.7,"hotelSeq":"hangzhou_12734","hotelComment":566,"hotelPrice":398,"hotelDesc":"落于西子湖畔，静谧而便捷、低调而品质。客栈毗邻净慈寺，背面即雷峰塔，塔之旁是梁山伯和祝英台十八相送的长桥。地理位置四通八达","hotelLocation":"杭州市西湖区玉皇山路阔石板179号","hotelCity":"杭州","hotelArea":"雷峰塔"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201510/27/d30ACBv5GFa2BgVOF720.jpg","hotelName":"苏州南园宾馆","hotelMark":4.8,"hotelSeq":"suzhou_jiangsu_150","hotelComment":1092,"hotelPrice":771,"hotelDesc":"落在风景如画的姑苏城东南，西邻沧浪亭，东与网师园为伴，北为旅游购物街，商贾云集，交通便利，是苏州市区唯一的园林别墅式国宾馆","hotelLocation":"苏州市姑苏区带城桥路99号 ","hotelCity":"杭州","hotelArea":"沧浪亭"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201407/16/NNNN2dHEUgLmSkogN720.jpg","hotelName":"周庄古韵风客栈总店","hotelMark":4.8,"hotelSeq":"suzhou_jiangsu_8376","hotelComment":531,"hotelPrice":151,"hotelDesc":"住在这里不仅可以尽情的享受“小桥、流水、人家”的美景，还可以品味店家提供的免费的阿婆茶","hotelLocation":"周庄福洪街9号","hotelCity":"苏州","hotelArea":"周庄古镇"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/17/l_2pLKRDYhw_zRLUR720.jpg","hotelName":"苏州周庄胡家怡园精品客栈","hotelMark":4.8,"hotelSeq":"suzhou_jiangsu_9920","hotelComment":467,"hotelPrice":181,"hotelDesc":"客栈为江南人家式建筑。装修格调追求“古雅的时尚，低调的奢华。”江南古典案几，雕花木窗，民族风格浓郁，宁静典雅","hotelLocation":"苏州昆山市周庄镇富贵园路99号","hotelCity":"苏州","hotelArea":"周庄古镇"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201503/09/8liXnFKnTlaQUZ05K720.jpg","hotelName":"苏州周庄漫行居5号古镇全景客栈","hotelMark":4.8,"hotelSeq":"suzhou_jiangsu_10337","hotelComment":567,"hotelPrice":198,"hotelDesc":"是一家将江南民居的古朴典雅与高端酒店的唯美精致融为一体的高级私人客栈。客栈由几栋周庄民居整修和翻新而成","hotelLocation":"苏州周庄镇富贵园路30号 ","hotelCity":"苏州","hotelArea":"周庄古镇"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/15/8q41fF9kqYhr8xttZ720.jpg","hotelName":"昆山周庄烟雨江南精品客栈","hotelMark":4.9,"hotelSeq":"suzhou_jiangsu_11973","hotelComment":1078,"hotelPrice":225,"hotelDesc":"典型的周庄民居特殊，融合了典型江南的古朴风格，客栈主推“漫”，浪漫，温馨，舒心，厌倦了快节奏的都市生活，这是一个不二选择","hotelLocation":"周庄梅花弄6号(周庄银子浜检票口) ( 周庄古镇)","hotelCity":"苏州","hotelArea":"周庄古镇"}]
+        },
+
+
+        "beijing": {
+          cityChinese: '北京',
+            cityUrl: 'beijing_city',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/ef/b9ee62da7e9a14f7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201511/02/JhS1_thUVCwxpwFvJ480.jpg","hotelName":"北京时光漫步怀旧主题酒店北京天坛店","hotelMark":4.8,"hotelSeq":"beijing_city_30841","hotelComment":460,"hotelPrice":279,"hotelDesc":"遵循时光漫步怀旧主题酒店的风格进行设计装修,怀旧元素以创意的形式点点滴滴渗透在酒店的设计理念中","hotelLocation":"北京市东城区左安门内大街4号","hotelCity":"北京","hotelArea":"天坛公园"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/29/JhS1_tJe-BBy7H4SJ720.jpg","hotelName":"北京豌豆尖儿青年旅舍西直门店","hotelMark":4.4,"hotelSeq":"beijing_city_27231","hotelComment":1717,"hotelPrice":55,"hotelDesc":"这里不仅是一个人来人往的旅舍，而是切切实实的家。充满温暖和美好，让一张张原本陌生的脸凑到一起，变成了我们的家人","hotelLocation":"北京市西城区前半壁街66号","hotelCity":"北京","hotelArea":"西直门"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201211/06/Z7S8IZZIvwjHYzEEZ720.jpg","hotelName":"北京容园宾馆四合院精品酒店","hotelMark":4.6,"hotelSeq":"beijing_city_12722","hotelComment":491,"hotelPrice":395,"hotelDesc":"四合院式建筑风格的中式豪华客房，紧邻护国寺金刚殿，近西单、护国寺小吃街、什刹海酒吧街、人民剧场、恭王府、梅兰芳故居等名胜景观","hotelLocation":"北京市西城区护国寺大院63号","hotelCity":"北京","hotelArea":"后海、什刹海"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201403/28/Z7-ECTk3fBxp-mPvZ720.jpg","hotelName":"北京世纪金源香山商旅酒店","hotelMark":4.6,"hotelSeq":"beijing_city_210","hotelComment":762,"hotelPrice":398,"hotelDesc":"由一栋主楼和多栋别墅环绕组成，以园林设计为依托的庭院式酒店，坐拥香山公园与植物园两大绿色生态园，毗邻历史文化园林颐和园","hotelLocation":"北京市海淀区北正黄旗59号","hotelCity":"北京","hotelArea":"香山"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/28/8q41fF9vxekdsOipZ720.jpg","hotelName":"北京和园国际青年旅舍","hotelMark":4.4,"hotelSeq":"beijing_city_8054","hotelComment":1135,"hotelPrice":246,"hotelDesc":"院落宽敞疏朗，四面房屋各处独立，彼此之间有游廊连接，通风采光。院内植被繁茂、鸟语花香，让您在都市里分享到大自然赐予的一片美好天地","hotelLocation":"北京市海淀区小西天文慧园路志强北园1号","hotelCity":"北京","hotelArea":"西直门商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201406/06/Z7-ECTkzjDeh6T0gZ720.jpg","hotelName":"北京圈子国际青年旅舍","hotelMark":4.5,"hotelSeq":"beijing_city_24217","hotelComment":1022,"hotelPrice":30,"hotelDesc":"坐落在西单商圈，闹中取静，繁中去索。坐在小小的天井中聆听夏日的蝉鸣，阳光打在旧日的瓦片上，斑驳出岁月的老去","hotelLocation":"北京市西城区西四北五条58号","hotelCity":"北京","hotelArea":"西单商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201508/25/66I5P25EgsxuUY_k6720.jpg","hotelName":"北京鼓韵青年旅舍","hotelMark":4.5,"hotelSeq":"beijing_city_1937","hotelComment":1579,"hotelPrice":65,"hotelDesc":"新现代化风格，客栈入门的楼梯玄关用植被和景点相框装饰，颇有文艺气息。附近临后海酒吧街，以及年轻人常去的南锣鼓巷，交通出行十分便利","hotelLocation":"北京东城区交道口北三条57号","hotelCity":"北京","hotelArea":"南锣鼓巷"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/26/JhS1_tJvgk--IJNZJ720.jpg","hotelName":"时光漫步怀旧主题酒店北京国子监店","hotelMark":4.7,"hotelSeq":"beijing_city_27439","hotelComment":968,"hotelPrice":319,"hotelDesc":"酒店毗邻中国古代最高学府——国子监，让人虔诚仰望国学精髓，心智得解；睦邻崇实中学，朗朗书声，令人感怀青葱岁月重回脑海","hotelLocation":"北京东城区东四二条1号（近美术馆、天安门、王府井步行街）","hotelCity":"北京","hotelArea":"国子监"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201405/05/jNmYiHjXLzLRPuB3_720.jpg","hotelName":"北京悦轩四合院青年旅舍","hotelMark":4.6,"hotelSeq":"beijing_city_24299","hotelComment":431,"hotelPrice":38,"hotelDesc":"胡同四合院建筑原有模样，内饰装修秉承着“舒适温馨的居家理念”，合理的色调，以及高品质的卫浴设备，充分体现着在居住舒适度上的用心","hotelLocation":"北京东城区东四二条1号（近美术馆、天安门、王府井步行街）","hotelCity":"北京","hotelArea":"王府井步行街"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201212/07/nz078uvZ0crP1Edcv720.jpg","hotelName":"北京侣松园宾馆","hotelMark":4.5,"hotelSeq":"beijing_city_20","hotelComment":330,"hotelPrice":300,"hotelDesc":"建筑主体为清末大将军、蒙古亲王僧格林沁王府的一部分，属于北京市文物保护单位，紧靠北海及景山，极具特色的四合院","hotelLocation":"北京东城区宽街板厂胡同22号","hotelCity":"北京","hotelArea":"南锣鼓巷"}]
+        },
+
+
+        "chengdu": {
+          cityChinese: '成都',
+            cityUrl: 'chengdu',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/b4/5bf647dda65fd1f7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201408/26/Z7-ECT7ZFTBvUFXJZ720.jpg","hotelName":"成都春熙坊 老成都客栈","hotelMark":4.4,"hotelSeq":"chengdu_10320","hotelComment":2944,"hotelPrice":187,"hotelDesc":"位于总府路，紧邻春熙路北口。周边配套一应俱全，毗邻春熙坊-唐宋美食街（美食街隶属于本酒店），让您享受地道四川风味美食。","hotelLocation":"成都市总府路29号(皇冠假日酒店旁)","hotelCity":"成都","hotelArea":" 春熙路、天府广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201306/15/wr32toosNQltNrbvo720.jpg","hotelName":"成都森楠艺术酒店","hotelMark":4.3,"hotelSeq":"chengdu_7178","hotelComment":2867,"hotelPrice":228,"hotelDesc":"步入大堂，那精致艺术的布局，厚重的艺术氛围；鲜明别具一格的色彩更为酒店艺术氛围蒙上了一层神秘的纱，四川内少有以艺术为主题的酒店","hotelLocation":"成都市青羊区太升南路61号","hotelCity":"成都","hotelArea":" 春熙路、天府广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201408/01/JhS1_t5f5sCKUQWRJ720.jpg","hotelName":"成都环球中心天堂洲际大饭店","hotelMark":4.6,"hotelSeq":"chengdu_7358","hotelComment":2753,"hotelPrice":955,"hotelDesc":"在亚洲最大的单体建筑环球中心内，外观宏伟气派。欧式复古风格和现代风格相结合，彰显豪华。更有世界一流美食，打造美轮美奂的入住体验","hotelLocation":"成都市高新区天府大道北段1736号 ","hotelCity":"成都","hotelArea":"世纪城新会展"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201206/02/Z7S8IZkCpEWytPvRZ720.jpg","hotelName":"成都马瑞卡都市酒店","hotelMark":4.4,"hotelSeq":"chengdu_17","hotelComment":2678,"hotelPrice":158,"hotelDesc":"紧靠成都巴蜀著名禅院-文殊院，优质而温馨的服务历来为客人所称道，是商务客人或观光客人理想选择。精心的细节设计让开阔的空间备感温馨","hotelLocation":"青羊区文武路42号新时代广场B座 ","hotelCity":"成都","hotelArea":" 春熙路、宽窄巷子"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/05/8q41fFZecpjQ88EVZ720.jpg","hotelName":"成都拖板鞋青年旅舍","hotelMark":4.6,"hotelSeq":" chengdu_6370","hotelComment":1601,"hotelPrice":25,"hotelDesc":"酒店提供城市徒步旅行、包饺子聚会和麻将课等免费休闲活动。 旅馆设有桌上足球、书籍和杂志的舒适休息区。可安排徒步旅行和骑自行车旅行","hotelLocation":"成都锦江区东升街96号红星菜市侧  ","hotelCity":"成都","hotelArea":" 春熙路，九眼桥"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201401/22/JhS1_thIE5TDX_PeJ720.jpg","hotelName":"成都懒骨头青年旅舍","hotelMark":4.6,"hotelSeq":"chengdu_1280","hotelComment":1497,"hotelPrice":129,"hotelDesc":"面对 “钟水饺总店”和“骡马寺地铁站”，成都茶馆聚集地人民公园和宽窄巷子。“陈麻婆豆腐”和“担担面总店”也与懒骨头青年旅舍靠齐","hotelLocation":"四川省成都市羊市街16号","hotelCity":"成都","hotelArea":"宽窄巷子、天府广场"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/09/66I5P25VeiFon7bC6720.jpg","hotelName":"登巴连锁客栈成都店","hotelMark":4.4,"hotelSeq":"chengdu_5343","hotelComment":1305,"hotelPrice":25,"hotelDesc":"环境幽静，典型藏式建筑风格，享有繁华都市一抹静谧之美。每天可以聆听来自西藏雪域高原颂经的声音，亦可同天真烂漫的小喇嘛们交流问好","hotelLocation":"四川成都市永陵路15号（永陵博物馆对面巷子）","hotelCity":"成都","hotelArea":"宽窄巷子"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/12/JhS1_tJLejvVUTIOJ720.jpg","hotelName":"成都云徒青年旅社春熙路店","hotelMark":4.7,"hotelSeq":"chengdu_14467","hotelComment":1257,"hotelPrice":40,"hotelDesc":"位于城市中心区域，便利的交通在前，较好的服务在后，优良的硬件在底，简约前沿的设计感在上，集成了这么一家会让你耳目一新的新住所","hotelLocation":"成都市青羊区顺城大街288号（富力天汇对面）（珠峰宾馆院内）","hotelCity":"成都","hotelArea":"天府广场、春熙路"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201501/14/66I5P26Wjali_sJi6720.jpg","hotelName":"成都夏木花园青年旅舍宽窄巷子店","hotelMark":4.7,"hotelSeq":"chengdu_11823","hotelComment":1105,"hotelPrice":30,"hotelDesc":"周边美食巨多：火锅、串串、特色猪肝面、烤鱼、烧烤应有尽有。 并会不定期的组织小伙伴们踏上寻觅成都美食之旅。 我们在这里，你在吗？","hotelLocation":"成都市金牛区百寿路22号三楼（百寿路西与大庆路交叉口）","hotelCity":"成都","hotelArea":"杜甫草堂、一品天下"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/18/8q41fFZL5NHd8NrQZ720.jpg","hotelName":"成都黄龙溪璞院酒店","hotelMark":4.7,"hotelSeq":"chengdu_9977","hotelComment":314,"hotelPrice":260,"hotelDesc":"酒店交通位置便利设施齐全，服务周到，让您在轻松惬意之中体会原汁原味的成都慢生活和古镇温润优雅的时光。","hotelLocation":"成都双流县黄龙溪镇上河衢田园水村仿清街消防队（2期广场）","hotelCity":"成都","hotelArea":"黄龙溪古镇"}]
+
+        },
+
+
+        "guangzhou": {
+          cityChinese: '广州',
+            cityUrl: 'guangzhou',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/53/144d50050dada9f7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201511/18/JhS1_th6Pbr49T3zJ720.jpg","hotelName":"广州迷途主题旅馆北京路3D魔幻店","hotelMark":4.5,"hotelSeq":"guangzhou_15504","hotelComment":2123,"hotelPrice":289,"hotelDesc":"迷途精心制作了五大系列主题：大自然、动漫、电影、梦幻、都市，房间的墙身画全是3D视觉效果，真正的360度拍摄无死角","hotelLocation":"广州越秀区文明路63号金佰利广场6-7楼（北京路天河城旁）","hotelCity":"广州","hotelArea":"北京路商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201506/28/66I5P25InNAIFpNs6720.jpg","hotelName":"广州桐舍酒店火车站店","hotelMark":4.6,"hotelSeq":"guangzhou_18283","hotelComment":706,"hotelPrice":189,"hotelDesc":"酒店位于火车站对面，傍依草暖公园、越秀公园，闹中取静的小资味道。一杯桐约咖啡，一本好书，初到广州的治愈系时光由此开启。","hotelLocation":"广州越秀区环市西路202号美博运动城旁（广州火车站正对面）","hotelCity":"广州","hotelArea":"火车站商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201412/14/JhS1_tJoIpdmzz2PJ720.jpg","hotelName":"广州春田家家青年旅舍LAZY GAGA","hotelMark":4.6,"hotelSeq":"guangzhou_11191","hotelComment":1929,"hotelPrice":60,"hotelDesc":"酒店在北京路与上下九步行街之间，景点小吃爽到爆；300平方巨型客厅，桌球、电影、桌游玩到嗨。青春作伴就是这么酷","hotelLocation":"越秀区海珠中路215号全幢","hotelCity":"广州","hotelArea":"上下九步行街|北京路商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201511/04/JhS1_thnhAPdOJygJ720.jpg","hotelName":"广州东山梓园青年旅舍","hotelMark":4.4,"hotelSeq":"guangzhou_9727","hotelComment":1269,"hotelPrice":33,"hotelDesc":"酒店位于广州交通方便的地铁一号线和五号线交汇处杨箕站，青旅让一个人的旅行不再孤单，一个分享旅途见闻、结识新伙伴的好地方","hotelLocation":"广州市越秀区共和路12号-5（杨箕地铁站F出口）","hotelCity":"广州","hotelArea":"五羊新城商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201212/04/nz078uvcKaX5Z8I-v720.jpg","hotelName":"广州花都美林湖温泉大酒店","hotelMark":4.7,"hotelSeq":"guangzhou_8332","hotelComment":730,"hotelPrice":1066,"hotelDesc":"座拥30000亩原生态森林，8000亩生态湖等天然资源，周边环绕高尔夫球场。酒店还配有儿童俱乐部，全家一起来泡了","hotelLocation":"广州市花都区山前美林湖大道","hotelCity":"广州","hotelArea":"花都区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201207/12/Z7S8IZZZ1Hysuj5pZ720.jpg","hotelName":"广州合晋帝苑酒店","hotelMark":4.4,"hotelSeq":"guangzhou_8774","hotelComment":3878,"hotelPrice":177,"hotelDesc":"酒店以花园为主题，精心打造的花园区种满各种岭南特色的植物，漫步别墅区置身于鸟语花香之间，悠哉游哉","hotelLocation":"广州市海珠区赤岗路12号（临近客村赤岗地铁站、小蛮腰广州塔） ","hotelCity":"广州","hotelArea":"琶洲国际会展"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201212/08/nz078uvZFZ8TNIFUv720.jpg","hotelName":"广州长隆酒店","hotelMark":4.5,"hotelSeq":"guangzhou_49","hotelComment":8090,"hotelPrice":1027,"hotelDesc":"宛若一座古堡，左揽长隆欢乐世界，右依香江野生动物世界，全中国唯一放养白虎及火烈鸟的中庭花园，探秘大自然之旅，你心动了吗？ ","hotelLocation":"广州市番禺区番禺大道","hotelCity":"广州","hotelArea":"番禺长隆区域"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/10/8q41fF9qgumSv3_pZ720.jpg","hotelName":"广州亚特兰酒店","hotelMark":4.2,"hotelSeq":"guangzhou_11642","hotelComment":2357,"hotelPrice":583,"hotelDesc":"古代亚特兰蒂斯王国海洋特色酒店，内外均由情趣各异的海洋生物造型及童话故事图案装扮，带上宝贝来造梦吧","hotelLocation":"广州市番禺区105国道大石段713号（近香江野生动物世界）","hotelCity":"广州","hotelArea":"番禺长隆区域|广州南站"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201305/18/880CDU8gASDbrIRV8720.jpg","hotelName":"广州W酒店","hotelMark":4.6,"hotelSeq":"guangzhou_10103","hotelComment":1479,"hotelPrice":1420,"hotelDesc":"时尚夜风酒店，以当代设计为主导打造奢华的现代生活方式的住宿体验。落地窗前一杯咖啡，凝望奢华都市的夜夜夜夜。","hotelLocation":"广州天河区珠江新城冼村路26号 ","hotelCity":"广州","hotelArea":"珠江新城商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201410/22/GIGWX47FjlunDjnH7720.jpg","hotelName":"广州白云湖畔酒店","hotelMark":4.5,"hotelSeq":"guangzhou_4188","hotelComment":1277,"hotelPrice":407,"hotelDesc":"酒店临湖而筑，纵览南湖六十万平方米丽水林岸写意美景。春暖花开的季节，来一场纯净养心之旅，这里距自然很近，离繁盛不远","hotelLocation":"广州市白云区南湖中路1号","hotelCity":"广州","hotelArea":"永泰商圈|白云山风景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201404/02/Z7-ECTkJsO6Hy9dmZ720.jpg","hotelName":"广州天美酒店","hotelMark":4.3,"hotelSeq":"guangzhou_2313","hotelComment":2565,"hotelPrice":326,"hotelDesc":"酒店主打时尚风，现代轻奢的客房、解构主义设计风格的咖啡厅、充满艺术氛围的会议室，时尚跟广州之旅更配哦！","hotelLocation":"广州天河区天河路371-373号隆德大厦1楼","hotelCity":"广州","hotelArea":"天河体育中心商圈"}]
+
+        },
+
+
+        "lijiang": {
+          cityChinese: '丽江',
+            cityUrl: 'lijiang',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/9c/ca2bb418ad5cdaf7.jpg",//封面地址
+            hotelData:
+                    [{"hotelImg":"http://userimg.qunar.com/imgs/201601/16/JhS1_t5pVEzgr7e5J720.jpg","hotelName":"丽江梦之旅观景客栈","hotelMark":4.9,"hotelSeq":"lijiang_8708","hotelComment":1944,"hotelPrice":118,"hotelDesc":"离古城大水车步行10分钟。深具纳西贵族庭院风格，充满了强烈的民族风格，供您尽情享受丽江的悠闲时光中和蓝天白云下的纯美意境。","hotelLocation":"丽江古城北门坡路边义尚文明巷75号（金虹路古城管理局路口与金虹路加油站中间）","hotelCity":"丽江","hotelArea":"大研古城"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201501/12/JhS1_tJOhwHVUxF_J720.jpg","hotelName":"丽江古城云裳纳美精致客栈","hotelMark":4.8,"hotelSeq":"lijiang_6168","hotelComment":931,"hotelPrice":88,"hotelDesc":"落落大方的庭院，每一处都点缀着纳西民族不改的容颜，客栈的整个建筑结构延续传统纳西民居风格，完整的保留了旧日的风貌","hotelLocation":"丽江五一街兴仁中段48号","hotelCity":"丽江","hotelArea":"大研古城"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201511/07/JhS1_thnxY2IhZp_J720.jpg","hotelName":"丽江古城独家记忆雪景苑度假会所","hotelMark":4.8,"hotelSeq":"lijiang_8969","hotelComment":901,"hotelPrice":258,"hotelDesc":"客房内部装饰古色而精致，设施完全按照星级酒店配备。泡在临窗的大浴缸里，让热水爬上双肩，透过微风轻抚的树梢，雪山若隐若现，无限惬意","hotelLocation":"丽江市古城区民主路金甲村61号（望古楼西）","hotelCity":"丽江","hotelArea":"大研古城"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201506/12/JhS1_thhDiH9HXmZJ720.jpg","hotelName":"丽江束河月上客栈","hotelMark":4.9,"hotelSeq":"lijiang_7117","hotelComment":776,"hotelPrice":275,"hotelDesc":"拥有古镇唯一的老式三层楼建筑，占据古镇最高点，可以270°全方位欣赏玉龙雪山。期待带着柔软的心来到月上感受不一样的丽江","hotelLocation":"丽江市古城区束河古镇中和路50号","hotelCity":"丽江","hotelArea":"束河古镇、玉龙雪山"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201511/09/JhS1_thrExmRWqdQJ720.jpg","hotelName":"丽江束河诗莉莉雪山观景蜜月客栈","hotelMark":4.8,"hotelSeq":"lijiang_9923","hotelComment":725,"hotelPrice":226,"hotelDesc":"院落位于丽江束河古镇闹中取静的最佳位置，既可静心品茶远观玉龙雪山，又可小走几步近感夜夜笙歌。既着力于还原纳西风貌，又处处注意细节","hotelLocation":"丽江市束河古镇东康七组53号","hotelCity":"丽江","hotelArea":"束河古镇"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201410/18/JhS1_tJVCQ4QHqcAJ720.jpg","hotelName":"丽江花屿度假庭院","hotelMark":4.9,"hotelSeq":"lijiang_8822","hotelComment":571,"hotelPrice":378,"hotelDesc":"这是一个有爱的客栈，尽所能来完美你这一场说走就走的旅行！只为做你旅途中温暖的归宿。丽江花屿，等你回家！","hotelLocation":"丽江古城新义街百岁坊38号","hotelCity":"丽江","hotelArea":"大研古城"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201505/14/8q41fFZN6b-HFD4HZ720.jpg","hotelName":"泸沽湖小雅鹿鸣轻奢湖景度假客栈","hotelMark":4.5,"hotelSeq":"lijiang_9537","hotelComment":492,"hotelPrice":260,"hotelDesc":"在女儿国泸沽湖湖边，在小雅鹿鸣，在360度无敌湖景大床房里，欣赏着泸沽湖的风景如画，享受着温暖的阳光，而我，享受着你所享受的幸福","hotelLocation":"丽江泸沽湖蒗放村普米","hotelCity":"丽江","hotelArea":"泸沽湖景区"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201401/25/JhS1_thwX6TmUnbOJ720.jpg","hotelName":"丽江西若如精品度假酒店","hotelMark":4.8,"hotelSeq":"lijiang_7647","hotelComment":441,"hotelPrice":306,"hotelDesc":"具有浓郁纳西民族特色的主题式休闲度假酒店。院子精巧别致，宁静优雅，错落有致，移步异景，景景相透。酒店采用地热采暖系统，冬暖夏凉","hotelLocation":"丽江古城区束河古镇龙泉居委会中和村30号","hotelCity":"丽江","hotelArea":"束河古镇"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201410/16/zNMxGNYQD8O6kAKoY720.jpg","hotelName":" 丽江指云公馆","hotelMark":4.9,"hotelSeq":"lijiang_8879","hotelComment":432,"hotelPrice":340,"hotelDesc":"一家把传统纳西古建糅合进大气华美的欧美乡村风的超星标准精品客栈。成就细节之美”的建馆理念，不遗余力于每一个微细处彰显热忱和真诚。","hotelLocation":"丽江市古城区义尚街文明村93号","hotelCity":"丽江","hotelArea":"大研古城"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201507/09/JhS1_thoWDcyuBUFJ720.jpg","hotelName":"三色云河泸沽湖店","hotelMark":4.8,"hotelSeq":"lijiang_7803","hotelComment":424,"hotelPrice":403,"hotelDesc":"临湖而建，客栈设计格调高雅，结合现代舒适与摩梭人文为一体，精致的客房风格为您营造温馨、轻松的氛围，让您和家人轻松愉快的享受旅途","hotelLocation":"泸沽湖大落水村","hotelCity":"丽江","hotelArea":"泸沽湖景区"},
+                        {"hotelImg":"http://userimg.qunar.com/imgs/201510/13/JhS1_th_TBkKHpsCJ720.jpg","hotelName":"丽江红尘净土精品连锁客栈百岁坊店","hotelMark":4.8,"hotelSeq":"lijiang_2448","hotelComment":397,"hotelPrice":307,"hotelDesc":"绿柳三春暗，红尘百戏多。“红尘净土”虽然不大，但是足够温馨；虽然不够奢华，但是足够舒适。虽然和来往的客人相识很短，但是却足够知心","hotelLocation":"丽江市古城区新义街百岁坊50号","hotelCity":"丽江","hotelArea":"大研古城"}]
+        },
+
+
+        "nanjing": {
+          cityChinese: '南京',
+            cityUrl: 'nanjing',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/ea/bbb2c8ee8e4389f7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201505/10/8q41fFZjWW7Hc-bzZ720.jpg","hotelName":"南京时光机国际青年旅舍","hotelMark":4.5,"hotelSeq":"nanjing_9207","hotelComment":1341,"hotelPrice":33,"hotelDesc":"客房干净、卫生，具有基础性设施，大厅是典型的青旅风格，各色小旗子、墙贴、杂志、游戏牌，让您放松心情，旁边就是芳婆糕团店","hotelLocation":"南京秦淮区王府大街63号中泰国际大厦北楼401号","hotelCity":"南京","hotelArea":"新街口、夫子庙"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201409/15/66I5P26F30-MXrAU6720.jpg","hotelName":"南京土丁万里路国际青年酒店","hotelMark":4.5,"hotelSeq":"nanjing_7866","hotelComment":1330,"hotelPrice":51,"hotelDesc":"南京土丁万里路国际青年酒店是一幢具有徽派风格的建筑；一楼为酒店大堂，酒店拥有各种房型供您选择，房间内设施齐全，布置温馨。","hotelLocation":"南京市秦淮区信府河39号","hotelCity":"南京","hotelArea":"新街口、夫子庙"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201508/27/66I5P25Ecxk8Tm-k6720.jpg","hotelName":"南京流年青年客栈新街口店","hotelMark":4.7,"hotelSeq":"nanjing_10036","hotelComment":1146,"hotelPrice":30,"hotelDesc":"房间为最新装修，有阅读区，酒吧区，娱乐区；前台有毛巾、洗发露、吹风机等生活用品供使用或购买；每个房间独立的WIFI","hotelLocation":"南京市秦淮区新街口石鼓路193号","hotelCity":"南京","hotelArea":"新街口、夫子庙"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201312/31/Z7-ECT9jb8vvmXtaZ720.jpg","hotelName":"南京条形码艺术酒店夫子庙游戏店 ","hotelMark":4.3,"hotelSeq":"nanjing_7796","hotelComment":1454,"hotelPrice":172,"hotelDesc":"以游戏为主题酒店，大厅有体感互动设备，让你做一次武林高手；大厅有光束能量柱，让你精力充沛。 房型设计别致，环境优雅，服务到位","hotelLocation":"南京市秦淮区白下路151号 ","hotelCity":"南京","hotelArea":"新街口、夫子庙"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201601/18/66I5P2-gLJlHze9I6720.jpg","hotelName":"南京夫子庙国际青年旅舍","hotelMark":4.3,"hotelSeq":"nanjing_2191","hotelComment":3540,"hotelPrice":25,"hotelDesc":"傍依秦淮河，是一幢具有明清风格的建筑。一楼为接待处，四楼酒吧茶座，并提供简餐，立志将其打造成户外自助 旅游者的主题酒吧","hotelLocation":"南京秦淮区夫子庙平江府路68号 ","hotelCity":"南京","hotelArea":"夫子庙、新街口"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201501/22/66I5P268Fzvx9k8F6720.jpg","hotelName":"南京凯铂•精品酒店","hotelMark":4.4,"hotelSeq":"nanjing_6282","hotelComment":3368,"hotelPrice":428,"hotelDesc":"新欧式主义的装饰风格，极致完美的设施设备，让您享受舒适与温馨。同时为您提供贴心的洗衣服务、送餐服务等，让您入住享受尊贵体验","hotelLocation":"南京市中山路102号","hotelCity":"南京","hotelArea":" 新街口"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201504/03/Z7-ECTZ_DSHs6cstZ720.jpg","hotelName":"南京玄武门亚朵酒店","hotelMark":4.7,"hotelSeq":"nanjing_8668","hotelComment":2895,"hotelPrice":386,"hotelDesc":"坐落于风光秀丽的玄武湖畔，凭栏相望， 酒店设计简约雅致，酒店一楼设有超大阅读会友空间（竹居），为您提供一个自在、放松的空间。","hotelLocation":"南京市玄武区中央路266号","hotelCity":"南京","hotelArea":"玄武湖地区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/22/Z7-ECTZgsCmCxbzhZ720.jpg","hotelName":"南京金陵饭店","hotelMark":4.5,"hotelSeq":"nanjing_96","hotelComment":2452,"hotelPrice":899,"hotelDesc":"中国现代酒店的先行者，明慧敦厚，婉约热忱；细意浓情的服务在国际酒店业盛受赞誉。深具东方情韵，用心满足每位客人的个性化需求","hotelLocation":"南京市鼓楼区新街口汉中路2号","hotelCity":"南京","hotelArea":"新街口、夫子庙"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201106/02/187IXn8bvezt-W4R1720.jpg","hotelName":"南京维景国际酒店","hotelMark":4.7,"hotelSeq":"nanjing_17","hotelComment":1928,"hotelPrice":463,"hotelDesc":"座落在优美的中山风景区旁，环境优雅，闹中取静，交通便利。背倚巍巍紫金山，远眺美丽的玄武湖，宁谧清幽，令人目酣神醉，堪称城市花园","hotelLocation":"南京市玄武区中山东路319号","hotelCity":"南京","hotelArea":"瑞金路地区、中山陵景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201601/06/JhS1_t5hGwn_8RrOJ720.jpg","hotelName":"南京索菲特银河大酒店","hotelMark":4.5,"hotelSeq":"nanjing_1979","hotelComment":1177,"hotelPrice":598,"hotelDesc":"独有法式奢华风情给南京这座十朝古都增添了浪漫的气息。大堂及所拥有的客房按欧式奢华风格设计，极具现代感，地理位置优越，出行首选之地","hotelLocation":"南京市鼓楼区山西路9号","hotelCity":"南京","hotelArea":"湖南路商圈"}]
+        },
+
+        "sanya": {
+          cityChinese: '三亚',
+            cityUrl: 'sanya',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/35/d4efac32d7ecf7f7.jpg",//封面地址
+            hotelData: [{"hotelImg":"http://userimg.qunar.com/imgs/201504/22/JhS1_tJ11sJ50LzoJ720.jpg","hotelName":"三亚凤凰岛海洋之星度假酒店三亚湾店","hotelMark":4.4,"hotelSeq":"sanya_9363","hotelComment":2999,"hotelPrice":378,"hotelDesc":"公寓坐落于有着“东方迪拜”之称的三亚凤凰岛上，旖旎霞光下弥漫着山、海、天的秀美，或许蜜月从这里开始刚刚好","hotelLocation":"三亚市河西区凤凰岛E座1101室","hotelCity":"三亚","hotelArea":"三亚湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201503/26/66I5P26j2ZPcF0116720.jpg","hotelName":"三亚湾红树林度假世界木棉酒店","hotelMark":4.5,"hotelSeq":"sanya_9408","hotelComment":4782,"hotelPrice":530,"hotelDesc":"三亚湾度假型酒店，面积很大，比肩亚马逊丛林水乐园，带上宝贝体验丛林漂流、火山水乐园、儿童水寨找童年","hotelLocation":"三亚市凤凰路155号","hotelCity":"三亚","hotelArea":"红树林度假世界"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201502/03/66I5P26nscJKe7zn6720.jpg","hotelName":"三亚亚龙湾金海湾花园洋房亚龙湾鸟巢店","hotelMark":4.7,"hotelSeq":"sanya_10060","hotelComment":617,"hotelPrice":314,"hotelDesc":"酒店毗邻亚龙湾黄金海滩、亚龙湾热带森林公园（非诚勿扰2拍摄地），拥有神秘优雅后花园的独栋别墅带你探寻大美三亚。","hotelLocation":"三亚亚龙湾路107号公主郡二期63栋3单元106","hotelCity":"三亚","hotelArea":"亚龙湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201411/24/Us70dSTITM4o2MP4T720.jpg","hotelName":"三亚亚龙湾假日度假酒店","hotelMark":4.6,"hotelSeq":"sanya_6655","hotelComment":4793,"hotelPrice":715,"hotelDesc":"酒店直面大海，依傍亚龙湾海底世界和百花谷商业中心。带上爱人与宝贝，戏水戏沙，一起看海看日落","hotelLocation":"三亚市亚龙湾旅游度假区（海底世界斜对面）","hotelCity":"三亚","hotelArea":"亚龙湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201509/02/JhS1_thEm6YyK7vFJ720.jpg","hotelName":"三亚京海国际假日酒店三亚湾店","hotelMark":4.7,"hotelSeq":"sanya_11256","hotelComment":2483,"hotelPrice":418,"hotelDesc":"三亚湾“椰梦长廊”观海区的唐风京韵酒店，180度无敌海景湛蓝悠远，价格却并不傲娇，一家人安心小住吧","hotelLocation":"三亚市三亚湾路139号","hotelCity":"三亚","hotelArea":"三亚湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201502/04/Z7-ECTZfybIWUDevZ720.jpg","hotelName":"三亚亚龙湾天域度假酒店","hotelMark":4.6,"hotelSeq":"sanya_103","hotelComment":6007,"hotelPrice":1247,"hotelDesc":"作为亲子游口碑最好的酒店，无论是全家嬉戏漫步私家海滩，还是儿童俱乐部丰富的娱乐活动，在天域看海是一种习惯，亲子是一重享乐。","hotelLocation":"三亚亚龙国家旅游度假区（亚龙湾中心广场旁）","hotelCity":"三亚","hotelArea":"亚龙湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201307/19/Z7-ECT9V9_wf1yGQZ720.jpg","hotelName":"金茂三亚亚龙湾丽思卡尔顿酒店","hotelMark":4.7,"hotelSeq":"sanya_2134","hotelComment":3722,"hotelPrice":1943,"hotelDesc":"当地人口中三亚最好的酒店，迎宾椰壳项链和小熊，儿童专属泳池游乐区，做足细节的壕酒店在召唤","hotelLocation":"三亚市亚龙湾国家旅游度假区","hotelCity":"三亚","hotelArea":"亚龙湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201504/22/JhS1_tJ11sJ50LzoJ720.jpg","hotelName":"三亚凤凰岛海洋之星度假酒店三亚湾店","hotelMark":4.4,"hotelSeq":"sanya_9363","hotelComment":2999,"hotelPrice":378,"hotelDesc":"公寓坐落于有着“东方迪拜”之称的三亚凤凰岛上，旖旎霞光下弥漫着山、海、天的秀美，或许蜜月从这里开始刚刚好","hotelLocation":"三亚市河西区凤凰岛E座1101室","hotelCity":"三亚","hotelArea":"三亚湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201411/29/JhS1_tJMiHOf_Ay5J720.jpg","hotelName":"三亚亚龙湾山湖海别墅度假酒店","hotelMark":4.2,"hotelSeq":"sanya_9789","hotelComment":1643,"hotelPrice":388,"hotelDesc":"酒店近湖临海，繁华中蕴藏着私密和宁静，95间联排别墅由著名设计师Vincent以5星酒店标准设计，融合东南亚生态度假风格","hotelLocation":"三亚市亚龙湾国家旅游度假区亚泰商业街（百花谷对面）","hotelCity":"三亚","hotelArea":"百花谷对面"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/31/66I5P25i_y3RG9gE6720.jpg","hotelName":"三亚海贝贝沙滩海景客栈三亚湾店","hotelMark":4.6,"hotelSeq":"sanya_11842","hotelComment":380,"hotelPrice":68,"hotelDesc":"以海岸别墅构造，装修充斥东南亚风格，大量采用木质精美的家具。直接步入海边，享受阳光沙滩和轻柔的海浪，度过一个椰林树影的浪漫假期","hotelLocation":"三亚市天涯镇黄龙街海岸3号","hotelCity":"三亚","hotelArea":"天涯海角景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201511/06/JhS1_thnRxoCZbdYJ720.jpg","hotelName":"三亚大东海最三亚假日海景公寓","hotelMark":4.5,"hotelSeq":"sanya_9615","hotelComment":443,"hotelPrice":103,"hotelDesc":"公寓依山面海，出门就可以去冲浪游泳，听听海浪声，看潮起潮落。回来又有几分家里的温馨随意，90后小伙伴邀约三五好友一起去三亚","hotelLocation":"三亚市大东海花园小区","hotelCity":"三亚","hotelArea":"大东海"}]
+        },
+
+
+        "kunming": {
+          cityChinese: '昆明',
+            cityUrl: 'kunming',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/4e/fd505c02a0049ff7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201408/30/rqfFddd3-Zk0645Wd720.jpg","hotelName":"昆明三寸彼岸主题花园酒店","hotelMark":4.8,"hotelSeq":"kunming_4588","hotelComment":1616,"hotelPrice":192,"hotelDesc":"三寸彼岸酒店一房一风景，一房一世界。一寸花草，一寸净土，一寸情怀，三寸彼岸，等待您的靠岸。","hotelLocation":"昆明市官渡区北京路（昆湖饭店对面公交车站口，近火车站） ","hotelCity":"昆明","hotelArea":"翠湖公园"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201412/03/JhS1_tJ-KvVT9VTqJ720.jpg","hotelName":"昆明格拉丁国际青年旅舍火车站店","hotelMark":4.6,"hotelSeq":"kunming_4491","hotelComment":2561,"hotelPrice":20,"hotelDesc":"格拉丁为大家提供的不仅仅是睡觉床铺，而是给顾客提供交流和交友的平台。为的是让驴友们更容易找到同路人，让驴友们都不再孤独而行","hotelLocation":"昆明官渡区国际会展中心万兴映象C栋3、4楼","hotelCity":"昆明","hotelArea":"客栈毗邻火车站"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201408/26/HJI_JOpDnrgYMH4hD720.jpg","hotelName":"昆明唐韵温泉花园酒店官渡古镇店","hotelMark":4.3,"hotelSeq":"kunming_874","hotelComment":675,"hotelPrice":200,"hotelDesc":"酒店装修秉承浓郁古镇风格，典雅精致。古色古香的气息，温馨的服务，让你爱上这里","hotelLocation":"中国 云南 昆明官小路官渡古镇C区","hotelCity":"昆明","hotelArea":"官渡古镇、螺蛳湾"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201408/28/Z7-ECTZ7kLEeUC-LZ720.jpg","hotelName":"昆明倾城国际青年旅舍","hotelMark":4.6,"hotelSeq":"kunming_1818","hotelComment":2155,"hotelPrice":34,"hotelDesc":"位于城市中心，翠湖之畔，位置优越，尽享便捷。旅舍绿树掩映，花鸟虫鱼皆有灵性；空间分割错落有致，点滴间皆有独具匠心的设计","hotelLocation":"昆明市五华区华山西路92号","hotelCity":"昆明","hotelArea":"翠湖公园"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201505/13/66I5P26HFQWX3uxp6720.jpg","hotelName":"昆明26Life族迹民族创意客栈昆明火车站店","hotelMark":4.7,"hotelSeq":"kunming_3417","hotelComment":1517,"hotelPrice":50,"hotelDesc":"首家“按26种云南民族打造26间不同客房”的连锁主题客栈，适合中转又想体验昆明的族人。阳光别墅花园，赏花品茶小憩。","hotelLocation":"昆明市官渡区官南大道1143号福泽苑别墅区603栋","hotelCity":"昆明","hotelArea":"客栈毗邻火车站"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201408/26/JhS1_tbJYDgwznz3J720.jpg","hotelName":"昆明大脚氏国际青年旅舍","hotelMark":4.6,"hotelSeq":"kunming_166","hotelComment":1406,"hotelPrice":45,"hotelDesc":"旅舍的土黄色小楼典雅别致，庭院内四季花团锦簇、生机盎然，一楼的大脚氏酒吧是昆明驴友、摄友的聚集之地，旅行的气氛纯粹、浓郁。","hotelLocation":"昆明市五华区篆塘路23号","hotelCity":"昆明","hotelArea":"昆都夜市，翠湖公园"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/17/tFiiLtaII1HbWFEtt720.jpg","hotelName":"昆明洲际酒店","hotelMark":4.8,"hotelSeq":"kunming_3267","hotelComment":1237,"hotelPrice":1042,"hotelDesc":"位于美丽的高原明珠滇池之畔，酒店的宁静 奢华，充满异国情调的动植物，世界级的美食和员工温馨的微笑","hotelLocation":"昆明市滇池国家旅游度假区怡景路5号","hotelCity":"昆明","hotelArea":"滇池风景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201101/20/C.JhS1_tJTIvSpf1BiJ720.jpg","hotelName":"昆明安宁温泉心景花园酒店","hotelMark":4.4,"hotelSeq":"kunming_2106","hotelComment":1424,"hotelPrice":600,"hotelDesc":"位于有“天下第一汤”美誉的温泉旅游度假区。东临螳螂川，与凤山隔川相望，西临潮溪路与龙山相靠，整个建筑群处于龙凤双山的绿色怀抱中","hotelLocation":"昆明市安宁市温泉镇升庵南路","hotelCity":"昆明","hotelArea":"温泉旅游度假区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201409/13/0IqS0AAIAEkpAK1nA720.jpg","hotelName":"昆明茶马古道青年旅舍滇池店 ","hotelMark":4.6,"hotelSeq":"kunming_3529","hotelComment":557,"hotelPrice":45,"hotelDesc":"滇池旁，由三个热爱户外及茶道的大学生共同创建，该青旅以茶马古道为桥梁，召唤共同爱好的你加入啦","hotelLocation":"中国 云南 昆明官南大道六甲乡新一村韩家村92号","hotelCity":"昆明","hotelArea":"滇池风景区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201410/22/66I5P26WfcosUKkS6720.jpg","hotelName":"昆明迁鸟家庭客栈火车站店","hotelMark":4.9,"hotelSeq":"kunming_3296","hotelComment":452,"hotelPrice":45,"hotelDesc":"飞越，是鸟儿的旅行。“迁鸟客栈”让您疲惫的心，在接近蓝天白云的地方，洗去尘埃，享受慵懒和闲适的时光。","hotelLocation":"昆明市官渡区吴井路绿洲花园","hotelCity":"昆明","hotelArea":"客栈毗邻火车站"}]
+
+        },
+
+
+        "shenzhen": {
+          cityChinese: '深圳',
+            cityUrl: 'shenzhen',
+            logo: "http://img1.qunarzz.com/m_appPromotion/wap/1603/ca/f25d7f052952ff7.jpg",//封面地址
+            hotelData:[{"hotelImg":"http://userimg.qunar.com/imgs/201506/03/JhS1_tJIavh3tOZAJ720.jpg","hotelName":"深圳威尼斯酒店","hotelMark":4.5,"hotelSeq":"shenzhen_1984","hotelComment":1883,"hotelPrice":915,"hotelDesc":"中国首座威尼斯文化主题商务度假型酒店，毗邻包括世界之窗、锦绣中华、中国民俗文化村在内的多个著名主题公园。","hotelLocation":"深圳南山区华侨城深南大道9026号","hotelCity":"深圳","hotelArea":"华侨城商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201410/22/JhS1_tJO9nRiHuMbJ720.jpg","hotelName":"深圳栖游太空舱青年旅馆","hotelMark":4.6,"hotelSeq":"shenzhen_7646","hotelComment":1041,"hotelPrice":40,"hotelDesc":"以环保、时尚、休闲为主题的新型酒店，参考了日本的胶囊酒店的先进理念，结合了中国人的生活习惯和思维方式，颠覆了传统意义上的酒店模式","hotelLocation":"深圳市福田区华强北振兴路113号新欣大厦B座4楼","hotelCity":"深圳","hotelArea":"华强北商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201301/04/JhS1_tJTFBYcq_WXJ720.jpg","hotelName":"深圳富临大酒店","hotelMark":4.4,"hotelSeq":"shenzhen_24","hotelComment":5025,"hotelPrice":400,"hotelDesc":"酒店独有的山水风景客房，与香港隔河相望，距通往香港的罗湖联检大楼3分钟路程，距深圳火车站100米，香港血拼的理想中转站","hotelLocation":"深圳市罗湖区和平路1085号 ","hotelCity":"深圳","hotelArea":"罗湖火车站区域"},
+
+                {"hotelImg":"http://userimg.qunar.com/imgs/201210/17/JhS1_tJsvVftdrcYJ720.jpg","hotelName":"深圳丹枫白露酒店","hotelMark":4.4,"hotelSeq":"shenzhen_136","hotelComment":1445,"hotelPrice":500,"hotelDesc":"城中唯一全套房精品酒店，每个房间拥有独立的客饭厅、厨房和阳台，带有全套名家精心设计的家私，私享浪漫与奢华","hotelLocation":"深圳罗湖区深南东路1003号 ","hotelCity":"深圳","hotelArea":"东门商业区"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201412/03/66I5P26I4PKzLBK_6720.jpg","hotelName":"深圳乐绅酒店深圳机场新航站楼店","hotelMark":4.5,"hotelSeq":"shenzhen_11637","hotelComment":3349,"hotelPrice":190,"hotelDesc":"咖啡文化和酒店空间完美结合，落地窗前皮质躺椅上180度海景尽收眼底，繁华的鹏程中也有片刻安宁","hotelLocation":"深圳市宝安区宝源路宝港中心A座8-12楼（紧邻宝安机场）","hotelCity":"深圳","hotelArea":"宝安机场区域"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201301/28/SQ1TzOOhGawp2iQnO720.jpg","hotelName":"深圳湾木棉花酒店","hotelMark":4.5,"hotelSeq":"shenzhen_5380","hotelComment":1217,"hotelPrice":945,"hotelDesc":"出自台湾设计师之手的时尚酒店，座落于深圳湾体育中心西门入口，毗邻红树林海滨公园，简约而不失奢华","hotelLocation":"深圳市南山区海德三道3001号","hotelCity":"深圳","hotelArea":"海岸城深圳湾区域"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201111/03/18TYp18XqO5af-Yx1720.jpg","hotelName":"深圳皇朝印象酒店","hotelMark":4.6,"hotelSeq":"shenzhen_4148","hotelComment":675,"hotelPrice":323,"hotelDesc":"酒店毗邻龙城公园、万佳百货、龙潭公园、岁宝百货等购物休闲场所，去往龙岗汽车总站乘车只需十分钟左右，整体风格时尚经典","hotelLocation":"深圳市龙岗区中心城黄阁路190号","hotelCity":"深圳","hotelArea":"龙岗中心城商圈"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201507/06/8q41fF9yA37w7i9iZ720.jpg","hotelName":"深圳爱琴海酒店式公寓","hotelMark":4.4,"hotelSeq":"shenzhen_8049","hotelComment":521,"hotelPrice":388,"hotelDesc":"酒店坐落在银色的海滩上，大小梅沙美景跃然眼前，相比于中规中矩的酒店客房，这里多了几分家的轻松惬意","hotelLocation":"深圳市盐田区盐梅路52号 ","hotelCity":"深圳","hotelArea":"大小梅沙区域"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201410/07/JhS1_tJ4vphmjzV4J720.jpg","hotelName":"深圳雅园塘朗酒店","hotelMark":4.2,"hotelSeq":"shenzhen_8824","hotelComment":1370,"hotelPrice":203,"hotelDesc":"酒店采用北欧风情设计，毗邻南山智园、野生动物园及西丽湖旅游度假中心，紧靠深圳地铁5号线塘朗站","hotelLocation":"深圳市南山区西丽镇学苑大道田寮大厦(中科院斜对面) 大学城旁","hotelCity":"深圳","hotelArea":"北站及观澜湖"},
+                {"hotelImg":"http://userimg.qunar.com/imgs/201504/28/66I5P26qnYL8_Vd46720.jpg","hotelName":"深圳婉居酒店北站店","hotelMark":4.3,"hotelSeq":"shenzhen_12068","hotelComment":328,"hotelPrice":326,"hotelDesc":"酒店位于深圳中部发展轴的核心区，是深圳高铁站最为方便下榻之所，清新简约的客房格调，轻倚岁月，浅读流年","hotelLocation":"深圳宝安区龙华新区梅龙路星河盛世一期A3座2单元25楼","hotelCity":"深圳","hotelArea":"北站及观澜湖"}]
+        }
+    }
+
+    $(function(){
+        //获取bdsource
+        var bdSource = getUrlParam('bd_source'),
+            sourceType = getUrlParam('sourceType') || '';
+
+        var city = getUrlParam('city') || 'shanghai';
+        //动态修改封面图片
+        $('.index-page').css('background-image', 'url('+ data[city].logo +')');
+        //匹配浏览器
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        //跳转链接
+        //遍历数据,给数据加上跳转url
+        var fromForLog = getfromForLog(bdSource);
+        var hotelData = data[city].hotelData;
+        _.each(hotelData, function(item,index){
+          var hotelurl = "";
+          var hotelhref='://hotel/detail?type=1&ids='+item.hotelSeq+'&needRoomVendor=0&fromForLog='+fromForLog+ '&sourceType=' + sourceType +'&cat'+bdSource;
+          if(qua.iphonePro){
+              item.hotelurl="qunariphonepro" + hotelhref;
+          }else if(qua.iphoneLife){
+              item.hotelurl="qunariphonelife" + hotelhref;
+          }else if(qua.iphone){
+              item.hotelurl="qunariphone" + hotelhref;
+          }else if(qua.androidLife){
+              item.hotelurl="qunaraphonelife" + hotelhref;
+          }else if(qua.android){
+              item.hotelurl="qunaraphone" + hotelhref;
+          }else{
+              item.hotelurl="http://touch.qunar.com/h5/hotel/hoteldetail?seq="+item.hotelSeq+'&bd_source='+bdSource;
+          }
+        })
+        //更多链接
+        var moreurl = "";
+        var cityUrl = data[city].cityUrl;
+        var cityChinese = data[city].cityChinese;
+        var date = new Date();
+        var fromData = $.getDateString(date);
+        date.setDate(date.getDate()+1);
+        var toData= $.getDateString(date);
+        var morehref='://hotel/search?cityUrl='+cityUrl+'&fromForLog='+fromForLog+ '&sourceType=' + sourceType +'&cat'+bdSource+'&fromDate='+fromData+'&toDate='+toData;
+        if(qua.iphonePro){
+            moreurl="qunariphonepro" + morehref;
+        }else if(qua.iphoneLife){
+            moreurl="qunariphonelife" + morehref;
+        }else if(qua.iphone){
+            moreurl="qunariphone" + morehref;
+        }else if(qua.androidLife){
+            moreurl="qunaraphonelife" + morehref;
+        }else if(qua.android){
+            moreurl="qunaraphone" + morehref;
+        }else{
+            moreurl='http://touch.qunar.com/h5/hotel/hotellist?city='+cityChinese+'&bd_source='+bdSource;
+        }
+        var hotelListTpl = $('#hotelList').html();
+        //先遍历模板，添加
+        var $html = _.template(hotelListTpl, {data: hotelData});
+        $('.init .sl_content').append($html);
+        $('.more-link').attr('data-href',moreurl);
+
+        var t = [
+            '<div class="small-warpper">',
+            '<ul class="small-list">',
+            '<%_.each(data, function(item ,index){ %>',
+            '<li class="small-item" data-indx="<%= index %>">',
+            '<div class="img-container">',
+            '<img src="<%= item.hotelImg %>"  class="small-img"/>',
+            '</div>',
+            '<div class="description-container">',
+            '<p><%= item.hotelName%></p>',
+            '<p class="small-about">',
+            '<img src="http://img1.qunarzz.com/m_appPromotion/wap/1603/b6/a7f87009c7d7c2f7.png" class="small-location"/><span class="small-location"><%= item.hotelCity %></span>',
+            '<span class="price-container"><span class="small-price" data-seq="<%=item.hotelSeq%>">&yen;<%= item.hotelPrice%></span>起</span>',
+            '</p>',
+            '</div>',
+            '</li>',
+            '<%  }) %>',
+            '</ul>',
+            '</div>',
+            '<div class="transprant"></div>'
+        ].join('');
+
+        var $html = _.template(t, {data: hotelData});
+        $('.pop-wrapper').append($html);
+        $('.pop-wrapper .hotel-num').text(data.length);
+        var config={
+            anchor:'.init',
+            vertical:true,
+            loop:false,
+            limit:0.1,
+            transitionTime:0.1
+        };
+        var qswiper;
+        setTimeout(function(){
+            qswiper = new QSwiper('.init',config)
+        },100);
+        //图片和按钮都跳转
+        $('.hotel-container').on('tap','.detail-link',function(e){
+            var $ele = $(e.currentTarget);
+            var link = $ele.attr('data-href');
+            document.location = link;
+        })
+
+        //点击弹窗
+        $('.hotel-container').on('tap','.touchbar-wrapper',function(e){
+            e.stopPropagation();
+            $('.pop-mask,.pop-wrapper').show();
+            qswiper.stopTouch();
+        });
+
+        $('.pop-title').on('tap','.close-pop',function(e){
+            e.stopPropagation();
+            $('.pop-mask,.pop-wrapper').hide();
+            qswiper.startTouch();
+        })
+
+        //给 li 元素绑定事件，跳转至对应酒店
+        $('.pop-wrapper').on('tap','li',function(e){
+            e.stopPropagation();
+            var $ele = $(e.currentTarget);
+            var index = parseInt($ele.attr('data-indx'),10);
+            qswiper.slideTo(++index);
+            $('.close-pop').trigger('tap');
+        });
+
+        // $('.pop-mask').on('touchmove',function(e){
+        //   e.stopPropagation();
+        //     e.preventDefault();
+        //     return false;
+        // })
+
+        $('.more-link').on('tap',function(e){
+            var $ele = $(e.currentTarget);
+            var link = $ele.attr('data-href');
+            document.location = link;
+        })
+
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+
+        function getfromForLog(bdSource) {
+            var bd_source = bdSource || '';
+            return 1000 + parseInt(bd_source.replace('huodong', '') || 0);
+        };
+
+        //酒店价格更新
+        (function(hotelData) {
+
+            var seqs = [];
+
+            $.each(hotelData, function(index, item){
+                seqs.push(item.hotelSeq);
+            });
+
+            $.ajax({
+                url: 'http://touch.qunar.com/h5/hotel/activity/HotelActivity',
+                data: { seq: seqs.join(',') },
+                dataType: 'json',
+                success: function(res) {
+                    //更新价格
+                    $.each(res, function(key, val) {
+                        var $hotel = $('[data-seq="'+key+'"]');
+                        if(val==0){
+                            $hotel.parents('.price-wrapper').html('<del style="color:grey;font-size:18px">已售磬</del>');
+                            $hotel.parents('.price-container').html('<del style="color:grey;font-size:14px">已售磬</del>');
+                        }else{
+                            $hotel.html(val);
+                        }
+                    });
+                }
+            });
+
+        })(hotelData);
+
+    });
+</script>
+</body>
+</html>

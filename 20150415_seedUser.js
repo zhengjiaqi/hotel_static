@@ -1,0 +1,1 @@
+var img='http://source.qunar.com/site/images/wap/touch/images/v2/images1x/shuiwo1.png';

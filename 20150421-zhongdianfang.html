@@ -1,0 +1,269 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>钟点房</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
+    <!--<meta name="apple-touch-fullscreen" content="YES"/>-->
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black"/>-->
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #e8f5f5;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            float: left;
+        }
+       /*.content{height: 100px}*/
+       ul,li{
+           list-style: none;
+           padding: 0;
+           margin: 0;
+           overflow: hidden;
+           display: inline-block;
+       }
+        .hidden{display:none}
+        .frame{display: none}
+        .alert {
+            position: fixed;
+            z-index: 1001;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            background: #fff;
+            ##display: none;
+            background: #fff;
+            ##min-height:100px;
+            font-size:14px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            min-height:100px;
+            overflow:scroll
+        }
+        .alt-mask{
+            position: fixed;
+            top:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            ##display: none;
+            background: rgba(0,0,0,.5);
+        }
+        .al-title{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            box-sizing: border-box;
+            margin:10px 0 0 10px;
+            position: relative;
+            text-align:center;
+
+        }
+        .al-txt{
+            font-size:0;
+            line-height: 20px;
+            color: #888888;
+            text-align:center;
+            box-sizing: border-box;
+
+        }
+        .top-img{
+            /*height: 100px;*/
+            font-size: 0;
+        }
+        .top-img img{
+            width: 100%;
+            /*height: 100px;*/
+        }
+        .nameList div{
+            display: inline-block;
+            font-size: 14px;
+            width: 50%;
+        }
+    </style>
+    <script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="top">
+        <div class="top-img">
+            <img src="http://source.qunar.com/site/images/wap/touch/images/zhoubianyou/scenicImg/beijinzhoubian640200.jpg">
+        </div>
+        <div class="showList">查看获奖名单</div>
+        <div class="introduce">
+            <div>活动时间：4月30日-5月6日</div>
+            <div>公布之际名单：次日在活动页面展示中奖用户手机号码</div>
+            <div>用户中奖，去哪儿买单</div>
+        </div>
+        <div class="intoZhongdianfang">进入钟点房</div>
+        <div class="detail">
+            <div>活动细则</div>
+            <div>
+                <div>1.用户点击页面【进入钟点房】按钮完成下单，就有机会获得一间免费钟点房</div>
+                <div>2.用户必须在活动期间完成预订和到店入住</div>
+                <div>3.去哪儿网会在活动结束三个工作日内联系中奖用户，并完成打款和通知</div>
+                <div>4.一个用户每天只有一次获奖机会</div>
+                <div>5.活动奖品由有间房提供</div>
+            </div>
+        </div>
+    </div>
+    <div class="alert hidden">
+    </div>
+    <div class="alt-mask hidden"></div>
+</div>
+
+<iframe src="" class="frame"></iframe>
+<script type="text/template" id="hoteltpl">
+    <% _.each(data, function(item,i) {%>
+        <div class="al-title"><%=item.title%></div>
+        <div class="al-txt nameList">
+            <% _.each(item.namelist, function(item,i) {%>
+                <div><%=item%></div>
+            <% });%>
+        </div>
+    <% });%>
+</script>
+
+</body>
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/20150421-zhongdianfang.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0"></script>
+<script>
+window.onload=function(){
+    $(function() {
+        var bdSource=getUrlParam('bd_source') || 'huodong519';
+        var cityName='';
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+        function myFun(result){
+            cityName = result && result.name;
+            if(!cityName){
+                cityName='';
+            }else if(/香港/.test(cityName)){
+                cityName='香港';
+            }else if(/澳门/.test(cityName)){
+                cityName='澳门';
+            }else{
+                cityName=cityName.split('市')[0];
+            }
+            alert(cityName);
+
+        }
+        bulidTemple(data);
+        function bulidTemple(data){
+            var element = $('.alert');
+            var tpl = $('#hoteltpl').html();
+            var render = _.template(tpl);
+            var html = render(data);
+            element.html(html);
+        }
+        $('.alert').css({'max-height':window.innerHeight*0.3});
+        $('.main').on('click','.showList',function(){
+//            debugger
+            bulidTemple(data);
+            showAlert();
+        });
+        $('.main').on('click','.intoZhongdianfang',function(){
+            var href='://hotel/hourRoomList?city=%E5%8D%97%E4%BA%AC&cityUrl=nanjing';
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                url='http://touch.qunar.com/h5/hotel/hotellist?city=%E5%8D%97%E4%BA%AC&type=2';
+            }
+            window.location.href =url;
+        });
+
+        function showAlert(msg,title){
+            var _alert=$('.alert'),_alt_mask=$('.alt-mask');
+            _alert.removeClass('hidden');
+            _alt_mask.removeClass('hidden');
+//        $('.al-title').html(title || '去哪儿网温馨提示：');
+//        $('.msg').html(msg);
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alert.addClass('hidden');
+                _alt_mask.addClass('hidden');
+//                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+//            e.preventDefault();
+            });
+        }
+
+        function gotoList(me){
+            var $this=$(me);
+            var $swiper=$this.parents('.swiper-slide');
+            var keywords=$swiper.attr('data-stayGrab');
+            var city=$swiper.attr('data-city');
+            var cityUrl=$swiper.attr('data-cityUrl');
+            var date=new Date();
+            var fromData= $.getDateString(date);
+            date.setDate(date.getDate()+1);
+            var toData= $.getDateString(date);
+            console.log(fromData+toData);
+            var href='://hotel/search?q='+encodeURI(keywords)+'&cityUrl='+encodeURI(cityUrl)+'&fromDate='+fromData+'&toDate='+toData+'&from='+encodeURI(bdSource)+'&cat='+encodeURI(bdSource);
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                url='http://touch.qunar.com/h5/hotel/hotellist?city='+city+'&keywords='+keywords+'&cityUrl='+cityUrl+'&bd_source='+bdSource;
+            }
+            document.location.href =url;
+        }
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+
+    });
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+}
+
+</script>
+
+
+</html>

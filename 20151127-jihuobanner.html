@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>酒店专享特权</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection"/>
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport"/>
+    <style type="text/css">
+        body, div, span, i, h3, p {
+            padding: 0;
+            margin: 0;
+        }
+
+        body * {
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .i-dcou, .i-bao, .i-man {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAD1CAMAAADwHoLCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4ZGQzYjEzYi0wOWNkLTQwM2UtYTliYi01Yjc1NjkxZTA5OWQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUZDQzNGQzM4QzU2MTFFNTg2ODJEMTVBNkM3QjczQjgiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUZDQzNGQzI4QzU2MTFFNTg2ODJEMTVBNkM3QjczQjgiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpkN2VlNzE5NS02YmZmLTRjMjEtOWQxMC03OTZmNGExYTg3ODYiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDoyMzNkODg1Ny1jODNjLTExNzgtOWY1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) 0 0 no-repeat;
+            background-size: 100%;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            font-style: normal;
+        }
+
+        .i-dcou {
+            background-position: 0 0;
+        }
+
+        .i-bao {
+            background-position: 0 -41px;
+        }
+
+        .i-man {
+            background-position: 0 -82px;
+        }
+
+        .wrap {
+            padding: 25px 10px;
+        }
+
+        .wrap .box {
+            position: relative;
+            padding-left: 52px;
+            margin-top: 25px;
+        }
+
+        .wrap .box:first-child {
+            margin-top: 0;
+        }
+
+        .wrap .box i {
+            position: absolute;
+            top: 8px;
+            left: 0;
+        }
+
+        .wrap .box h3 {
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .wrap .box p {
+            line-height: 1.2;
+        }
+
+        .wrap .go-link {
+            text-decoration: none;
+            background: #28a9b8;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            text-align: center;
+            width: 70%;
+            height: 44px;
+            line-height: 44px;
+            margin: 40px auto 0 auto;
+            border-radius: 20px;
+        }
+
+        .wrap .go-link:active {
+            background: #29aebd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="box">
+        <i class="i-dcou"></i>
+
+        <h3>首单5折起</h3>
+
+        <p>机票/火车票用户，首单专享订酒店5折特权，最高减￥150，保证全网最低</p>
+    </div>
+    <div class="box">
+        <i class="i-bao"></i>
+
+        <h3>预订有保障</h3>
+
+        <p>到店有房，酒店预订有保障；有问题我赔你，最高赔付首晚房费100%</p>
+    </div>
+    <div class="box">
+        <i class="i-man"></i>
+
+        <h3>多数人选择</h3>
+
+        <p>每天有数十万人选择去哪儿网订酒店服务，大家共同的选择</p>
+    </div>
+    <a id="goLink" class="go-link">立即使用五折</a>
+</div>
+
+<script src="http://m.qunar.com/zhuanti/QunarAPI_1.0.10.js"></script>
+<script>
+    (function (win) {
+
+
+        QunarAPI.ready(function () {
+            QunarAPI.hideOptionMenu({});
+        });
+
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURIComponent(r[2]);
+            return '';
+        };
+
+        var page = {
+            init: function () {
+
+                var params = getUrlParam('halfOffButtonUrl'),
+                        oLink = document.getElementById('goLink');
+
+                oLink.href = params;
+
+                this.monitor(getUrlParam('fromForLog'));
+            },
+            monitor: function (fromForLog) {
+                var xhr = new XMLHttpRequest(),
+                        name = 'touch_m_jihuobanner_' + fromForLog;
+                xhr.open('get', 'http://touch.qunar.com/h5/monitor?name=' + name + '&un=' + getQ(), true);
+                xhr.send(null);
+            }
+        };
+
+        function getQ() {
+            var match = document.cookie.match(/_q=(.*?);/);
+            return match && match[1];
+        }
+
+        page.init();
+
+    }(window));
+
+</script>
+
+</body>
+
+</html>

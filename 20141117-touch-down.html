@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>去哪儿千万红包大放送</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <style type="text/css">
+      *{padding:0;margin:0;}
+      body{background-color:#D33D3D;}
+      .wrap{
+        min-width:320px;
+        height:100%;
+        text-align:center;
+        font-size:14px;
+        color:#fff;
+        line-height:2;
+      }
+      .wrap img{
+        width:100%
+      }
+      .down{
+        width:200px;
+        height:44px;
+        line-height:44px;
+        margin:0 auto;
+        font-size:20px;
+        background:url(http://simg1.qunarzz.com/site/images/wap/touch/images/v2/images2x/down-3.png);
+        background-size:100%;
+        margin-top:40px;
+        padding-left:40px;
+      }
+      a{color:#fff;text-decoration:none;}
+      img.logo{width: 85px;
+float: right;
+margin-right: 10px;
+margin-top: 10px;}
+    </style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="http://simg1.qunarzz.com/site/images/wap/touch/images/v2/images2x/down-5.png" alt="" />
+    <img src = "http://simg1.qunarzz.com/site/images/wap/touch/images/v2/images2x/down-1.png">
+    <div>
+      <p>实时搜索10万条航线，特价机票逃不出掌心</p>
+      <p>智能搜罗全球80万家酒店，舒适房间任你挑选</p>
+      <a id="download" href="http://touch.qunar.com/h5/client?bd_source=gtlaxinA&sScheme=0&scheme=home&touchUrl=download?bd_source=gtlaxinA"><p class="down">领取去哪儿红包</p></a>
+    </div>
+
+  </div>
+
+  <script>
+    window.onload= function(){
+      var a = document.getElementById('download'),
+      ua = navigator.userAgent,
+      bdSource = location.search.substring(11) || 'gtlaxinA';
+      var map = {
+        laxin_flight:'3499',
+        laxin_college:'3500',
+        laxin_hotel:'3501'
+      };
+      setTimeout(function(){
+        if(ua.toLowerCase().indexOf('android')!==-1 ){
+          var url='';
+          if(bdSource=='gtlaxinA'){
+            url = 'http://wap.qunarzz.com/fed_download/wap/Qunar_alex_C3436.apk?from=gtlaxinA';
+          }else{
+            url = 'http://wap.qunarzz.com/fed_download/wap/Qunar_hotel_god_C'+(map[bdSource]||3497)+'.apk?from='+bdSource;
+          }
+          a.setAttribute('href',url);
+          location.href = url;
+        }else{
+          location.href = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme=home&touchUrl=download?bd_source='+bdSource;
+        }
+      },3000)
+
+    }
+  </script>
+
+</body>
+</html>

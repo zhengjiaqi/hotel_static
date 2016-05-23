@@ -1,0 +1,161 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>钟点房</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <style type="text/css">
+      *{padding:0;margin:0}
+    .qn_header {font-size: 0;text-align: center;height: 42px;background-color: #25a4bb;border-bottom: 1px solid #1b7a8b;position: relative;display: none}
+    .qn_header .back {background: url(http://simg1.qunarzz.com/site/images/wap/touch/images/v2/images2x/header_sprites_4.png) 0 0 no-repeat;background-size: 255px 42px;position: absolute;top: 0;left: 0;width: 42px;height: 42px;cursor: pointer}
+    .qn_header .back a {display: block;width: 100%;height: 100%;opacity: 0;text-decoration: none}
+    .qn_header .title {display: inline-block;overflow: hidden;margin: 0 35px;vertical-align: middle;text-align: center;color: #fff;font-size: 18px;line-height: 42px}
+    .qn_header:after {display: inline-block;height: 100%;width: 0;content: "\0020";vertical-align: middle}
+ 
+    .z_page{position:relative;background-color:#f7f2cb;width:100%;min-width:320px;font-size:0}
+    .innnerHeadimg{width:100%;min-height:130px}
+    
+    .imglist{font-size:0;padding:0 5px 10px 5px}
+    .imgdiv{padding:10px 5px 0 5px;width:49.999%;display: inline-block;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box
+    }
+    .imgdiv >div{padding: 5px;background: #fff;border-radius: 5px;-webkit-border-radius: 5px}
+    .innerimgdiv{position:relative}
+    .morecity{font-size:12px;text-align: center;color:RGB(132, 77, 161);margin-top:10px}
+    .masking {position:absolute;bottom:0;width:100%;background-color:RGBA(0, 0, 0, 0.3);height:22px;color:white;font-size:13px;text-align: center;line-height:22px}
+    .order{width: 100%;height: 50px;background: -webkit-gradient(linear,0% 0,0% 100%,from(#f2e477),to(#f7f2cb));padding: 5px 20px;box-sizing:border-box}
+    .orderbutten{height: 40px;background-color: #ff4500;border-radius: 5px;-webkit-border-radius: 5px;color: #fff;font-size: 18px;text-align: center;line-height: 40px}
+    .orderbutten:active{background: -webkit-gradient(linear,0% 0,0% 100%,from(#fb7e50),to(#ff4500))}
+    .content-div{height: 22px;margin-top:5px;font-size: 12px;color: #a1a0a1;display: -webkit-box;display: box}
+    .content-div div{height: 22px;line-height: 22px; }
+    .price{-moz-box-flex:1; -webkit-box-flex:1; box-flex:1;}
+    .price div{display: inline-block}
+    .city{width: 44px;text-align: center;background-color:#fb2f5f;color: #fff;border-radius: 3px;-webkit-border-radius: 3px }
+    .redcolor{color: #fb2f5f}
+    </style>
+
+</head>
+<body>
+<div class="qn_header">
+    <div class="back"><a href="javascript:history.go(-1);">后退</a></div>
+    <div class="title">钟点房</div>
+</div>
+<div class="z_page">
+    <div class="headImg">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/zhongdianfang.png" class="innnerHeadimg">
+    </div>
+    <div class='order'><div class='orderbutten'>立即预定</div></div>
+    <div class="imglist" id="hotelImgList"></div>
+</div>
+<script type="text/template" id="hoteltpl">
+    <% _.each(data, function(item,i) {%>
+    <% var seq = item.seq %>
+    <% var cityName = item.cityName %>
+    <% var price = item.price %>
+    <% var hour = item.hour %>
+    <% var hotelname = item.hotelname %>
+    <% var src = item.imgSrc %>
+    <div class="imgdiv" seq= "<%=seq %>" >
+        <div>
+          <div class="innerimgdiv">
+              <img src="<%=src %>" class="innnerHeadimg">
+              <div class="masking"><%=hotelname %></div>
+          </div>
+          <div class='content-div'>
+            <div class='price'><div class='redcolor'><%=price %></div><div class='redcolor'>元</div>/<div><%=hour %></div>小时</div>
+            <div class='city'><%=cityName %></div>
+          </div>
+        </div>
+    </div>
+    <% });%>
+</script>
+</body>  
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script>
+$(function() {
+    var bdSource=getUrlParam('bd_source');
+    var city=getUrlParam('city') || '北京';
+    var qua = function () {
+        var ua = navigator.userAgent;
+        return {
+            iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+            iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+            iphone     : ua.indexOf("QunariPhone") !== -1,
+            androidLife: ua.indexOf("qunaraphonelife") !== -1,
+            android    : ua.indexOf("qunaraphone") !== -1,
+            ipad       : /ipad/ig.test(ua)
+    }
+    }();
+    if(!qua.iphonePro&&!qua.iphoneLife&&!qua.iphone&&!qua.androidLife&&!qua.android){
+      $('.qn_header').css({'display':'block'});
+    }
+    $(".imglist").on( "click", ".imgdiv", function( e ) {
+        var seq = $(this).attr("seq");
+        var href='://hotel/hourRoomDetail?ids='+seq+'&fromForLog='+bdSource+'&cat='+bdSource+'&needRoomVendor=0';
+        var url="";
+        if(qua.iphonePro){
+            url="qunariphonepro" + href;
+        }else if(qua.iphoneLife){
+            url="qunariphonelife" + href;
+        }else if(qua.iphone){
+            url="qunariphone" + href;
+        }else if(qua.androidLife){
+            url="qunaraphonelife" + href;
+        }else if(qua.android){
+            url="qunaraphone" + href;
+        }else{
+            url="http://touch.qunar.com/h5/hotel/hoteldetail?type=2&seq="+seq+'&bd_source='+bdSource;
+        }
+        document.location =url;
+
+    });
+    var data={
+      data:[
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'},
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'},
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'},
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'},
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'},
+        {'seq':'beijing_city_8046','cityName':'北京','price':250,'hour':4,'hotelname':'速8酒店北京前门店','imgSrc':'http://himg.qunarzz.com/imgs/201112/02/Z7SepZ9gnQzcL3YIZi312.jpg'}
+      ]
+    };
+    bulidTemple(data);
+    function bulidTemple(data){
+        var element = $('#hotelImgList');
+        var tpl = $('#hoteltpl').html();
+        var render = _.template(tpl);
+        var html = render(data);
+        element.html(html);
+    }
+    $('.orderbutten').on('click',function(){
+      var href='://hotel/hourRoomList?city='+city+'&fromForLog='+bdSource+'&cat='+bdSource;
+        var url="";
+        if(qua.iphonePro){
+            url="qunariphonepro" + href;
+        }else if(qua.iphoneLife){
+            url="qunariphonelife" + href;
+        }else if(qua.iphone){
+            url="qunariphone" + href;
+        }else if(qua.androidLife){
+            url="qunaraphonelife" + href;
+        }else if(qua.android){
+            url="qunaraphone" + href;
+        }else{
+            url="http://touch.qunar.com/h5/hotel/hotellist?city="+city+"&type=2"+"&bd_source="+bdSource;
+        }
+        document.location =url;
+    })
+    function getUrlParam(name){
+      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+      if (r!=null) return unescape(r[2]); return ''; //返回参数值
+    } 
+});
+</script>
+
+
+</html>

@@ -1,0 +1,1027 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <title>高星酒店一元秒杀</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" />
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #e8f5f5;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            float: left;
+        }
+        /*.content{height: 100px}*/
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .main{
+            font-size:0;
+        }
+        .img_div>img{
+            width:100%;
+        }
+        .miaosha_content{
+            background: #fef68f;
+            padding-top: 1.25rem;
+        }
+        .miaosha_content_div{
+            padding:1.25rem 0.625rem;
+            border-top: 1px dashed #ff5d57;
+            position: relative;
+        }
+        .miaoshaqu{
+            position: absolute;
+            height: 1.5rem;
+            width:6.5rem;
+            top:-0.75rem;
+            left:50%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .miaoshaqu>img{
+            width: 100%;
+        }
+        .hotel_img{
+            height: 7rem;
+            position: relative;
+            background: #ddd;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_img>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_txt{
+            font-size: .7rem;
+            background: #fff;
+            padding: 10px;
+            border-radius:0 0 8px 8px;
+        }
+        .hotel_title{
+            font-size: 0.8rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .hotel_address{
+            font-size: 0.6rem;
+            line-height: 1rem;
+            color:#666 ;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .qi{
+            display: inline-block;
+            width: 2.25rem;
+            height: 1.125rem;
+        }
+        .qi>img{
+            width: 100%;
+            height: 100%;
+        }
+        .xiangqing{
+            display: inline-block;
+            padding: .5rem 1rem;
+            color:#fff;
+            /*float: right;*/
+            background: #ff5d57;
+            border-radius: 8px;
+        }
+        .disable{
+            color: #ddd;
+            background: #a3a3a3;
+        }
+        .look:active,.list_hotel_watch_div:active{
+            color: #ddd;
+            background: #f1332b;
+        }
+        .price_div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .qi_div{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        #hotelmask{
+            position: absolute;
+            font-size: .7rem;
+            right: .4rem;
+            top:-.15rem;
+            height: 3.625rem;
+            width: 3rem;
+            /*background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yijishu.png) 0 0 no-repeat;*/
+            background-size:100% 100%;
+            /*color:#d4d4d4;*/
+        }
+        #hotelmask>div{
+            position: absolute;
+            width: 2.25rem;
+            top:40% ;
+            text-align: center;
+            left:45%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .jieshu{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_js.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#d4d4d4;
+        }
+        .jinxing{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_jx.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+        .kaimiao{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_ks2.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+
+        .tehui_content{
+            padding: 1.25rem 0.325rem;
+            border-top: 1px dashed #19a870;
+            position: relative;
+            background: #250749;
+        }
+        .nav{
+            font-size: .7rem;
+            color:#fff;
+            line-height: 1.5rem;
+        }
+        .nav_table {
+            width: 100%;
+            padding: .15rem;
+            font-size: 0;
+            box-sizing: border-box;
+        }
+        .nav_table div:not(.more_city_div) {
+            line-height: 1.5rem;
+            text-align: center;
+            vertical-align: middle;
+            /*border:3px solid transparent;*/
+            background: #19a870;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 24.9%;
+            font-size: .7rem;
+            border:.15rem solid #250749
+        }
+        /*tbody,tr{display: block;box-sizing: border-box;font-size: 0}*/
+        /*div{}*/
+        .list_hotel_img{
+            height:4.75rem;
+            width: 100%;
+            background: #ddd;
+        }
+        .list_hotel_img>img{
+            height:100%;
+            width: 100%;
+        }
+        /*.hotel_list{*/
+        /*padding: 1px;*/
+        /*overflow: hidden;*/
+        /*}*/
+        .list{
+            /*padding: 1px;*/
+            /*overflow: hidden;*/
+            font-size: 0;
+        }
+        .list >div{
+            display: inline-block;
+            width: 49.9%;
+            padding: .3rem;
+            box-sizing: border-box;
+        }
+        .list_hotel_txt{
+            padding: .25rem;
+            background: #fff;
+            border-radius: 0 0 5px 5px;
+        }
+        .list_hotel_title{
+            font-size: .7rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_address{
+            font-size: .6rem;
+            line-height: 1rem;
+            color:#666;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_priceDiv{
+            font-size: .7rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .list_hotel_price{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            font-size: .6rem;
+        }
+        .list_hotel_watch_div{
+            padding: .3rem .4rem;
+            background: #ff5d57;
+            color:#fff;
+        }
+        .list_hotel_watch{
+            border:.05rem solid #ff5d57;
+            padding: .05rem;
+        }
+        .list_hotel_price{
+            color:#666;
+
+        }
+        .yen{
+            font-size: .6rem;
+            color:#ff5d57 ;
+        }
+        .price{
+            font-size: .9rem;
+            color:#ff5d57 ;
+            position: relative;
+            top:.05rem
+        }
+        .nav_table .nav_active{
+            background: #ff5d57!important;
+        }
+        .nav_table div:not(.more_city_div):active{
+            background:#0b6849
+        }
+        .alert {
+            position: fixed;
+            z-index: 1001;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            background: #fff;
+            ##display: none;
+            background: #fff;
+            ##min-height:100px;
+            font-size:14px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        .alt-mask{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            ##display: none;
+            background: rgba(0,0,0,.5);
+        }
+        .al-title{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            box-sizing: border-box;
+            padding:10px;
+            position: relative;
+            text-align:center
+        }
+        .al-txt{
+            font-size: 14px;
+            line-height: 20px;
+            color: #888888;
+            box-sizing: border-box;
+
+        }
+        .msg{
+            width:100%;
+            box-sizing: border-box;
+            padding:0 15px 15px 15px
+        }
+        .al-txtDiv{
+            min-height:30px;
+        }
+
+        .hidden{display:none}
+        .more_city_div{
+            height:0px;
+            overflow: hidden;
+            transition:height .7s;
+            -webkit-transition:height .7s;
+        }
+        .more_city_div_show{
+            /*height:auto;*/
+            /*height:5.6rem;*/
+        }
+        .kaimiao >div{
+            top: 33% !important;
+            left: 47% !important;
+        }
+        .hotel_area{
+            padding:.25rem;
+        }
+    </style>
+    <script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="img_div">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanmiaosha.png">
+    </div>
+    <div class="miaosha_content hidden">
+        <div class="miaosha_content_div">
+            <div class="miaoshaqu">
+                <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yiyuan.png">
+            </div>
+            <div class="miaosha_list">
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="tehui_content hidden">
+        <div class="miaoshaqu">
+            <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_tehui.png">
+        </div>
+        <div class="nav">
+            <div class="nav_table">
+
+            </div>
+        </div>
+        <div class="hotel_list">
+
+        </div>
+    </div>
+    <div class="alert hidden">
+        <div class="al-title">去哪儿网温馨提示：</div>
+        <div class="al-txtDiv">
+            <!--<div class="al-txt msg">请输入11位有效手机号</div>-->
+        </div>
+    </div>
+    <div class="alt-mask hidden"></div>
+</div>
+<script type="text/template" id="citytpl">
+    <%
+    var n=0,length=count(data);
+    _.each(data,function(item,index){
+    %>
+        <%if(length>8 && n==7){%>
+            <div class="moreCity">更多城市</div>
+            <div class="more_city_div">
+        <%}%>
+        <div class="<%if(n==0){%>td1<%}%>" name="<%=index%>"><%=index%></div>
+    <%
+        n++;
+    });
+    %>
+    <%if(data.length>8){%>
+    </div>
+    <%}
+        function count(o){
+        var t = typeof o;
+        if(t == 'string'){
+        return o.length;
+        }else if(t == 'object'){
+        var n = 0;
+        for(var i in o){
+        n++;
+        }
+        return n;
+        }
+        return false;
+        };
+    %>
+</script>
+<script type="text/template" id="miaoshatpl">
+    <%_.each(data,function(item,index){%>
+    <div class="hotel_area" data-startTime="<%=item.startTime%>" data-endTime="<%=item.endTime%>" data-hotelId="<%=item.hotelId%>">
+        <div class="hotel_img">
+            <img src="<%=item.img%>">
+            <div id='hotelmask' class="kaimiao">
+                <div class="mask_txt"><%=item.startTime%><br>开&nbsp;秒</div>
+            </div>
+        </div>
+        <div class="hotel_txt">
+            <div class="hotel_title"><%=item.hotelName%></div>
+            <div class="hotel_address"><%=item.hotelAddress%></div>
+            <div class="price_div">
+                <div class="qi_div">
+                    <div class="qi">
+                        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png">
+                    </div>
+                </div>
+                <div class="xiangqing disable" data-hotelId="<%=item.hotelId%>">立即秒杀</div>
+            </div>
+        </div>
+    </div>
+    <%});%>
+
+</script>
+<script type="text/template" id="hoteltpl">
+    <%_.each(data,function(item,index){%>
+    <div class="list hidden" data-city="<%=index%>">
+        <%_.each(item,function(item,index){%>
+        <div data-hotelId="<%=item.hotelId%>">
+            <div class="list_hotel_img">
+                <img data-src="<%=item.img%>">
+            </div>
+            <div class="list_hotel_txt">
+                <div class="list_hotel_title"><%=item.hotelName%></div>
+                <div class="list_hotel_address"><%=item.hotelAddress%></div>
+                <div class="list_hotel_priceDiv">
+                    <div class="list_hotel_price">
+                        <span class="yen">&yen;</span>
+                        <span class="price instant-price" data-id="<%=item.hotelId%>"><%=item.price%></span>
+                        起
+                    </div>
+                    <div class="list_hotel_watch">
+                        <div class="list_hotel_watch_div" data-hotelId="<%=item.hotelId%>">去看看</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%});%>
+    </div>
+    <%});%>
+
+</script>
+</body>
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script>
+
+(function (doc, win) {
+    var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+$(function() {
+    var bdSource=getUrlParam('bd_source') || 'huodong519';
+    var qua = function () {
+        var ua = navigator.userAgent;
+        return {
+            iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+            iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+            iphone     : ua.indexOf("QunariPhone") !== -1,
+            androidLife: ua.indexOf("qunaraphonelife") !== -1,
+            android    : ua.indexOf("qunaraphone") !== -1,
+            ipad       : /ipad/ig.test(ua)
+        }
+    }();
+    var miaosha_data={
+        '2015-09-23':[
+            {"startTime":"10:00","endTime":"10:30","hotelName":"伊思德国际公寓·广州保利世贸中心","img":"http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9728"},
+            {"startTime":"14:30","endTime":"15:00","hotelName":"广州嘉福国际大酒店","img":"http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_3998"},
+            {"startTime":"11:00","endTime":"12:00","hotelName":"广州珠江国际酒店","img":"http://userimg.qunar.com/imgs/201212/11/nz078uvDChamqK1Dv720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9763"},
+        ],
+        '2015-09-19':[
+            {"startTime":"12:30","endTime":"13:00","hotelName":"伊思德国际公寓·广州保利世贸中心","img":"http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9728"},
+            {"startTime":"12:30","endTime":"13:00","hotelName":"伊思德国际公寓·广州保利世贸中心","img":"http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9728"},
+            {"startTime":"12:30","endTime":"13:00","hotelName":"伊思德国际公寓·广州保利世贸中心","img":"http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg","hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9728"},
+        ],
+
+    };
+    var data={
+        "上海":[{"hotelName":"上海航空酒店浦东机场店","img":"http://userimg.qunar.com/imgs/201404/01/JhS1_t5O9807GkhFJ480.jpg","price":260,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2971"},
+            {"hotelName":"上海外滩华尔道夫酒店","img":"http://userimg.qunar.com/imgs/201404/01/JhS1_t5O9807GkhFJ480.jpg","price":1600,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_7544"},
+            {"hotelName":"上海志骏国际大酒店（虹桥机场店）","img":"http://userimg.qunar.com/imgs/201311/07/Z7-ECT9zVMIiHDzxZ480.jpg","price":265,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_17349"},
+            {"hotelName":"上海浦江世博家园酒店公寓","img":"http://userimg.qunar.com/imgs/201306/21/JhS1_tJvZ4gqbg_iJ480.jpg","price":208,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_7474"},
+            {"hotelName":"上海粤海酒店","img":"http://userimg.qunar.com/imgs/201501/27/JhS1_tJ7_mUwr4_yJ480.jpg","price":399,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_371"},
+            {"hotelName":"上海恒福新天地酒店","img":"http://userimg.qunar.com/imgs/201104/19/187tn11wavsq702N1480.jpg","price":470,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2943"},
+            {"hotelName":"上海紫金通欣酒店","img":"http://userimg.qunar.com/imgs/201507/22/JhS1_thG0rnv80R3J480.jpg","price":249,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_6378"},
+            {"hotelName":"上海世和酒店","img":"http://userimg.qunar.com/imgs/201107/06/NNNN2dca0X5fvZ-nN480.jpg","price":368,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2000"},
+            {"hotelName":"上海宜兰贵斯酒店外滩店","img":"http://userimg.qunar.com/imgs/201108/25/Vup3HVY7hFDpaEGYV480.jpg","price":360,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2530"},
+            {"hotelName":"上海延安西路和颐酒店","img":"http://userimg.qunar.com/imgs/201409/01/Z7-ECTZlSVpKdVBMZ480.jpg","price":249,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_20795"},
+            {"hotelName":"上海华美国际酒店","img":"http://userimg.qunar.com/imgs/201410/13/66I5P26imDIsSw936480.jpg","price":250,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_12"},
+            {"hotelName":"上海金巢铂瑞阁酒店公寓","img":"http://userimg.qunar.com/imgs/201501/30/YDOyaUh1dHNdvf6zh480.jpg","price":500,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_21997"},
+            {"hotelName":"上海吉祥酒店","img":"http://userimg.qunar.com/imgs/201407/25/Z7-ECTkRsMMJLerwZ480.jpg","price":428,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2705"},
+            {"hotelName":"上海凯谋概念酒店","img":"http://userimg.qunar.com/imgs/201505/28/JhS1_tJvyfzUOQo4J480.jpg","price":500,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_21644"},
+            {"hotelName":"上海浦东辅特戴斯酒店","img":"http://userimg.qunar.com/imgs/201412/26/Z7-ECTZctUxq_ZeoZ480.jpg","price":419,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2207"},
+            {"hotelName":"上海南桥绿地铂骊酒店（原上海南桥绿地逸东华酒店）","img":"http://userimg.qunar.com/imgs/201409/14/3u81433W4a1FrFnK3480.jpg","price":400,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_5548"},
+            {"hotelName":"上海臣苑大酒店 ","img":"http://userimg.qunar.com/imgs/201508/06/66I5P25CTOP_RAFi6480.jpg","price":320,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_2290"},
+            {"hotelName":"上海英凯大酒店","img":"http://userimg.qunar.com/imgs/201309/26/NNNN2dc2kyre99BGN480.jpg","price":138,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_14558"},
+            {"hotelName":"富驿时尚酒店上海西藏北路地铁站店","img":"http://userimg.qunar.com/imgs/201308/21/JhS1_thSql9BvbEoJ480.jpg","price":165,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shanghai_city_8651"}],
+
+
+        "广州":[{"hotelName":"伊思德国际公寓·广州保利世贸中心","img":"http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg","price":248,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9728"},
+            {"hotelName":"广州嘉福国际大酒店","img":"http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg","price":111,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_3998"},
+            {"hotelName":"广州珠江国际酒店","img":"http://userimg.qunar.com/imgs/201212/11/nz078uvDChamqK1Dv720.jpg","price":301,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9763"},
+            {"hotelName":"广州华威达商务大酒店","img":"http://userimg.qunar.com/imgs/201012/05/88oxWq5W8BLHC88720.jpg","price":224,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_283"},
+            {"hotelName":"广州喜运服务公寓(珠江新城保利中达广场店","img":"http://userimg.qunar.com/imgs/201501/05/Z7-ECTZ-pRWkoy9OZ720.jpg","price":290,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_16766"},
+            {"hotelName":"星和国际酒店广州火车站店（原星和香江酒店","img":"http://userimg.qunar.com/imgs/201412/08/JhS1_tJT2y4x-HinJ720.jpg","price":210,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9760"},
+            {"hotelName":"广州卡丽皇家金煦酒店","img":"http://userimg.qunar.com/imgs/201012/14/kkQ4ENArkv94cNk720.jpg","price":429,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_4462"},
+            {"hotelName":"广州天美酒店","img":"http://userimg.qunar.com/imgs/201404/02/Z7-ECTkJsOOkwcNvZ720.jpg","price":299,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_2313"},
+
+            {"hotelName":"广州南丰朗豪酒店","img":"http://userimg.qunar.com/imgs/201406/26/Z7-ECTkOsi1goVxSZ720.jpg","price":705,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_11367"},
+            {"hotelName":"广州番禺戴斯酒店","img":"http://userimg.qunar.com/imgs/201502/09/66I5P26Bl0ayJEnR6720.jpg","price":210,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_17455"},
+            {"hotelName":"广州泊悦壹号酒店","img":"http://userimg.qunar.com/imgs/201403/12/JhS1_t5GEQXBSdnXJ720.jpg","price":217,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_12427"},
+            {"hotelName":"广州裕通酒店","img":"http://userimg.qunar.com/imgs/201307/23/Z7-ECT9vGRCFSo13Z720.jpg","price":235,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_1993"},
+            {"hotelName":"维也纳酒店广州机场2店","img":"http://userimg.qunar.com/imgs/201411/10/66I5P26nkCnjId3u6720.jpg","price":154,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_13731"},
+            {"hotelName":"广州番禺友和酒店式服务公寓","img":"http://userimg.qunar.com/imgs/201507/21/JhS1_thGDy7RoxD7J720.jpg","price":169,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_17546"},
+            {"hotelName":"广州流花宾馆","img":"http://userimg.qunar.com/imgs/201210/19/Z7-ECTZUhUrmc1xJZ720.jpg","price":392,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_274"},
+            {"hotelName":"广州昊银凯莱酒店","img":"http://userimg.qunar.com/imgs/201212/05/Z7-ECTZWk73OB0FVZ720.jpg","price":446,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9572"},
+            {"hotelName":"广州云来斯堡酒店","img":"http://userimg.qunar.com/imgs/201209/28/Z7S8IZZr1K9UJ5urZ720.jpg","price":665,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_7953"},
+            {"hotelName":"维也纳酒店广州机场店","img":"http://userimg.qunar.com/imgs/201401/16/NNNN2dcTmgE1FBi6N720.jpg","price":289,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"guangzhou_9801"}],
+
+
+
+
+
+        "深圳":[{"hotelName":"深圳鹏威酒店","img":"http://userimg.qunar.com/imgs/201212/14/JhS1_tJ5sC3NGWeVJ720.jpg","price":220,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_5505"},
+            {"hotelName":"深圳凯美豪盛酒店(原罗湖戴斯酒店)","img":"http://userimg.qunar.com/imgs/201412/29/HJI_JOD7dwoO_x93D720.jpg","price":238,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_2012"},
+            {"hotelName":"深圳柏斯顿酒店","img":"http://userimg.qunar.com/imgs/201212/10/0x8gF00PZTmFbkNz0720.jpg","price":259,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_425"},
+            {"hotelName":"深圳弘都酒店","img":"http://userimg.qunar.com/imgs/201411/06/C._M0DCiiDxcmSvptCi720.jpg","price":297,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_10654"},
+            {"hotelName":"深圳雅园风尚酒店","img":"http://userimg.qunar.com/imgs/201409/02/Z7-ECTZlBECoipb8Z720.jpg","price":169,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_1603"},
+            {"hotelName":"深圳华里酒店南山大道店","img":"http://userimg.qunar.com/imgs/201407/12/6fI3uc6USYL877oUL720.jpg","price":215,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_9084"},
+            {"hotelName":"深圳机场大酒店","img":"http://userimg.qunar.com/imgs/201409/19/Z7-ECTZqOFn1796JZ720.jpg","price":142,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_4378"},
+            {"hotelName":"深圳维纳斯商务酒店","img":"http://userimg.qunar.com/imgs/201410/20/Z7-ECTZ3eH4DGaQoZ720.jpg","price":181,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_3222"},
+            {"hotelName":"深圳皇轩酒店","img":"http://userimg.qunar.com/imgs/201407/10/Z7-ECTkCWk6vXDAxZ720.jpg","price":614,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_3475"},
+            {"hotelName":"深圳艺嘉国际大酒店","img":"http://userimg.qunar.com/imgs/201306/14/JhS1_tJkVnazDl6YJ720.jpg","price":338,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_5634"},
+            {"hotelName":"深圳裕龙都市客栈（深圳湾口岸店）","img":"http://userimg.qunar.com/imgs/201404/22/JhS1_t5EhIe0QYVXJ720.jpg","price":51,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_738"},
+            {"hotelName":"深圳市卡瑞登酒店北站店","img":"http://userimg.qunar.com/imgs/201507/03/JhS1_thQx1Rfx25DJ720.jpg","price":336,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_4654"},
+            {"hotelName":"深圳星雅轩酒店(布吉店)","img":"http://userimg.qunar.com/imgs/201203/06/Z7-ECTkxD2PTkjohZ720.jpg","price":180,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_154"},
+            {"hotelName":"深圳中海凯骊酒店","img":"http://userimg.qunar.com/imgs/201406/10/Z7-ECTku1m7lE__9Z720.jpg","price":565,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_2838"},
+            {"hotelName":"深圳智民大酒店","img":"http://userimg.qunar.com/imgs/201308/07/18cLV18I6WdmUUQE1720.jpg","price":72,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_5723"},
+            {"hotelName":"深圳雅园塘朗酒店","img":"http://userimg.qunar.com/imgs/201407/24/BDFgggBJxLWrgQzdz720.jpg","price":143,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_8824"},
+            {"hotelName":"深圳丹枫白露酒店","img":"http://userimg.qunar.com/imgs/201112/16/JhS1_thw-M8E_S3aJ720.jpg","price":428,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_136"},
+            {"hotelName":"深圳视界风尚酒店","img":"http://userimg.qunar.com/imgs/201105/28/9UWSf9uu7CrjhDT19720.jpg","price":296,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"shenzhen_2406"}],
+
+
+        "三亚":[{"hotelName":"三亚四季海庭酒店（大东海）","img":"http://userimg.qunar.com/imgs/201410/14/JhS1_tJHb_T5fJzaJ720.jpg","price":231,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_10854"},
+            {"hotelName":"三亚京海国际假日酒店","img":"http://userimg.qunar.com/imgs/201505/22/JhS1_tJkfyw1Gs1hJ720.jpg","price":335,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_11256"},
+            {"hotelName":"三亚龙兴莱曼海景度假酒店","img":"http://userimg.qunar.com/imgs/201505/28/8q41fFZDLqvW4S9zZ720.jpg","price":178,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_11297"},
+            {"hotelName":"三亚大东海南中国大酒店","img":"http://userimg.qunar.com/imgs/201507/13/JhS1_thPkQ9yxA9uJ720.jpg","price":228,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_2038"},
+            {"hotelName":"三亚京韵海景大酒店","img":"http://userimg.qunar.com/imgs/201507/03/JhS1_thQy_HjFKySJ720.jpg","price":132,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_11664"},
+            {"hotelName":"三亚天泽海韵度假酒店","img":"http://userimg.qunar.com/imgs/201212/10/0x8gF00PZ8ITgAps0720.jpg","price":270,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_22"},
+            {"hotelName":"三亚湾金的精品度假酒店（国航帕尔美纳店）","img":"http://userimg.qunar.com/imgs/201507/28/JhS1_thSRW-HKp9DJ720.jpg","price":62,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_9317"},
+            {"hotelName":"三亚康特王府会议度假酒店","img":"http://userimg.qunar.com/imgs/201506/04/JhS1_tJIeObjcKdOJ720.jpg","price":199,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_8761"},
+            {"hotelName":"三亚中亚国际大酒店","img":"http://userimg.qunar.com/imgs/201304/15/ft0_uGi8wJR-tNsvi720.jpg","price":295,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_8344"},
+            {"hotelName":"三亚凤凰机场海航快捷酒店","img":"http://userimg.qunar.com/imgs/201101/20/C.JhS1_tJTeaTcF7bJJ720.jpg","price":198,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_2054"},
+            {"hotelName":"三亚大东海The sea精品酒店","img":"http://userimg.qunar.com/imgs/201412/04/Z7-ECTZ11DnOOWoOZ720.jpg","price":112,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_10897"},
+            {"hotelName":"三亚三亚湾景利莱度假酒店","img":"http://userimg.qunar.com/imgs/201506/24/JhS1_thMJNm_RdzTJ720.jpg","price":178,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_40"},
+            {"hotelName":"三亚南山休闲会馆（禅修主题）","img":"http://userimg.qunar.com/imgs/201505/02/JhS1_tJ33EYthhNMJ720.jpg","price":460,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_87"},
+            {"hotelName":"三亚经纬大酒店三亚湾店","img":"http://userimg.qunar.com/imgs/201506/25/JhS1_thMCVoxnX7sJ720.jpg","price":110,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"sanya_2126"}],
+
+
+        "成都":[{"hotelName":"成都海纳尔酒店","img":"http://userimg.qunar.com/imgs/201404/07/8q41fFkMSKy-rekJZ720.jpg","price":160,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7740"},
+            {"hotelName":"成都伊丽特酒店","img":"http://userimg.qunar.com/imgs/201111/17/JhS1_thxM_MyBmleJ720.jpg","price":203,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_321"},
+            {"hotelName":"成都图腾铂金酒店（美领馆店）","img":"http://userimg.qunar.com/imgs/201308/21/Z7-ECT9WYomFC2BWZ720.jpg","price":394,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_6115"},
+            {"hotelName":"成都上层名人酒店","img":"http://userimg.qunar.com/imgs/201507/06/JhS1_thT6aKXBrBPJ720.jpg","price":336,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7815"},
+            {"hotelName":"成都图腾铂雅酒店","img":"http://userimg.qunar.com/imgs/201311/04/JhS1_thmQjJc_6rtJ720.jpg","price":331,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7486"},
+            {"hotelName":"成都明悦大酒店","img":"http://userimg.qunar.com/imgs/201411/03/Z7-ECTZxXBJV9dSfZ720.jpg","price":357,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_338"},
+
+            {"hotelName":"成都石化国际酒店","img":"http://userimg.qunar.com/imgs/201506/17/JhS1_th5vbdYflYZJ720.jpg","price":270,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_6126"},
+            {"hotelName":"成都M酒店","img":"http://userimg.qunar.com/imgs/201402/19/Y-IXPvYGYlznXhXev720.jpg","price":384,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7397"},
+            {"hotelName":"成都西藏饭店","img":"http://userimg.qunar.com/imgs/201209/20/JhS1_tJCuocfYf7wJ720.jpg","price":363,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_92"},
+            {"hotelName":"四川锦江宾馆","img":"http://userimg.qunar.com/imgs/201108/31/Z7SBXT9USISuGZ5iZ720.jpg","price":552,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_90"},
+            {"hotelName":"成都融投酒店","img":"http://userimg.qunar.com/imgs/201501/15/JhS1_tJOI6BjST4mJ720.jpg","price":295,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_11080"},
+            {"hotelName":"成都翔宇商务酒店","img":"http://userimg.qunar.com/imgs/201404/03/JhS1_t52o05O-QG0J720.jpg","price":168,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_6369"},
+            {"hotelName":"成都威斯特酒店","img":"http://userimg.qunar.com/imgs/201306/28/JhS1_tJIN84WNZoPJ720.jpg","price":170,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7095"},
+            {"hotelName":"成都瑞熙城市酒店科华店","img":"http://userimg.qunar.com/imgs/201212/09/nz078uvaVHbAsSsiv720.jpg","price":258,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_269"},
+            {"hotelName":"成都中恒檀香酒店","img":"http://userimg.qunar.com/imgs/201311/28/UFkcDJf_VDKCm500T720.jpg","price":230,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7752"},
+            {"hotelName":"成都茗汉铂尔曼国际酒店","img":"http://userimg.qunar.com/imgs/201409/06/66gppi6do4aM0DAy6720.jpg","price":220,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_8242"},
+            {"hotelName":"成都瑞晶酒店（双流国际机场店）","img":"http://userimg.qunar.com/imgs/201504/03/JhS1_tJYeEfZ_TDXJ720.jpg","price":120,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_13620"},
+            {"hotelName":"成都绅泰大酒店","img":"http://userimg.qunar.com/imgs/201408/28/Z7-ECT79S7Q-4KMnZ720.jpg","price":390,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chengdu_7513"}],
+
+
+        "武汉":[{"hotelName":"武汉海庭龙安酒店","img":"http://userimg.qunar.com/imgs/201402/19/JhS1_t5QhLU4L2XSJ720.jpg","price":299,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_7259"},
+            {"hotelName":"武汉万达嘉华酒店","img":"http://userimg.qunar.com/imgs/201402/14/JhS1_t5MtJMv-aJEJ720.jpg","price":790,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_6929"},
+            {"hotelName":"武汉虎泉青年酒店","img":"http://userimg.qunar.com/imgs/201405/11/JhS1_t5cxmGnMlFnJ720.jpg","price":126,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5209"},
+            {"hotelName":"武汉丹枫白露酒店","img":"http://userimg.qunar.com/imgs/201210/29/Z7-ECTZBuWvyHS7YZ720.jpg","price":530,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5451"},
+            {"hotelName":"武汉瑞安海龙酒店汉口火车站店","img":"http://userimg.qunar.com/imgs/201308/22/JhS1_thSjM6-suM4J720.jpg","price":128,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5828"},
+            {"hotelName":"武汉洪广建国大酒店","img":"http://userimg.qunar.com/imgs/201212/11/nz078uvDj4PWCBQ-v720.jpg","price":367,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_2057"},
+            {"hotelName":"武汉长江大酒店","img":"http://userimg.qunar.com/imgs/201411/18/NNNN2dN3EsheFX0hN720.jpg","price":248,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_67"},
+            {"hotelName":"武汉美辰悦尚精品酒店","img":"http://userimg.qunar.com/imgs/201410/23/66I5P26Wcj6W1V1a6720.jpg","price":340,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_10317"},
+            {"hotelName":"武汉新世界酒店","img":"http://userimg.qunar.com/imgs/201101/19/C.JhS1_tJTUma2cZG2J720.jpg","price":600,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_2116"},
+            {"hotelName":"武汉歌德假日酒店","img":"http://userimg.qunar.com/imgs/201404/16/JhS1_t58g9vYJKigJ720.jpg","price":152,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5420"},
+            {"hotelName":"武汉棕榈泉国际酒店","img":"http://userimg.qunar.com/imgs/201306/13/JhS1_tJfIKzrijwFJ720.jpg","price":222,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_4176"},
+            {"hotelName":"武汉联投新大地酒店","img":"http://userimg.qunar.com/imgs/201410/22/JhS1_tJO_qdqeou8J720.jpg","price":253,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_73"},
+            {"hotelName":"空军武汉梅园宾馆","img":"http://userimg.qunar.com/imgs/201407/03/JhS1_t5yTNn7sLJDJ720.jpg","price":235,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_2915"},
+            {"hotelName":"武汉万达瑞华酒店","img":"http://userimg.qunar.com/imgs/201404/09/jgOPoAgmlgEseK-Yj720.jpg","price":1093,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_7475"},
+            {"hotelName":"怡程酒店武汉光谷店","img":"http://userimg.qunar.com/imgs/201406/11/g5QGEjgCf3rxKJ6Yj720.jpg","price":280,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_9053"},
+            {"hotelName":"武汉纽宾凯徐东国际酒店","img":"http://userimg.qunar.com/imgs/201412/26/HJI_JOD6AHmRyGtgD720.jpg","price":349,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5941"},
+            {"hotelName":"武汉斯博兰花园酒店","img":"http://userimg.qunar.com/imgs/201504/20/HJI_JODh5p7P-N_cD720.jpg","price":232,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_2790"},
+            {"hotelName":"武汉亚洲大酒店","img":"http://userimg.qunar.com/imgs/201208/21/JhS1_tJqZQiRf9GiJ720.jpg","price":347,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_43"},
+            {"hotelName":"武汉易舍酒店宗关店","img":"http://userimg.qunar.com/imgs/201211/29/Z7-ECTZcPiCmL9NmZ720.jpg","price":178,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuhan_5402"}],
+
+        "西安":[{"hotelName":"西安曲江国际饭店","img":"http://userimg.qunar.com/imgs/201307/04/Z7-ECT9ZxHgxKZpKZ720.jpg","price":499,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_7777"},
+            {"hotelName":"西安华威国际酒店","img":"http://userimg.qunar.com/imgs/201501/13/JhS1_tJOVuOFhSN6J720.jpg","price":67,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_6421"},
+            {"hotelName":"西安军安王朝大酒店","img":"http://userimg.qunar.com/imgs/201212/08/nz078uvZ2AcXqcHlv720.jpg","price":132,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_2048"},
+            {"hotelName":"西安天朗森柏大酒店","img":"http://userimg.qunar.com/imgs/201403/21/JhS1_t5gPZhUsO8nJ720.jpg","price":328,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_7277"},
+            {"hotelName":"西安华清爱琴海国际温泉酒店","img":"http://userimg.qunar.com/imgs/201412/21/JhS1_tJq8JM1aGArJ720.jpg","price":328,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_2026"},
+            {"hotelName":"西安苹果之歌设计师酒店","img":"http://userimg.qunar.com/imgs/201112/06/QIc5elIjR0Ih4_KzQ720.jpg","price":179,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_6554"},
+            {"hotelName":"西安会展国际酒店","img":"http://userimg.qunar.com/imgs/201112/01/Z7SekZ9gUR5lfalbZ720.jpg","price":232,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_5004"},
+            {"hotelName":"西安建国饭店","img":"http://userimg.qunar.com/imgs/201405/04/5JdCQak-sYmPxzeJa720.jpg","price":262,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_10"},
+            {"hotelName":"西安唐安酒店","img":"http://userimg.qunar.com/imgs/201411/28/JhS1_tJMPJf1T-EtJ720.jpg","price":219,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_15735"},
+            {"hotelName":"西安怡景花园酒店","img":"http://userimg.qunar.com/imgs/201505/29/66I5P26w-1NqVp9e6720.jpg","price":153,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_10020"},
+            {"hotelName":"西安阳光国际大酒店","img":"http://userimg.qunar.com/imgs/201506/29/8q41fF9vTbJxOx2bZ720.jpg","price":358,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_2"},
+            {"hotelName":"西安宾馆","img":"http://userimg.qunar.com/imgs/201012/05/88oxWql68mqJsU8720.jpg","price":253,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_122"},
+            {"hotelName":"西安中江之旅中江酒店","img":"http://userimg.qunar.com/imgs/201409/25/O1pHJnmbi19DQxaum720.jpg","price":180,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_14761"},
+            {"hotelName":"西安广成大酒店","img":"http://userimg.qunar.com/imgs/201308/23/JhS1_thS1QpItTb0J720.jpg","price":221,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_8439"},
+            {"hotelName":"西安皇后大酒店","img":"http://userimg.qunar.com/imgs/201211/06/JhS1_tJK5cd0_xttJ720.jpg","price":242,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_76"},
+            {"hotelName":"西安吉源国际酒店","img":"http://userimg.qunar.com/imgs/201411/13/bRP-x11TjvMKB_GN1720.jpg","price":212,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_14642"},
+            {"hotelName":"西安桃源假日酒店","img":"http://userimg.qunar.com/imgs/201507/27/66I5P25XXDsktZzA6720.jpg","price":264,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_9461"},
+            {"hotelName":"西安苹果之歌温泉酒店","img":"http://userimg.qunar.com/imgs/201309/29/JhS1_thXpjy5bU3WJ720.jpg","price":167,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_9113"},
+            {"hotelName":"西安万年大酒店","img":"http://userimg.qunar.com/imgs/201212/07/nz078uvZyjdNS3Ekv720.jpg","price":100,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"xian_7"}],
+
+        "北京":[{"hotelName":"北京远望楼宾馆","img":"http://userimg.qunar.com/imgs/201012/26/kkQT4GzgkEkz4Uk720.jpg","price":282,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2785"},
+            {"hotelName":"北京丽屋酒店","img":"http://userimg.qunar.com/imgs/201411/25/66I5P26g_vTdEW266720.jpg","price":132,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_29792"},
+            {"hotelName":"北京丰荣君华酒店","img":"http://userimg.qunar.com/imgs/201212/12/nz078uvDRt9KMEVJv720.jpg","price":262,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2869"},
+            {"hotelName":"北京首都机场远航国际酒店","img":"http://userimg.qunar.com/imgs/201301/14/187okn1r9O-s0Cri1720.jpg","price":228,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_20439"},
+            {"hotelName":"北京西苑饭店","img":"http://userimg.qunar.com/imgs/201305/24/NNNN2dNgiay4q-KuN720.jpg","price":498,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_42"},
+            {"hotelName":"北京丽亭华苑酒店","img":"http://userimg.qunar.com/imgs/201403/31/BuAliVu-RS9HJZ30B720.jpg","price":490,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_199"},
+            {"hotelName":"北京外国专家大厦","img":"http://userimg.qunar.com/imgs/201504/29/HJI_JODubiLHUyGcD720.jpg","price":370,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_226"},
+            {"hotelName":"北京建国饭店","img":"http://userimg.qunar.com/imgs/201108/10/bvYAPHv5DkIMm9THb720.jpg","price":1048,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_66"},
+            {"hotelName":"北京工大建国饭店","img":"http://userimg.qunar.com/imgs/201208/15/JhS1_tJP07BGTCJhJ720.jpg","price":646,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_3625"},
+            {"hotelName":"北京太阳花酒店","img":"http://userimg.qunar.com/imgs/201307/08/NNNN2dccnEWw8bVJN720.jpg","price":438,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_4143"},
+            {"hotelName":"北京北纬四十度大酒店","img":"http://userimg.qunar.com/imgs/201304/12/JhS1_tJmlpLgQnPOJ720.jpg","price":330,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2086"},
+            {"hotelName":"北京昆泰嘉禾酒店","img":"http://userimg.qunar.com/imgs/201503/17/AXlykX4CB55ZF5Vl4720.jpg","price":262,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2591"},
+            {"hotelName":"北京好特热温泉酒店","img":"http://userimg.qunar.com/imgs/201212/04/nz078uvcJ7t6hUmWv720.jpg","price":260,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2966"},
+            {"hotelName":"北京龙湾戴斯商务酒店","img":"http://userimg.qunar.com/imgs/201111/17/JhS1_thxpVMH2cQ8J720.jpg","price":274,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_12399"},
+            {"hotelName":"北京瑞斯汀主题酒店","img":"http://userimg.qunar.com/imgs/201507/03/JhS1_thQ3SoV0yHEJ720.jpg","price":262,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_23937"},
+            {"hotelName":"北京中奥凯富国际酒店","img":"http://userimg.qunar.com/imgs/201309/04/18ctK18tc5RXOwlO1720.jpg","price":450,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_2926"},
+            {"hotelName":"北京龙湾国际露营公园","img":"http://userimg.qunar.com/imgs/201409/06/66gppi6d0P6UMGb86720.jpg","price":202,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_27087"},
+            {"hotelName":"北京合众建国饭店","img":"http://userimg.qunar.com/imgs/201308/19/18uU1n8WM-llBHpP1720.jpg","price":388,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"beijing_city_20438"}],
+
+        "重庆":[
+            {"hotelName":"重庆翰文大酒店","img":"http://userimg.qunar.com/imgs/201505/13/JhS1_tJlGL1TrxE-J720.jpg","price":400,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_13960"},
+            {"hotelName":"重庆世纪金源大饭店","img":"http://userimg.qunar.com/imgs/201507/02/JhS1_thQjLbWm9BBJ720.jpg","price":497,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_20"},
+            {"hotelName":"重庆天来大酒店","img":"http://userimg.qunar.com/imgs/201505/07/JhS1_tJx8kEEhV3SJ720.jpg","price":500,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_1993"},
+            {"hotelName":"重庆喜百年酒店渝北店","img":"http://userimg.qunar.com/imgs/201212/03/nz078uvcXIpRYXd_v720.jpg","price":216,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_6729"},
+            {"hotelName":"重庆国贸格兰维大酒店","img":"http://userimg.qunar.com/imgs/201504/29/JhS1_tJzlsuYrC7DJ720.jpg","price":559,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_2110"},
+            {"hotelName":"重庆世纪同辉大酒店","img":"http://userimg.qunar.com/imgs/201412/15/u9wWwAXOE2mwKS3rX720.jpg","price":268,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_6966"},
+            {"hotelName":"重庆薇斯顿风情酒店","img":"http://userimg.qunar.com/imgs/201408/05/FvYfgOjpwx62CLMoF720.jpg","price":178,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_11690"},
+            {"hotelName":"重庆君顿两江酒店","img":"http://userimg.qunar.com/imgs/201405/21/JhS1_t5Nw7HMOzLuJ720.jpg","price":261,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_5781"},
+            {"hotelName":"重庆奥蓝酒店","img":"http://userimg.qunar.com/imgs/201101/20/C.JhS1_tJTeH40UHunJ720.jpg","price":210,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_2273"},
+            {"hotelName":"重庆君豪大饭店","img":"http://userimg.qunar.com/imgs/201406/28/C.nOSnk04UEJ1KeBKp0720.jpg","price":529,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_1"},
+            {"hotelName":"重庆泛印精品酒店","img":"http://userimg.qunar.com/imgs/201411/14/u9wWwAXEWh2iuQLhX720.jpg","price":172,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_9331"},
+            {"hotelName":"重庆武隆仙女山大卫营度假酒店","img":"http://userimg.qunar.com/imgs/201502/24/8q41fFZTEchE6gWuZ720.jpg","price":220,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_8982"},
+            {"hotelName":"重庆凤凰佳居酒店","img":"http://userimg.qunar.com/imgs/201301/18/JhS1_tJGMKQQ5qQtJ720.jpg","price":160,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_39"},
+            {"hotelName":"重庆亚历山大艺术酒店","img":"http://userimg.qunar.com/imgs/201305/03/Z7-ECTZOfjhb99VVZ720.jpg","price":117,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_8930"},
+            {"hotelName":"重庆永川名豪国际酒店","img":"http://userimg.qunar.com/imgs/201109/06/Z7SaYT9TlCBe0oigZ720.jpg","price":194,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_2835"},
+            {"hotelName":"重庆布拉格精品酒店","img":"http://userimg.qunar.com/imgs/201506/09/ikEUXTbSpQJKeenpS720.jpg","price":122,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_18329"},
+            {"hotelName":"重庆杨馨大酒店","img":"http://userimg.qunar.com/imgs/201012/01/9czd641FluA99BvI9720.jpg","price":116,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_64"},
+            {"hotelName":"重庆圣安娜酒店","img":"http://userimg.qunar.com/imgs/201308/29/JhS1_thHKW48idk3J720.jpg","price":106,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_9268"},
+            {"hotelName":"重庆万盛国际大酒店","img":"http://userimg.qunar.com/imgs/201111/20/18TNP189bnyI_Ho71720.jpg","price":221,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"chongqing_city_5757"}],
+
+        "南京":[{"hotelName":"南京玄武苏宁银河诺富特酒店","img":"http://userimg.qunar.com/imgs/201111/30/18TSy18PWf_M_ioE1480.jpg","price":425,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_5040"},
+            {"hotelName":"南京曙光国际大酒店","img":"http://userimg.qunar.com/imgs/201408/13/Z7-ECTkDnr0kf23FZ480.jpg","price":299,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_2047"},
+            {"hotelName":"南京珍宝假日饭店凤台南路店","img":"http://userimg.qunar.com/imgs/201212/05/Z7-ECTZXe512URpUZ480.jpg","price":280,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_6406"},
+            {"hotelName":"南京途家斯维登服务公寓江宁万达店","img":"http://userimg.qunar.com/imgs/201501/27/JhS1_tJ7WorQ_7n-J480.jpg","price":175,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_10109"},
+            {"hotelName":"南京高楼门饭店","img":"http://userimg.qunar.com/imgs/201403/29/8q41fFk3ASiMlYL5Z480.jpg","price":342,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_2076"},
+            {"hotelName":"扬州金陵大饭店","img":"http://userimg.qunar.com/imgs/201101/30/kkQmwUkVrUXlvncLk480.jpg","price":400,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"yangzhou_2210"},
+            {"hotelName":"扬州新世纪大酒店","img":"http://userimg.qunar.com/imgs/201508/21/66I5P258ayS2sUSq6480.jpg","price":280,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"yangzhou_3"},
+            {"hotelName":"扬州文昌阁智选假日酒店","img":"http://userimg.qunar.com/imgs/201404/23/C.vl_s-HrfCOjraDmAb480.jpg","price":237,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"yangzhou_3663"},
+            {"hotelName":"镇江万达喜来登酒店","img":"http://userimg.qunar.com/imgs/201402/11/JhS1_t5piHJjpNBUJ480.jpg","price":580,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"zhenjiang_2827"},
+            {"hotelName":"扬州海德建国酒店","img":"http://userimg.qunar.com/imgs/201109/06/Z7SUiZ9TVTe2IiRpZ480.jpg","price":300,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"yangzhou_1998"},
+            {"hotelName":"句容海柏大酒店","img":"http://userimg.qunar.com/imgs/201506/29/66I5P25IOP3xHWWi6480.jpg","price":200,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"zhenjiang_2980"},
+            {"hotelName":"南京古都文化商务旅馆鼓楼店","img":"http://userimg.qunar.com/imgs/201310/13/NNNN2dc8zrDUzkWYN480.jpg","price":158,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_7550"},
+            {"hotelName":"南京古都文化旅馆新街口店","img":"http://userimg.qunar.com/imgs/201309/24/JhS1_thZ9sUz4dpmJ480.jpg","price":150,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_7549"},
+            {"hotelName":"南京边防酒店","img":"http://userimg.qunar.com/imgs/201411/30/vUaycVBe8jvAJDLCB480.jpg","price":169,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nanjing_6387"},
+            {"hotelName":"宜必思扬州文昌阁酒店","img":"http://userimg.qunar.com/imgs/201408/11/NNNN2dHT_TBzaHypN480.jpg","price":148,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"yangzhou_3359"}],
+
+        "苏州":[{"hotelName":"维也纳酒店苏州乐园店","img":"http://userimg.qunar.com/imgs/201506/05/HJI_JODYZqh8CjFbD480.jpg","price":188,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_8450","":null},
+            {"hotelName":"苏州友联假日酒店","img":"http://userimg.qunar.com/imgs/201202/22/JhS1_t5Ow6EKimu8J480.jpg","price":358,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_1984","":null},
+            {"hotelName":"苏州阳澄万丽酒店","img":"http://userimg.qunar.com/imgs/201112/18/18uqm18qv39IvKcD1480.jpg","price":460,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_7008","":null},
+            {"hotelName":"苏州桐星国际酒店","img":"http://userimg.qunar.com/imgs/201108/31/Z7-rWZ9USWtOLPLKZ480.jpg","price":147,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_3752","":null},
+            {"hotelName":"苏州吴宫泛太平洋酒店","img":"http://userimg.qunar.com/imgs/201507/09/JhS1_tho0UEr4xPfJ480.jpg","price":667,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_110","":null},
+            {"hotelName":"苏州建屋国际酒店","img":"http://userimg.qunar.com/imgs/201507/18/8q41fF9Gf-l-Un9oZ480.jpg","price":474,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_59","":null},
+            {"hotelName":"苏州金鸡湖名致服务公寓","img":"http://userimg.qunar.com/imgs/201112/01/JhS1_thktfsFM9JEJ480.jpg","price":470,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_4574","":null},
+            {"hotelName":"泊逸精品酒店苏州新区乐园店","img":"http://userimg.qunar.com/imgs/201410/16/NNNN2dNbY32HaZjJN480.jpg","price":459,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_2007","":null},
+            {"hotelName":"昆山全冠酒店","img":"http://userimg.qunar.com/imgs/201411/24/Z7-ECTZlvefpOJ8aZ480.jpg","price":327,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_8319","":null},
+            {"hotelName":"吴江汉唐国际酒店","img":"http://userimg.qunar.com/imgs/201410/08/66I5P26XW7pEl01l6480.jpg","price":240,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_2374","":null},
+            {"hotelName":"苏州南亚宾馆","img":"http://userimg.qunar.com/imgs/201212/11/nz078uvD9w02-J-Hv480.jpg","price":311,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_114","":null},
+            {"hotelName":"昆山皇冠国际会展酒店","img":"http://userimg.qunar.com/imgs/201504/14/Z7-ECTZnXCRqwhGGZ480.jpg","price":518,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_9707","":null},
+            {"hotelName":"苏州商旅阳澄半岛酒店","img":"http://userimg.qunar.com/imgs/201101/05/kkQvxNJkkRkA7kk480.jpg","price":408,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_2015","":null},
+            {"hotelName":"苏州中华园大饭店","img":"http://userimg.qunar.com/imgs/201504/07/66I5P26JQUAO1R_96480.jpg","price":380,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_115","":null},
+            {"hotelName":"书香世家苏州山塘府邸店","img":"http://userimg.qunar.com/imgs/201412/17/66I5P26R-d1MhXgg6480.jpg","price":636,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_10222","":null},
+            {"hotelName":"昆山波尔曼酒店","img":"http://userimg.qunar.com/imgs/201309/30/Z7-ECT9Hf4x2Mh0IZ480.jpg","price":387,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_5983","":null},
+            {"hotelName":"张家港友和城市酒店","img":"http://userimg.qunar.com/imgs/201409/07/66gppi6d4IPHaMfZ6480.jpg","price":184,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_7050","":null},
+            {"hotelName":"苏州颐舍温泉酒店","img":"http://userimg.qunar.com/imgs/201409/26/Z7-ECTZYsxB4o96MZ480.jpg","price":320,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_4603","":null},
+            {"hotelName":"昆山威尼斯假日酒店","img":"http://userimg.qunar.com/imgs/201409/28/Z7-ECTZGSflexjelZ480.jpg","price":378,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_5289","":null},
+            {"hotelName":"苏州常熟大酒店","img":"http://userimg.qunar.com/imgs/201308/29/Z7-ECT9SzBvl1qNEZ480.jpg","price":243,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_4143","":null},
+            {"hotelName":"苏州悦途太湖假日中心酒店","img":"http://userimg.qunar.com/imgs/201412/31/HJI_JODLkX16JunmD480.jpg","price":189,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_11714","":null},
+            {"hotelName":"张家港新世汇时尚精品酒店","img":"http://userimg.qunar.com/imgs/201012/26/kkQFDU1MkRRAEGk480.jpg","price":119,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_3130","":null},
+            {"hotelName":"苏州友谊宾馆","img":"http://userimg.qunar.com/imgs/201212/07/nz078uvZKBzQlb0Ev480.jpg","price":238,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"suzhou_jiangsu_4055","":null}],
+
+
+
+        "宁波":[{"hotelName":"宁波恒厚阳光大酒店（原宁波阳光公寓酒店）","img":"http://userimg.qunar.com/imgs/201407/03/NNNN2dHPrFtx4kjAN480.jpg","price":230,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_6870"},
+            {"hotelName":"宁波华侨豪生大酒店","img":"http://userimg.qunar.com/imgs/201507/01/66I5P25t9ALhpLH16480.jpg","price":560,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_2009"},
+            {"hotelName":"宁波晶崴宇达饭店","img":"http://userimg.qunar.com/imgs/201410/28/NNNN2dNhSOw9clebN480.jpg","price":260,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_6619"},
+            {"hotelName":"宁波四季瑞丽精品酒店","img":"http://userimg.qunar.com/imgs/201507/23/JhS1_thGePncNbVyJ480.jpg","price":263,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_2036"},
+            {"hotelName":"宁波优宿酒店公寓（原汉?酒店公寓宁波银亿环球中心店）","img":"http://userimg.qunar.com/imgs/201201/13/JhS1_t5QUDKEwsImJ480.jpg","price":339,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_5406"},
+            {"hotelName":"宁波海逸大酒店","img":"http://userimg.qunar.com/imgs/201409/06/66gppi6d_IgZyMxf6480.jpg","price":280,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_5768"},
+            {"hotelName":"奉化溪口银凤度假村","img":"http://userimg.qunar.com/imgs/201101/16/kkQ3QGtNkHKm8Uk480.jpg","price":283,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_2020"},
+            {"hotelName":"宁波优宿酒店公寓波特曼店（原汉公寓）","img":"http://userimg.qunar.com/imgs/201404/28/JhS1_t5XI4KAuJ6MJ480.jpg","price":274,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_5634"},
+            {"hotelName":"宁波新金星宾馆","img":"http://userimg.qunar.com/imgs/201401/23/Z7-ECT9oF1kuOdIlZ480.jpg","price":283,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_11"},
+            {"hotelName":"东港湾大酒店","img":"http://userimg.qunar.com/imgs/201311/26/JhS1_thuxc9sfeCWJ480.jpg","price":263,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_6820"},
+            {"hotelName":"宁波新舟宾馆","img":"http://userimg.qunar.com/imgs/201509/02/JhS1_thEiM8TilHoJ480.jpg","price":303,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_33"},
+            {"hotelName":"慈溪波斯曼国际酒店","img":"http://userimg.qunar.com/imgs/201408/11/Z7-ECTkDlDcfmrXSZ480.jpg","price":156,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_2717"},
+            {"hotelName":"宁波宝成精品酒店","img":"http://userimg.qunar.com/imgs/201408/15/NNNN2dHf6hxTJA00N480.jpg","price":122,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_5745"},
+            {"hotelName":"最佳西方宁波江花宾馆","img":"http://userimg.qunar.com/imgs/201501/05/Z7-ECTZ-pwzlsBYlZ480.jpg","price":260,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_12"},
+            {"hotelName":"宁波老槐树江畔酒店","img":"http://userimg.qunar.com/imgs/201506/09/JhS1_thJjDwX5blSJ480.jpg","price":130,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_6970"},
+            {"hotelName":"宁波东方石浦商务酒店","img":"http://userimg.qunar.com/imgs/201308/07/18ugW18Iwcjwvz-61480.jpg","price":209,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"ningbo_5778"}],
+
+
+        "常州":[{"hotelName":"常州柏臣精品酒店","img":"http://userimg.qunar.com/imgs/201405/06/JhS1_t5j8s6Af_EUJ480.jpg","price":368,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_5514"},
+            {"hotelName":"常州锦海武进宾馆","img":"http://userimg.qunar.com/imgs/201402/25/Z7-ECTkyNGFbq-qaZ480.jpg","price":150,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_2609"},
+            {"hotelName":"常州万达喜来登酒店","img":"http://userimg.qunar.com/imgs/201308/19/Z7-ECT9XaVguPfyzZ480.jpg","price":688,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_4327"},
+            {"hotelName":"常州中天凤凰大酒店","img":"http://userimg.qunar.com/imgs/201110/12/Z7-UzZ9_PkUsDV9wZ480.jpg","price":317,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_7"},
+            {"hotelName":"常州中心智选假日酒店","img":"http://userimg.qunar.com/imgs/201508/26/JhS1_th8XHD7f0PjJ480.jpg","price":249,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_4611"},
+            {"hotelName":"常州锦海国际大酒店","img":"http://userimg.qunar.com/imgs/201011/19/9cYj8wZnJwA99ihE9480.jpg","price":120,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_2014"},
+            {"hotelName":"常州嬉戏谷维景国际大酒店","img":"http://userimg.qunar.com/imgs/201501/29/ChRkoooqSRUr1-LTo480.jpg","price":518,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_6454"},
+            {"hotelName":"常州百盛大酒店","img":"http://userimg.qunar.com/imgs/201404/21/C.vl_s-Hry6sfSbZerb480.jpg","price":158,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_5161"},
+            {"hotelName":"溧阳天目湖国际饭店","img":"http://userimg.qunar.com/imgs/201506/19/Z7-ECT97wQKHYw4mZ480.jpg","price":328,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"changzhou_3389"}],
+
+
+        "杭州":[{"hotelName":"杭州大酒店","img":"http://userimg.qunar.com/imgs/201305/14/JhS1_tJyuEc51qTlJ480.jpg","price":650,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_143"},
+            {"hotelName":"杭州途家斯维登度假公寓远景IBC店","img":"http://userimg.qunar.com/imgs/201403/26/JhS1_t5HzYKPQsWXJ480.jpg","price":210,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_11369"},
+            {"hotelName":"杭州五洋假日酒店","img":"http://userimg.qunar.com/imgs/201409/04/66gppi6gbWhqjXOx6480.jpg","price":868,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_228"},
+            {"hotelName":"杭州度豪大酒店","img":"http://userimg.qunar.com/imgs/201211/23/Z7-ECTZu3SinhMXiZ480.jpg","price":288,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_8992"},
+            {"hotelName":"杭州西溪壹树精品酒店","img":"http://userimg.qunar.com/imgs/201411/23/66I5P26N4d8e9nzk6480.jpg","price":300,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_14818"},
+            {"hotelName":"杭州萧山国际机场浙旅大酒店","img":"http://userimg.qunar.com/imgs/201309/22/Z7-ECT9rpOsQVCEYZ480.jpg","price":500,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_9375"},
+            {"hotelName":"杭州建德皇爵君廷大酒店","img":"http://userimg.qunar.com/imgs/201508/19/66I5P258hZuX5qd76480.jpg","price":600,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_11829"},
+            {"hotelName":"杭州侨园我家度假酒店","img":"http://userimg.qunar.com/imgs/201209/21/187t101sPOSXc8bK1480.jpg","price":511,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_9009"},
+            {"hotelName":"杭州开元· 曼居酒店萧山人民广场店","img":"http://userimg.qunar.com/imgs/201504/22/JhS1_tJ1WiQiImevJ480.jpg","price":418,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_16315"},
+            {"hotelName":"杭州缶庐山庄","img":"http://userimg.qunar.com/imgs/201012/01/9czdkpxJEzN99BFE9480.jpg","price":340,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_3046"},
+            {"hotelName":"千岛湖开元曼居主题酒店","img":"http://userimg.qunar.com/imgs/201307/17/Z7-ECT9lEBfbpyUpZ480.jpg","price":760,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_11419"},
+            {"hotelName":"杭州木莲庄酒店","img":"http://userimg.qunar.com/imgs/201508/04/8HBjJz6TisJfnTbOK480.jpg","price":468,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_16999"},
+            {"hotelName":"宜必思杭州南宋御街酒店","img":"http://userimg.qunar.com/imgs/201111/17/JhS1_thxpXOo_1SZJ480.jpg","price":152,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_8239"},
+            {"hotelName":"杭州萧山机场航峰宾馆","img":"http://userimg.qunar.com/imgs/201212/07/nz078uvZ0Sir1XaAv480.jpg","price":143,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_8541"},
+            {"hotelName":"杭州皇后公园精品酒店","img":"http://userimg.qunar.com/imgs/201410/31/NNNN2dN64HwOuGe-N480.jpg","price":350,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_10485"},
+            {"hotelName":"杭州丽君酒店公寓火车东站店","img":"http://userimg.qunar.com/imgs/201309/25/JhS1_thZxC0LGlXhJ480.jpg","price":260,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_11596"},
+            {"hotelName":"杭州观悦上品酒店","img":"http://userimg.qunar.com/imgs/201402/10/Z7-ECTkl3Ixy5k_FZ480.jpg","price":450,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_11874"},
+            {"hotelName":"杭州梵希精品酒店","img":"http://userimg.qunar.com/imgs/201305/24/JhS1_tJzL76SUxG4J480.jpg","price":320,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_10491"},
+            {"hotelName":"杭州华北饭店","img":"http://userimg.qunar.com/imgs/201302/15/JhS1_tJCu-Riquf4J480.jpg","price":530,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_31"},
+            {"hotelName":"杭州千岛湖印湖酒店","img":"http://userimg.qunar.com/imgs/201403/31/JhS1_t5OHnVSkIJMJ480.jpg","price":340,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"hangzhou_12222"},
+            {"hotelName":"嘉兴富悦大酒店","img":"http://userimg.qunar.com/imgs/201309/26/Z7-ECT9fXTAsS1SHZ480.jpg","price":464,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jiaxing_3174"},
+            {"hotelName":"嘉兴豪仕登大酒店","img":"http://userimg.qunar.com/imgs/201305/20/JhS1_tJ6_Ni1QaKnJ480.jpg","price":355,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jiaxing_6794"},
+            {"hotelName":"海宁登豪大酒店","img":"http://userimg.qunar.com/imgs/201412/05/Z7-ECTZ1rQ-kTHvYZ480.jpg","price":348,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jiaxing_8556"},
+            {"hotelName":"嘉兴阳光大酒店","img":"http://userimg.qunar.com/imgs/201309/22/Z7-ECT9reMbh_22kZ480.jpg","price":322,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jiaxing_1"},
+            {"hotelName":"嘉兴香溢大酒店","img":"http://userimg.qunar.com/imgs/201509/06/JhS1_thXr_1cYHKUJ480.jpg","price":220,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jiaxing_3"},
+            {"hotelName":"义乌伊美广场酒店","img":"http://userimg.qunar.com/imgs/201306/22/JhS1_tJvYqVvkmxQJ480.jpg","price":278,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jinhua_2237"},
+            {"hotelName":"义乌巴里岛广场酒店","img":"http://userimg.qunar.com/imgs/201509/08/JhS1_thRRGas6J6JJ480.jpg","price":328,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jinhua_2481"},
+            {"hotelName":"义乌商城宾馆","img":"http://userimg.qunar.com/imgs/201504/14/Z7-ECTZnXCy2W_c8Z480.jpg","price":428,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jinhua_8993"},
+            {"hotelName":"义乌皇轩大酒店","img":"http://userimg.qunar.com/imgs/201401/07/HFMHcXcpPEFLw9QGN480.jpg","price":108,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"jinhua_3401"}],
+
+
+
+        "无锡":[{"hotelName":"无锡最佳美洲锦亭酒店","img":"http://userimg.qunar.com/imgs/201302/25/JhS1_tJ8xTysEZRsJ480.jpg","price":259,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_5344"},
+            {"hotelName":"无锡鼎尚皇冠大酒店","img":"http://userimg.qunar.com/imgs/201108/11/Z7-6ZT9rqCFOnvP_Z480.jpg","price":359,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_3903"},
+            {"hotelName":"无锡新湖铂尔曼大酒店","img":"http://userimg.qunar.com/imgs/201507/06/8q41fF9yABWNMHS2Z480.jpg","price":454,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_5323"},
+            {"hotelName":"无锡辅特戴斯酒店","img":"http://userimg.qunar.com/imgs/201411/20/JhS1_tJ512D0ZOfpJ480.jpg","price":154,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_6564"},
+            {"hotelName":"无锡江南丹青度假酒店","img":"http://userimg.qunar.com/imgs/201403/05/Z7-ECTkYM9uMqT3AZ480.jpg","price":285,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_5982"},
+            {"hotelName":"无锡千禧大酒店","img":"http://userimg.qunar.com/imgs/201210/09/JhS1_tJXXEZz_hcIJ480.jpg","price":645,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_2213"},
+            {"hotelName":"无锡万悦酒店","img":"http://userimg.qunar.com/imgs/201502/15/Z7-ECTZ0a-jLMjjIZ480.jpg","price":238,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_7061"},
+            {"hotelName":"无锡红星饭店","img":"http://userimg.qunar.com/imgs/201305/15/JhS1_tJ15Yi0b-iBJ480.jpg","price":228,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_3649"},
+            {"hotelName":"无锡锡州花园饭店","img":"http://userimg.qunar.com/imgs/201409/23/Z7-ECTZPegNNsw0wZ480.jpg","price":338,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_48\n"},
+            {"hotelName":"无锡锦江大酒店","img":"http://userimg.qunar.com/imgs/201108/10/Z7-rdZ9xdwCnYnxFZ480.jpg","price":280,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"wuxi_19"}],
+
+
+
+        "南通":[{"hotelName":"南通三德大酒店","img":"http://userimg.qunar.com/imgs/201405/26/Z7-ECTkIwmxc2kD7Z480.jpg","price":230,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_11"},
+            {"hotelName":"南通金石国际大酒店（南通新区会议中心）","img":"http://userimg.qunar.com/imgs/201409/23/Z7-ECTZY7lchaSqSZ480.jpg","price":500,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_2975"},
+            {"hotelName":"海门皇家花园酒店","img":"http://userimg.qunar.com/imgs/201503/12/HJI_JODTehTogXalD480.jpg","price":316,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_4469"},
+            {"hotelName":"南通濠河时尚酒店","img":"http://userimg.qunar.com/imgs/201410/23/Z7-ECTZJsQewdEXiZ480.jpg","price":248,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_2006"},
+            {"hotelName":"海门东恒盛国际大酒店","img":"http://userimg.qunar.com/imgs/201306/07/JhS1_tJloGGXCa1hJ480.jpg","price":450,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_3750"},
+            {"hotelName":"南通维也纳酒店","img":"http://userimg.qunar.com/imgs/201311/06/Z7-ECT9hteE2ol9IZ480.jpg","price":158,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_4303"},
+            {"hotelName":"启东先豪国际酒店","img":"http://userimg.qunar.com/imgs/201007/19/YZqT9dIrEwSYzwa4Y480.jpg","price":468,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_2136"},
+            {"hotelName":"海安锦龙国际大酒店","img":"http://userimg.qunar.com/imgs/201505/26/JhS1_tJv-D29hhI6J480.jpg","price":278,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_2490"},
+            {"hotelName":"启东银座公寓酒店","img":"http://userimg.qunar.com/imgs/201102/24/kkQFeGk4vVBkpsSuk480.jpg","price":299,"hotelAddress":"地处长隆旅游度假区的中心","hotelId":"nantong_2031"}],
+
+
+    };
+    bulidTemple({data:data},'.hotel_list','#hoteltpl');
+    bulidTemple({data:data},'.nav_table','#citytpl');
+//    bulidTemple({data:data},'.nav_table','#citytpl');
+
+    function bulidTemple(data,element,tpl){
+        var element = $(element);
+        var tpl = $(tpl).html();
+        var render = _.template(tpl);
+        var html = render(data);
+        element.append(html);
+    }
+    function isEmptyObject(obj){
+        if(obj && typeof(obj)=='object'){
+            for(var n in obj){return false}
+        }
+        return true;
+    }
+    $('.main').on('click','.nav_table div',function(){
+        if($(this).attr('class')!='moreCity'){
+            var city=$(this).html(),$list=$('.list[data-city="'+city+'"]'),$img=$($list.find('.list_hotel_img>img'));
+            $('.nav_table div').removeClass('nav_active');
+            $(this).addClass('nav_active');
+            $('.list').addClass('hidden');
+            $list.removeClass('hidden');
+            $img.each(function(){
+                $(this).attr('src',$(this).attr('data-src'));
+            });
+//            showAlert();
+
+        }else{
+            var $more_city_div=$('.more_city_div');
+            if($more_city_div.hasClass('more_city_div_show')){
+                $more_city_div.removeClass('more_city_div_show');
+                $more_city_div.css({height:'0'});
+                $(this).html('更多城市');
+            }else{
+                $more_city_div.addClass('more_city_div_show');
+//                $more_city_div.css({height:'100px'});
+
+                $more_city_div.css({height:Math.ceil((count(data)-7)/4)*1.8+'rem'});
+                $(this).html('收起城市');
+            }
+        }
+
+    })
+    function count(o){
+        var t = typeof o;
+        if(t == 'string'){
+            return o.length;
+        }else if(t == 'object'){
+            var n = 0;
+            for(var i in o){
+                n++;
+            }
+            return n;
+        }
+        return false;
+    };
+
+    function showAlert(msg,title){
+        var _alert=$('.alert'),_alt_mask=$('.alt-mask');
+        _alert.removeClass('hidden');
+        _alt_mask.removeClass('hidden');
+        $('.al-title').html(title || '去哪儿网温馨提示：');
+        $('.msg').html(msg);
+        $('.main').one('click',function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            _alert.addClass('hidden');
+            _alt_mask.addClass('hidden');
+            $('.main').unbind('touchmove');
+        }).on('touchmove',function(e){
+            e.preventDefault();
+        });
+    }
+
+
+
+    function buildMiaosha(dom){
+        this.$dom=$(dom);
+        this.interval= 0;
+        this.init();
+    }
+    buildMiaosha.prototype = {
+        init:function(){
+            var me=this,$dom=this.$dom;
+            setState();
+            if($($dom.find('.mask_txt')).html()!='已结束'){
+                me.interval=setInterval(setState,1000);
+            }
+            function setState(){
+                var Time=getTime(),startTime=$dom.attr('data-startTime').replace('：', ':'),endTime=$dom.attr('data-endTime').replace('：', ':');
+//                console.log(Time+';startTime:'+startTime+';endTime:'+endTime);
+                if(Time>=startTime&&Time<=endTime&&$($dom.find('.mask_txt')).html()!='进行中'){
+//            clearInterval(Interval);
+                    $($dom.find('.mask_txt')).html('进行中');
+                    $($dom.find('#hotelmask')).attr('class','jinxing');
+                    $($dom.find('.xiangqing')).removeClass('disable').addClass('look');
+                }else if(Time>endTime&&$($dom.find('.mask_txt')).html()!='已结束'){
+                    $($dom.find('.mask_txt')).html('已结束');
+                    $($dom.find('#hotelmask')).attr('class','jieshu');
+                    $($dom.find('.xiangqing')).removeClass('disable').addClass('look').html('查看详情');
+                    $($dom.find('.qi>img')).attr('src','http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi_hui.png');
+                    clearInterval(me.interval);
+
+                }else if(Time<startTime){
+                    $($dom.find('.mask_txt')).html(startTime+'<br>开&nbsp;秒');
+                }
+            }
+        }
+    }
+    var miaoshaData=miaosha_data[$.getDateString(new Date())];
+    if(!isEmptyObject(miaoshaData)){
+        $('.miaosha_content').removeClass('hidden');
+        bulidTemple({data:miaoshaData},'.miaosha_list','#miaoshatpl');
+        $.each(miaoshaData,function(index,item){
+            var hotelId=item.hotelId;
+            new buildMiaosha('.hotel_area[data-hotelid="'+hotelId+'"]');
+        })
+    }
+    $('.tehui_content').removeClass('hidden');
+    setTimeout(function(){
+        $('.td1').trigger('click');
+    },100)
+    $('.main').on('click','.xiangqing,.list_hotel_watch_div,.hotel_area,.list>div',function(){
+       var $this=$(this);
+        if(!$this.hasClass('disable')){
+            var seq=$(this).attr('data-hotelid'),fromForLog=getfromForLog(bdSource);
+            var href='://hotel/detail?ids='+seq+'&needRoomVendor=0'+'&fromForLog='+fromForLog+'&cat='+bdSource;
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                url='http://touch.qunar.com/h5/hotel/hoteldetail?seq='+seq+'&bd_source='+bdSource;
+            }
+            window.location.href =url;
+        }
+    })
+    function getTime(){
+        var date=new Date();
+        return fixZero(date.getHours())+":"+fixZero(date.getMinutes());
+
+        function fixZero(num){
+            if(num<10){return '0'+num;}
+            return num;
+        }
+    }
+    function getfromForLog(bdSource) {
+        var bd_source= bdSource || 0;
+        return 1000 + parseInt(bd_source.replace('huodong', '') || 0);
+    };
+
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return ''; //返回参数值
+    }
+
+});
+
+
+(function() {
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    var hm = document.createElement("script");
+    hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</html>

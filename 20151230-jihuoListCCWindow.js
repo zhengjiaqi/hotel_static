@@ -1,0 +1,20 @@
+var Textdata={
+    title:'订酒店享五折特权',
+    textList:[
+        {
+            img:'http://source.qunar.com/site/images/wap/touch/images/v2/images1x/cc-icon-5zhe.png',
+            title:'订酒店首晚5折起',
+            desc:'机票/火车票用户专享，订酒店首晚五折起，最高减&yen;200'
+        },
+        {
+            img:'http://source.qunar.com/site/images/wap/touch/images/v2/images1x/cc-icon-bao.png',
+            title:'入住有保障',
+            desc:'到店有房，有问题我赔你，最高赔付首晚房费'
+        },
+        {
+            img:'http://source.qunar.com/site/images/wap/touch/images/v2/images1x/cc-icon-ren.png',
+            title:'多数人选择',
+            desc:'每天有数十万人使用去哪儿网订酒店服务'
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>浪漫一刻 去哪儿钟点房30元起</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
+    <!--<meta name="apple-touch-fullscreen" content="YES"/>-->
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black"/>-->
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #bb1268;
+        }
+        .head_img img{
+            width: 100%;
+        }
+        .center{
+            padding: 20px 10px;
+        }
+        .txt_area{
+            background: #fff;
+            border-radius: 3px;
+            padding: 20px 15px 45px 15px;
+        }
+        .title{
+            text-align: center;
+            color:#f1238c;
+            font-size: 16px;
+            padding:10px 0
+        }
+        .txt{
+            font-size: 14px;
+            line-height: 20px;
+            padding-bottom: 25px;
+        }
+        .lab{
+            color:#f43232;
+            border:1px solid;
+            border-radius: 3px;
+            font-size: 12px;
+            padding:0 1px;
+            line-height: 14px;
+            margin: 0 2px;
+            display: inline-block;
+            width:50px
+        }
+        .into_zdf{
+            color:#fff;
+            background: #f1238c;
+            font-size: 18px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+            margin-top:15px
+        }
+        .into_zdf:active{background: #bc126a}
+    </style>
+    <!--<script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>-->
+</head>
+<body>
+
+<div class="content">
+    <div class="head_img">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/qixi.png"/>
+    </div>
+    <div class="center">
+        <div class="txt_area">
+            <div class="title">活动规则</div>
+            <div class="txt">1:点击【进入钟点房】按钮，预定带有<span class="lab">五折大促</span>标签的酒店，最低可享受五折报价</div>
+            <div class="txt">2:五折大促活动只限于去哪儿网新用户，且每个用户只享受一次五折大促优惠价格</div>
+            <div class="txt">3:新用户：未在去哪儿App购买过酒店产品的用户</div>
+            <div class="into_zdf">进入钟点房</div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+</body>  
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0"></script>
+<script>
+$(function() {
+    var bdSource=getUrlParam('bd_source') || 'huodong611';
+    var cityName='北京',cityUrl='beijing_city';
+    var qua = function () {
+        var ua = navigator.userAgent;
+        return {
+            iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+            iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+            iphone     : ua.indexOf("QunariPhone") !== -1,
+            androidLife: ua.indexOf("qunaraphonelife") !== -1,
+            android    : ua.indexOf("qunaraphone") !== -1,
+            ipad       : /ipad/ig.test(ua)
+        }
+    }();
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+    function myFun(result){
+        cityName = result && result.name;
+        if(!cityName){
+            cityName='';
+        }else if(/香港/.test(cityName)){
+            cityName='香港';
+        }else if(/澳门/.test(cityName)){
+            cityName='澳门';
+        }else{
+            cityName=cityName.split('市')[0];
+        }
+        $.ajax({
+            url     : 'http://touch.qunar.com/h5/commonControl?action=getCityUrlByName',
+            data    : {
+                cityName: cityName
+            },
+            dataType: 'json',
+            success : function (data) {
+                cityUrl=data.cityUrl;
+                var log={
+                    'huodong611':1611,
+                    'huodong612':1612,
+                    'huodong613':1613,
+                    'huodong614':1614,
+                    'huodong541':3025
+                }
+                var fromForLog = log[bdSource] || 1611;
+                $('.content').on('click','.into_zdf',function(){
+                    var href='hotel/hourRoomList?city='+encodeURI(cityName)+'&cityUrl='+encodeURI(cityUrl)+'&cat='+bdSource+'&fromForLog='+fromForLog;
+                    var url="";
+                    if(qua.iphonePro){
+                        url="qunariphonepro://" + href;
+                    }else if(qua.iphoneLife){
+                        url="qunariphonelife://" + href;
+                    }else if(qua.iphone){
+                        url="qunariphone://" + href;
+                    }else if(qua.androidLife){
+                        url="qunaraphonelife://" + href;
+                    }else if(qua.android){
+                        url="qunaraphone://" + href;
+                    }else{
+                        var url1='hotel/hotellist?city='+encodeURI(cityName)+'&type=2&bd_source='+bdSource;
+
+                        var scheme=encodeURIComponent(href);
+                        var touchUrl=encodeURIComponent(url1);
+                        var url ='http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+scheme+'&touchUrl='+touchUrl;
+                        window.location.href=url;
+                    }
+                    window.location.href =url;
+                });
+            },
+            error   : function () {
+                        console.log('网络错误，请稍后重试！');
+            }
+        })
+
+    }
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return ''; //返回参数值
+    }
+
+});
+(function() {
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    var hm = document.createElement("script");
+    hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</html>

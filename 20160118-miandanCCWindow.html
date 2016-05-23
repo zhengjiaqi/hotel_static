@@ -1,0 +1,97 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>酒店5折</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection"/>
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport"/>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body,html{
+            overflow: hidden;
+        }
+        .main >img{
+            width: 100%;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+        }
+        .main{
+            padding: 50px 10px 0 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/f09ae886ab5a4cd65ad482b11a750ca7.jpg">
+</div>
+
+</body>
+<!--<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>-->
+<script>
+    (function () {
+        var $main=document.querySelector('.main');
+        if(navigator.userAgent.toLowerCase().indexOf('iphone')>0){
+            $main.style.position='fixed';
+        }
+        $main.addEventListener('touchmove',function(e){
+            e.preventDefault();
+        });
+
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+        var bdSource= getUrlParam('bd_source') || '';
+        document.querySelector('.main>img').addEventListener('click',function(e){
+
+            var href='',scheme='';
+            scheme='hy?url='+encodeURIComponent('http://touch.qunar.com/activity/airlineticket/ticketfree'+'?bd_source='+bdSource);
+            href='://'+scheme;
+            var url="";
+            if(qua.iphonePro){
+                url="qunariphonepro" + href;
+            }else if(qua.iphoneLife){
+                url="qunariphonelife" + href;
+            }else if(qua.iphone){
+                url="qunariphone" + href;
+            }else if(qua.androidLife){
+                url="qunaraphonelife" + href;
+            }else if(qua.android){
+                url="qunaraphone" + href;
+            }else{
+                var url1='http://touch.qunar.com/h5/hotel/?bd_source='+bdSource;
+                var touchUrl=encodeURIComponent(url1);
+                url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl='+touchUrl;
+            }
+            window.location.href =url;
+        });
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+    })();
+</script>
+
+</html>

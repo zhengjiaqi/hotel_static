@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>今日特惠酒店3折起</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
+    <style type="text/css">
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:'微软雅黑';}
+        table{border-collapse:collapse;border-spacing:0}
+        fieldset,img{border:0}
+        address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+        ol,ul,li{list-style:none}
+        caption,th{text-align:left}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+        q:before,q:after{content:''}
+        abbr,acronym{border:0}
+        a{color:#000;text-decoration:none}
+        a:active{color:#000}
+        .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+        .clear{ clear:both;}
+        body{
+            background-color: #fe0000;
+            padding:0px;
+            margin: 0px;
+        }
+        html{-webkit-text-size-adjust: none;}
+
+        #worldcup_secKill{
+            position: relative;
+            width: 100%;
+            padding:0px;
+            margin: 0px;
+        }
+        header .banner{
+            position:relative;
+            display:block;
+            margin:0 auto;
+            border-bottom: 1px solid #C5AAAA;
+        }
+        #worldcup_secKill .nav{
+            position: relative;
+            width: 96%;
+            font-size: 0px;
+            font-weight: bold;
+            margin: 2% auto 1px auto;
+            padding:0px;
+            overflow: hidden;
+        }
+        .nav span {
+            font-size: 16px;
+            display: inline-block;
+            background-color: #ff8a00;
+            width: 19.2%;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            margin-bottom: 1%;
+            float: left;
+        }
+        .nav span.cur{
+            background-color: #ffd147;
+            color: #000;
+        }
+        .item2 .con {
+            border: 10px solid #eee;
+            display: block;
+            margin: 7px 0px;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+
+        .type2{
+            overflow:hidden; /*使之形成bfc*/
+            position:relative;
+        }
+        .type2 .imgBox{
+            width:48%;
+            position: relative;
+        }
+        .type2 .imgBox img{
+            display: block;
+            width:100%;
+            height: 90px;
+        }
+        .type2 .imgBox .context,
+        .type2 .imgBox2 .context{
+            width: 100%;
+            background-color:rgba(0,0,0,.5);
+            position:absolute;
+            left:0;
+            bottom: 0px;
+        }
+        .type2 .imgBox .title,
+        .type2 .imgBox2 .title1{
+            font-size: 16px;
+            color: #fff;
+            line-height: 28px;
+            padding-left: 5px;
+            display: inline-block;
+            width: 98%;
+
+        }
+        .type2 .imgBox .price,
+        .type2 .imgBox2 .price{
+            color:yellow;
+            display: inline-block;
+            float:right;
+            font-size:16px;
+            line-height: 32px;
+        }
+        .type2 .des h3{
+            font-size: 19px;
+            margin: 5px 0px 0px 0px;
+            padding-left: 3%;
+            padding-bottom: 2%;
+        }
+        .type2 .des p{
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #888;
+            padding: 3%;
+            overflow: hidden;
+        }
+        .type2 .des_bottom{
+            position: absolute;
+            bottom: 3px;
+            line-height: 29px;
+            width: 51%;
+            left: 143px;
+        }
+        .type2 .des_bottom .priceinfo{
+            font-size:14px;
+            color:#ff5555;
+            overflow: hidden;
+        }
+        .type2 .des_bottom .priceinfo .price{
+            text-decoration: line-through;
+        }
+        .type2 .des_bottom .secbtn{
+            font-size: 16px;
+            color: #fff;
+            float: right;
+            background-color: #ff5555;
+            padding: 5px;
+            border-radius: 3px;
+            line-height: 20px;
+            box-shadow: 1px 3px 5px #999;
+        }
+
+        header .banner img ,
+        header .banner2 img{
+            display:block;
+        }
+
+        header .banner p{
+            position:absolute;
+            bottom:0;
+            left:0;
+            width:100%;
+            padding:5px 0;
+            line-height:20px;
+            font-size:13px;
+            background-color:rgba(0,0,0,.8);
+            color:#fff;
+        }
+        header .tips {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        header .banner2{
+            position:relative;
+            display:block;
+            margin:0 auto;
+            width:96%;
+        }
+
+
+
+        .item2{
+            overflow: hidden;
+        }
+        .type2 .imgBox2 {
+            position: relative;
+            margin-right: 5px;
+            width: 100%;
+        }
+        .type2 .imgBox2 img {
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+        .type2 .imgBox2 .context {
+            width: 100%;
+            background-color: rgba(0,0,0,.5);
+            position: absolute;
+            left: 0;
+            bottom: 0px;
+        }
+        .con .type2 .des .bookbtn {
+            background-color: #f46517;
+            padding: 4px 3px;
+            color: #fff;
+            height: 22px;
+            line-height: 22px;
+            width: 92%;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            color: #fff;
+            font-size: 16px;
+        }
+        .bookprice{
+            color: #ff5555;
+            float: left;
+        }
+        .type2 .des{
+
+        }
+        .type2 .des .des_b{
+            line-height: 20px;
+            font-size: 12px;
+            padding-bottom: 5px;
+        }
+        #worldcup_city_hotel .city_hotel_con .city_nav .cur{
+            background-color: #fff;
+            color:#000;
+        }
+
+        /* 回到顶部 start*/
+        .bottom{
+            height: 42px;
+            background: #fff;
+            text-align: center;
+            line-height: 42px;
+            font-size: 16px;
+            border-bottom: 1px solid #cacaca;
+        }
+        .goTop{
+            position: fixed;
+            bottom: 70px;
+            right: 10px;
+            z-index: 9999;
+            width: 40px;
+            height: 40px;
+            background: url(http://simg1.qunarzz.com/site/images/wap/touch/images/v2/zhuanti/huodong/flightplushotel/back_top.png) no-repeat;
+            background-size: 40px 40px;
+        }
+        /* 回到顶部 end*/
+
+        .type2 .priceinfo{
+            font-size: 14px;
+            color: #ffd147;
+            overflow: hidden;
+            position: absolute;
+            right: 1%;
+            width: 49%;
+            bottom: 37px;
+        }
+        .type2 .priceinfo .price{
+            text-decoration: line-through;
+        }
+        .type2 .secbtn{
+            font-size: 15px;
+            color: #d23001;
+            border-radius: 3px;
+            line-height: 28px;
+            position: absolute;
+            right: 2%;
+            bottom: 5px;
+            width: 48%;
+            text-align: center;
+            height: 28px;
+        }
+
+        .con .type2 .bot{
+            line-height: 29px;
+            position: absolute;
+            bottom: 5px;
+            right:5px;
+            width: 145px;
+        }
+
+        .type2 .imgBox .city{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: inline-block;
+            background-color: rgba(3,3,3,.6);
+            padding: 1px 10px;
+            color: #fff;
+        }
+        .type2 .imgBox .info1{
+            width: 70px;
+            height: 70px;
+            display: inline-block;
+            position: absolute;
+            top: 11px;
+            left: 34%;
+            border-radius: 40px;
+            background-color: rgba(255,55,55,.7);
+        }
+        .type2 .imgBox .info1 .text{
+            color: #fff;
+            font-size: 18px;
+            position: absolute;
+            top: 32%;
+            left: 10%;
+            font-weight: bold;
+            -webkit-transform: rotate(-30deg);
+            transform: rotate(30deg);
+        }
+
+
+
+        .nav span.w40 {
+            width:40%;
+        }
+
+
+        #list .mask {
+            position: absolute;
+            background: rgba(41,93,56,0.8);
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+        }
+        #list .mask .text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            position: relative;
+            top: 36%;
+            left: 10%;
+        }
+
+        footer {
+            width: 100%;
+            margin: 10px 0 20px;
+        }
+
+        footer .footerbtn {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #ffd147;
+            border: 2px solid #eee;
+            border-radius: 3px;
+            line-height: 2em;
+        }
+
+        #mask {
+            position: absolute;
+            z-index: 20;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,.5);
+        }
+        #mask .con {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            margin-left: -127px;
+        }
+        #mask .con img {
+            display: block;
+            height: 524px;
+            width: 253px;
+        }
+        #close {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: -10px;
+            right: -10px;
+            border-radius: 10px;
+            background-color: #000;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 20px;
+            text-decoration: none;
+            font-family: arial;
+        }
+        .mr{
+            margin-right: 1%;
+        }
+        .hotel_list{
+            position: relative;
+            overflow: hidden;
+            width: 96%;
+            margin: 0 auto;
+        }
+        .priceNum{
+            color: #f46517;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .zeng{
+            display: inline-block;
+            background-color: #f03c5c;
+            padding: 0px 3px;
+            border-radius: 3px;
+            color: #fff;
+            margin-right: 2px;
+        }
+        .qb_price {
+            position: absolute;
+            left: 4%;
+            bottom: 4px;
+            z-index: 1;
+            color: #fff;
+            font-size: 12px;
+            line-height: 32px;
+        }
+        .f16{
+            font-size: 16px !important;
+        }
+        .f10{
+            font-size: 10px !important;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="worldcup_secKill" >
+    <header>
+        <div class="banner">
+            <a>
+                <img width="100%" src="http://simg1.qunarzz.com/site/images/zhuanti/huodong/chunjie_kuanghuan1.jpg" alt=""/>
+            </a>
+        </div>
+        <!--<p class="tips">活动12:00开抢，次日凌晨6:00结束</p>-->
+    </header>
+
+    <div class="nav">
+        <span class="mr">北京</span>
+        <span class="mr">上海</span>
+        <span class="mr">深圳</span>
+        <span class="mr">重庆</span>
+        <span >武汉</span>
+        <span class="mr">西安</span>
+        <span class="mr">杭州</span>
+        <span class="mr">广州</span>
+        <span class="mr">成都</span>
+        <span>昆明</span>
+    </div>
+
+    <div class="hotel_list">
+
+    </div>
+    <footer>
+        <a class="footerbtn" href="javascript:;">进入今日特惠</a>
+    </footer>
+    <a class="goTop"></a>
+</div>
+
+
+<div id="mask" style="display: none;">
+    <div class="con">
+        <img src="http://simg4.qunarzz.com/site/images/zhuanti/huodong/hdgz123.png" alt="">
+        <a id="close" href="javascript:void(0);">X</a>
+    </div>
+</div>
+
+
+
+<script type="text/template" id="city_hotelTpl">
+    <a data-click="" href='<%= hotel.href %>' class="con">
+        <div class="type2">
+            <div class="imgBox2">
+                <img class="lazy-load"  lazy_src="<%= hotel.img || 'http://source.qunar.com/site/images/wap/touch/images/default.png' %>" alt="">
+                <div class="context">
+                    <span class="title1" style=""><%= hotel.hotelName %></span>
+                </div>
+            </div>
+            <div class="des">
+                <p class="des_p"><%= hotel.hotelDes %></p>
+                <div class="des_b">
+                    <h3 class="bookprice"><label class="f10">￥</label><%= hotel.price %></h3>
+                    <p class="bookbtn">预订＞</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</script>
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<script type="text/javascript" src="http://m.qunar.com/zhuanti/qua.js"></script>
+<script src="http://api.map.baidu.com/getscript?v=1.4a"></script>
+<script type="text/javascript">
+    $(function(){
+
+        var city_hotel_data = {
+            "北京": [{"hotelId":"beijing_city_22669","hotelName":"北京国汉主题酒店国展店","img":"http://himg1.qunarzz.com/imgs/201506/30/HJI_JOQMBUpHmvacD720.jpg","hotelDes":"精品标准房（位于国展区域）"},
+                {"hotelId":"beijing_city_284","hotelName":"北京博泰酒店","img":"http://himg3.qunarzz.com/imgs/201502/06/_H2dIr-fvgODhXC4-720.jpg","hotelDes":"商务双人房（位于东直门商圈）"},
+                {"hotelId":"beijing_city_25036","hotelName":"艳春宾馆","img":"http://himg1.qunarzz.com/imgs/201410/28/66I5P26rKLw11i_-6720.jpg","hotelDes":"电脑房（位于通州区）"},
+                {"hotelId":"beijing_city_29431","hotelName":"北京锦江之星顺义开发区酒店","img":"http://himg1.qunarzz.com/imgs/201412/16/C._M0DCiiNO2DbUkhLi720.jpg","hotelDes":"商务间A（位于顺义温泉休闲区）"},
+                {"hotelId":"beijing_city_20102","hotelName":"北京壹周连锁公寓回龙观店","img":"http://himg2.qunarzz.com/imgs/201501/15/66I5P26M6xFpkCvc6720.jpg","hotelDes":"温馨双人房（位于回龙观区域）"},
+                {"hotelId":"beijing_city_22112","hotelName":"速8酒店北京首都机场天竺店","img":"http://himg4.qunarzz.com/imgs/201502/03/66I5P26nHfeGtmSa6720.jpg","hotelDes":"豪华双床房（位于首都机场）"},
+                {"hotelId":"beijing_city_20493","hotelName":"99旅馆连锁北京通州临河里地铁站店","img":"http://himg2.qunarzz.com/imgs/201404/04/NNNN2dHDvrehjGiPN720.jpg","hotelDes":"家庭房（位于梨园区域）"},
+                {"hotelId":"beijing_city_24433","hotelName":"7天酒店北京焦化厂地铁站西直河店","img":"http://himg1.qunarzz.com/imgs/201408/15/Z7-ECTkpEkpbg_xMZ720.jpg","hotelDes":"自主大床房（位于朝阳区）"},
+                {"hotelId":"beijing_city_22814","hotelName":"7天酒店北京通州果园环岛二店","img":"http://himg1.qunarzz.com/imgs/201404/04/NNNN2dHDvH7M7uCHN720.jpg","hotelDes":"特价大床房（位于梨园区域）"},
+                {"hotelId":"beijing_city_29404","hotelName":"怡莱酒店北京十里河店","img":"http://himg3.qunarzz.com/imgs/201410/20/66I5P26W5iu6pRGl6720.jpg","hotelDes":"经济大床房（位于十里河商圈）"}],
+            "上海":[{"hotelId":"shanghai_city_20521","hotelName":"上海25小时时尚假日宾馆世博园店","img":"http://himg1.qunarzz.com/imgs/201503/04/66I5P26uUwpOYg-r6720.jpg","hotelDes":"特价房（位于浦东新区周家渡街道成山路345号）"},
+                {"hotelId":"shanghai_city_21271","hotelName":"易佰上海新国际博览中心世博园店","img":"http://himg3.qunarzz.com/imgs/201501/23/66I5P2688WLsR81L6720.jpg","hotelDes":"商务大床房（浦东新区昌里东路117号）"},
+                {"hotelId":"shanghai_city_17851","hotelName":"上海凤雅连锁酒店虹桥枢纽店","img":"http://himg1.qunarzz.com/imgs/201411/04/66I5P26_393MhO_m6720.jpg","hotelDes":"商务大床房（北翟路南华街38弄12号）"},
+                {"hotelId":"shanghai_city_17226","hotelName":"上海新芳旅馆影视乐园店","img":"http://himg1.qunarzz.com/imgs/201512/22/66I5P25bYRNn-XQ26720.jpg","hotelDes":"豪华超大床房（位于松江区车墩镇北松公路4915弄8号）"},
+                {"hotelId":"shanghai_city_18086","hotelName":"7天酒店上海老闵行江川路店","img":"http://himg1.qunarzz.com/imgs/201409/06/66gppi6dkZ1orG_X6720.jpg","hotelDes":"经济房（位于闵行区兰坪路76号）"},
+                {"hotelId":"shanghai_city_21272","hotelName":"布丁酒店上海曹安轻纺市场店","img":"http://himg3.qunarzz.com/imgs/201501/04/66I5P26iOgIEXFk86720.jpg","hotelDes":"抢购大床房（位于嘉定区曹安路1713号）"},
+                {"hotelId":"shanghai_city_6296","hotelName":"如家快捷上海松江泗泾地铁站店","img":"http://himg4.qunarzz.com/imgs/201511/10/JhS1_thr3P7t1AYxJ720.jpg","hotelDes":"特惠大床房（位于松江区泗凤路138-140号）"},
+                {"hotelId":"shanghai_city_17588","hotelName":"上海松福宾馆","img":"http://himg1.qunarzz.com/imgs/201409/09/_sTIxpWtr8SHzoD5W720.jpg","hotelDes":"三人间（位于闵行区罗秀路1505号2楼）"},
+                {"hotelId":"shanghai_city_17977","hotelName":"上海北海公寓","img":"http://himg2.qunarzz.com/imgs/201511/09/JhS1_thr8v5FCpBSJ720.jpg","hotelDes":"标准间（位于徐汇区天钥桥路859号北海大厦17层）"},
+                {"hotelId":"shanghai_city_18297","hotelName":"海友酒店上海世博东明路店","img":"http://himg4.qunarzz.com/imgs/201601/12/JhS1_t5bpH8kcNBkJ720.jpg","hotelDes":"大床房A（位于浦东新区路杨高南路2828号）"},
+                {"hotelId":"shanghai_city_22092","hotelName":"海友酒店上海火车站北广场店","img":"http://himg1.qunarzz.com/imgs/201505/21/66I5P26a4xsWR2R46720.jpg","hotelDes":"双床间（位于普陀区中华新路1168号）"},
+                {"hotelId":"shanghai_city_17233","hotelName":"上海正鸿旅馆","img":"http://himg3.qunarzz.com/imgs/201409/05/66gppi6dFfk81rNx6720.jpg","hotelDes":"电脑间（位于石龙路645号）"},
+                {"hotelId":"shanghai_city_20709","hotelName":"上海裸徒客栈","img":"http://himg2.qunarzz.com/imgs/201410/20/66I5P26WNJHHw19I6720.jpg","hotelDes":"情侣大床房（位于浦东新区中市街30号）"},
+                {"hotelId":"shanghai_city_18937","hotelName":"海友客栈上海浦东机场凌空路店","img":"http://himg3.qunarzz.com/imgs/201411/10/Z7-ECTZ6xcK1QQ7yZ720.jpg","hotelDes":"单床房（位于浦东新区川沙川环南路81号）"},
+                {"hotelId":"shanghai_city_14779","hotelName":"布丁酒店上海虹桥火车站一店","img":"http://himg4.qunarzz.com/imgs/201308/08/18cfKQ8rr4FkUI8I1720.jpg","hotelDes":"商务双床间（位于闵行区北翟路1551号85幢西侧）"},
+                {"hotelId":"shanghai_city_20852","hotelName":"上海浦江之星五莲路店","img":"http://himg3.qunarzz.com/imgs/201411/21/66I5P26N6PvLx_-16720.jpg","hotelDes":"豪华大床房（位于浦东新区五莲路628号）"}],
+            "深圳":[{"hotelId":"shenzhen_2104","hotelName":"深圳胜家时尚宾馆","img":"http://himg4.qunarzz.com/imgs/201206/15/Z7S8IZkRezTHtlmHZ720.jpg","hotelDes":"标准双人房（位于罗湖区凤凰路197号工纺大厦）"},
+                {"hotelId":"shenzhen_846","hotelName":"深圳星瑞酒店","img":"http://himg4.qunarzz.com/imgs/201501/13/66I5P26WR6nAesRp6720.jpg","hotelDes":"标准单人间（位于罗湖区桂园路24号）"},
+                {"hotelId":"shenzhen_6962","hotelName":"深圳海云居-云海之家俱乐部酒店","img":"http://himg1.qunarzz.com/imgs/201410/11/66I5P26i5s5d52zM6720.jpg","hotelDes":"山景双标房A（位于大鹏新区较场尾海滨路17号）"},
+                {"hotelId":"shenzhen_12276","hotelName":"深圳鸿运旅馆翻身路店","img":"http://himg1.qunarzz.com/imgs/201601/08/66I5P2-5q8CDwpKd6720.jpg","hotelDes":"标准单人间（位于宝安区翻身路586号）"},
+                {"hotelId":"shenzhen_8244","hotelName":"深圳龙岗区顺平招待所","img":"http://himg1.qunarzz.com/imgs/201404/28/JhS1_t5XlmYut0-PJ720.jpg","hotelDes":"豪华单人房（位于龙岗区平湖镇平龙西路75号）"},
+                {"hotelId":"shenzhen_13997","hotelName":"深圳鸿运来旅馆宝安福永店","img":"http://himg1.qunarzz.com/imgs/201512/10/66I5P25H1xHAw39M6720.jpg","hotelDes":"豪华单人房（位于宝安区福永白石厦裕华园东2号）"},
+                {"hotelId":"shenzhen_7334","hotelName":"深圳龙辉旅馆","img":"http://himg2.qunarzz.com/imgs/201409/04/66gppi6gba9cEjPT6720.jpg","hotelDes":"豪华双人房（位于龙华新区民治街道民治第一工业区）"},
+                {"hotelId":"shenzhen_13888","hotelName":"深圳驿尔丰酒店坪洲地铁站店","img":"http://himg3.qunarzz.com/imgs/201601/20/66I5P2-doAACRFKo6720.jpg","hotelDes":"舒适大床房（位于宝安区西乡街道新湖路轻铁西花园10巷10号）"},
+                {"hotelId":"shenzhen_12889","hotelName":"深圳金隆裕宾馆","img":"http://himg2.qunarzz.com/imgs/201512/14/66I5P25aF3SBj_Nr6720.jpg","hotelDes":"标准间（位于安区观澜大道观澜汽车站公交站旁）"},
+                {"hotelId":"shenzhen_9766","hotelName":"深圳新汇源旅馆","img":"http://himg1.qunarzz.com/imgs/201512/29/66I5P25LsCTx5o9B6720.jpg","hotelDes":"标准单人房（位于宝安区沙井街道沙三路26号）"},
+                {"hotelId":"shenzhen_2475","hotelName":"深圳万事达酒店宝安西乡店","img":"http://himg2.qunarzz.com/imgs/201511/10/66I5P25sckiSQ4mp6720.jpg","hotelDes":"商务双床间（位于宝安区西乡街道宝民二路与庄边路交汇处）"},
+                {"hotelId":"shenzhen_10585","hotelName":"深圳迎嘉旅馆","img":"http://himg2.qunarzz.com/imgs/201511/25/HJI_JOQX9q1Rm6hzD720.jpg","hotelDes":"电脑单人间（位于龙岗区布吉镇粤宝路30-3号）"}],
+            "重庆":[{"hotelId":"chongqing_city_11033","hotelName":"重庆途家酒店","img":"http://himg3.qunarzz.com/imgs/201309/13/Z7-ECT9EX94rvYA0Z720.jpg","hotelDes":"豪华大床间（位于纪念碑商圈）"},
+                {"hotelId":"chongqing_city_3426","hotelName":"重庆巫山国宾酒店","img":"http://himg1.qunarzz.com/imgs/201403/28/JhS1_t5VOTnzOCudJ720.jpg","hotelDes":"标准房A(位于巫峡峡口对面)"},
+                {"hotelId":"chongqing_city_18364","hotelName":"重庆丽港酒店巴南李家沱店","img":"http://himg2.qunarzz.com/imgs/201506/16/66I5P25-BzSbObAC6720.jpg","hotelDes":"豪华套房（位于党校附近）"},
+                {"hotelId":"chongqing_city_13697","hotelName":"重庆家美酒店公寓解放碑店","img":"http://himg4.qunarzz.com/imgs/201505/05/JhS1_tJFzrXGKsGsJ720.jpg","hotelDes":"豪华家庭房(位于月光购物中心对面)"},
+                {"hotelId":"chongqing_city_4325","hotelName":"海友客栈重庆观音桥步行街店","img":"http://himg1.qunarzz.com/imgs/201212/09/nz078uvaibcTX2Ftv720.jpg","hotelDes":"双床房（靠近观音桥东环路天桥下）"},
+                {"hotelId":"chongqing_city_19974","hotelName":"重庆时尚酒店式公寓","img":"http://himg3.qunarzz.com/imgs/201511/28/JhS1_thFHnWjFB5QJ720.jpg","hotelDes":"情侣房（位于沙坪坝商圈）"},
+                {"hotelId":"chongqing_city_10199","hotelName":"重庆汽博宾馆","img":"http://himg1.qunarzz.com/imgs/201409/05/66gppi6dT8XdA5Kn6720.jpg","hotelDes":"标准间（位于重庆汽博中心）"},
+                {"hotelId":"chongqing_city_11690","hotelName":"重庆薇斯顿风情酒店","img":"http://himg2.qunarzz.com/imgs/201409/16/JhS1_tJTlTPVklmeJ720.jpg","hotelDes":"精品风格单间（位于重庆长城医院对面）"},
+                {"hotelId":"chongqing_city_11277","hotelName":"汉庭酒店重庆大学城店","img":"http://himg2.qunarzz.com/imgs/201406/22/yiPn3Gy4d66p56Rgi720.jpg","hotelDes":"双床房（位于大学城里）"},
+                {"hotelId":"chongqing_city_4159","hotelName":"月友连锁酒店重庆观音桥北辰名都店","img":"http://himg1.qunarzz.com/imgs/201311/19/Z7-ECT9bCo0COnfUZ720.jpg","hotelDes":"豪华标间（位于北辰名都附近）"}],
+            "武汉":[{"hotelId":"wuhan_10500","hotelName":"武汉舒服佳公寓","img":"http://himg1.qunarzz.com/imgs/201501/23/66I5P2688HeatT5Q6720.jpg","hotelDes":"经济大床房（位于武汉火车站）"},
+                {"hotelId":"wuhan_8000","hotelName":"武汉雅芳时尚酒店公寓","img":"http://himg1.qunarzz.com/imgs/201403/24/JhS1_t5HAGleGYB1J720.jpg","hotelDes":"大床房（位于汉口火车站）"},
+                {"hotelId":"wuhan_7106","hotelName":"武汉馨豪时尚公寓","img":"http://himg2.qunarzz.com/imgs/201412/11/66I5P26VQJFYUC2T6720.jpg","hotelDes":"大阳台标准房（位于徐东商圈）"},
+                {"hotelId":"wuhan_6708","hotelName":"武汉圣之海宾馆东湖店","img":"http://himg4.qunarzz.com/imgs/201311/05/NNNN2dcmSwB9RBPIN720.jpg","hotelDes":"时尚大床房（位于东湖风景区）"},
+                {"hotelId":"wuhan_5357","hotelName":"怡莱酒店武汉黄浦大街店","img":"http://himg4.qunarzz.com/imgs/201509/18/HJI_JOQ04S_AZ-RXD720.jpg","hotelDes":"特价大床房（位于地铁三号线附近）"},
+                {"hotelId":"wuhan_7649","hotelName":"武汉爱情家公寓","img":"http://himg1.qunarzz.com/imgs/201410/22/NNNN2dNoxSymWushN720.jpg","hotelDes":"男生六人间（位于武汉广场商圈）"},
+                {"hotelId":"wuhan_6381","hotelName":"武汉福鑫宾馆楚河汉街店","img":"http://himg4.qunarzz.com/imgs/201409/04/66gppi6gmkRpToab6720.jpg","hotelDes":"标准双人间（位于楚河汉街旁）"},
+                {"hotelId":"wuhan_10455","hotelName":"武汉楚天柠檬树主题酒店","img":"http://himg3.qunarzz.com/imgs/201512/21/66I5P25b0H5d97u-6720.jpg","hotelDes":"精品特价房（H81公交站旁）"},
+                {"hotelId":"wuhan_12977","hotelName":"武汉朝阳商务大酒店园博会店","img":"http://himg2.qunarzz.com/imgs/201509/15/66I5P25o2CvIY6tw6720.jpg","hotelDes":"豪华麻将房（位于园博会场）"},
+                {"hotelId":"wuhan_7577","hotelName":"7天酒店武汉华侨城欢乐谷店","img":"http://himg2.qunarzz.com/imgs/201409/11/66I5P26t_wPsvavd6720.jpg","hotelDes":"自主双床房（位于欢乐谷附近）"},
+                {"hotelId":"wuhan_2889","hotelName":"武汉纽兰假日酒店","img":"http://himg1.qunarzz.com/imgs/201301/30/Z7S8IZZ-ja1K0PQVZ720.jpg","hotelDes":"高级大床房（位于兆丰花园对面）"},
+                {"hotelId":"wuhan_7491","hotelName":"武汉99商务公寓光谷广场店","img":"http://himg2.qunarzz.com/imgs/201312/31/NNNN2dc7wHcAuh48N720.jpg","hotelDes":"商务电脑大床房（位于光谷科技中心）"},
+                {"hotelId":"wuhan_8986","hotelName":"武汉博鑫公寓中南医院店","img":"http://himg1.qunarzz.com/imgs/201409/19/66I5P26VDUwSzttY6720.jpg","hotelDes":"双人房（位于楚河汉街）"},
+                {"hotelId":"wuhan_7751","hotelName":"武汉蓬勃旅馆","img":"http://himg4.qunarzz.com/imgs/201410/31/NNNN2dN66PbD7XSbN720.jpg","hotelDes":"标准单间（位于亚贸商圈）"},
+                {"hotelId":"wuhan_7676","hotelName":"武汉金陵公寓佳园路店","img":"http://himg3.qunarzz.com/imgs/201502/10/66I5P26B1sEfwWQp6720.jpg","hotelDes":"三人房（位于光谷科技中心）"}],
+            "西安":[{"hotelId":"xian_7191","hotelName":"尚客优快捷酒店西安南长安街店","img":"http://himg4.qunarzz.com/imgs/201308/13/18c2R183H5ObRFC-1720.jpg","hotelDes":"标准房（位于长安区）"},
+                {"hotelId":"xian_6631","hotelName":"西安临潼华都时尚酒店","img":"http://himg1.qunarzz.com/imgs/201409/02/66I5P26gScPvIhdf6720.jpg","hotelDes":"商务标准间（位于骊景新天地）"},
+                {"hotelId":"xian_4797","hotelName":"汉庭酒店西安含光门店","img":"http://himg3.qunarzz.com/imgs/201601/27/JhS1_t5QmUJQ6DdCJ720.jpg","hotelDes":"双床房（位于钟鼓楼广场）"},
+                {"hotelId":"xian_7321","hotelName":"汉庭酒店西安火车站南店","img":"http://himg2.qunarzz.com/imgs/201412/23/66I5P26vmjPwDOsY7120.jpg","hotelDes":"家庭房（位于火车站商圈）"},
+                {"hotelId":"xian_8718","hotelName":"都市118西安未央区三桥店","img":"http://himg2.qunarzz.com/imgs/201410/23/JhS1_tJOwTayh1xbJ720.jpg","hotelDes":"商务标间（位于地铁一号线）"},
+                {"hotelId":"xian_13183","hotelName":"锦江之星西安行政中心高铁北客站店","img":"http://himg1.qunarzz.com/imgs/201409/23/66I5P26Rgs_WG0uO6720.jpg","hotelDes":"标准房B（位于地铁二号线附近）"},
+                {"hotelId":"xian_10070","hotelName":"汉庭酒店西安临潼兵马俑店","img":"http://himg2.qunarzz.com/imgs/201407/15/WTI_PRWkRFDwIriCV720.jpg","hotelDes":"家庭房（位于临潼汽车站）"},
+                {"hotelId":"xian_7138","hotelName":"西安宝湾商务酒店西安东站店","img":"http://himg3.qunarzz.com/imgs/201212/07/nz078uvZOIE8OBeuv720.jpg","hotelDes":"标准间（浐灞生态区）"},
+                {"hotelId":"xian_8459","hotelName":"格林豪泰西安火车站尚勤门快捷酒店","img":"http://himg2.qunarzz.com/imgs/201312/30/Z7-ECT9jmZ7WFtN7Z720.jpg","hotelDes":"特价标准房（位于火车站商圈）"},
+                {"hotelId":"xian_10944","hotelName":"西安唐宗隆酒店小寨大雁塔北广场音乐喷泉店","img":"http://himg1.qunarzz.com/imgs/201407/25/NNNN2dHiimTdfuZNN720.jpg","hotelDes":"豪华标准间 (曲江大雁塔商圈)"}],
+            "杭州":[{"hotelId":"hangzhou_11202","hotelName":"杭州尚客精致酒店","img":"http://himg3.qunarzz.com/imgs/201409/06/66gppi6dfAv1PtPQ6720.jpg","hotelDes":"阳光大床间（位于火车南站商圈）"},
+                {"hotelId":"hangzhou_2315","hotelName":"杭州吴山驿国际青年旅舍","img":"http://himg2.qunarzz.com/imgs/201601/25/66I5P2-tVA0CYb7e6720.jpg","hotelDes":"家庭三人间（位于火车城站商圈）"},
+                {"hotelId":"hangzhou_5440","hotelName":"杭州荷方国际青年旅舍","img":"http://himg2.qunarzz.com/imgs/201102/16/kkQG1kkm1XLs2OLbk720.jpg","hotelDes":"八人女生床位房（位于火车城站商圈）"},
+                {"hotelId":"hangzhou_16021","hotelName":"海友酒店杭州西湖体育场路店","img":"http://himg1.qunarzz.com/imgs/201503/11/66I5P26OZdI8WaQh6720.jpg","hotelDes":"大床房（位于武林广场商圈）"},
+                {"hotelId":"hangzhou_10070","hotelName":"海友客栈杭州闸弄口店","img":"http://himg1.qunarzz.com/imgs/201212/04/nz078uvc9l_acTdlv720.jpg","hotelDes":"大床房（位于火车东站商圈）"},
+                {"hotelId":"hangzhou_6716","hotelName":"布丁酒店杭州黄龙体育中心黄姑山路店","img":"http://himg3.qunarzz.com/imgs/201507/24/66I5P25TWvkHN90g6720.jpg","hotelDes":"家庭房（位于黄龙体育中心）"},
+                {"hotelId":"hangzhou_12170","hotelName":"杭州天逅主题酒店下沙传媒店","img":"http://himg1.qunarzz.com/imgs/201403/27/Z7-ECTk3ZuO-1UgoZ720.jpg","hotelDes":"爱情海(普通)（位于下沙开发区区域）"},
+                {"hotelId":"hangzhou_2049","hotelName":"海友客栈杭州文三路店","img":"http://himg2.qunarzz.com/imgs/201512/05/JhS1_thLEpWuuIs1J720.jpg","hotelDes":"大床房（位于黄龙体育中心）"},
+                {"hotelId":"hangzhou_17636","hotelName":"杭州木木酒店式公寓火车东站店","img":"http://himg4.qunarzz.com/imgs/201601/11/JhS1_t55yTQ6Ay7DJ720.jpg","hotelDes":"普通大床房（位于火车东站商圈）"},
+                {"hotelId":"hangzhou_15999","hotelName":"临安胖子酒店","img":"http://himg1.qunarzz.com/imgs/201511/05/66I5P25DCB9bQ4la6720.jpg","hotelDes":"标准间（位于临安市）"},
+                {"hotelId":"hangzhou_2034","hotelName":"如家快捷杭州萧山通惠路大润发店","img":"http://himg4.qunarzz.com/imgs/201307/23/JhS1_th-OZVmDs-9J720.jpg","hotelDes":"标准双人房（位于火车南站商圈）"},
+                {"hotelId":"hangzhou_12971","hotelName":"杭州驿安酒店","img":"http://himg2.qunarzz.com/imgs/201409/04/NNNN2dNJUBiQ-rsON720.jpg","hotelDes":"商务大床房（位于运河商务区）"},
+                {"hotelId":"hangzhou_16061","hotelName":"建德新叶如梦佳客栈","img":"http://himg4.qunarzz.com/imgs/201506/24/66I5P25dF6o-uF_k6720.jpg","hotelDes":"单人间（位于建德市）"},
+                {"hotelId":"hangzhou_11400","hotelName":"布丁酒店杭州文一路省立同德医院古翠路口店","img":"http://himg1.qunarzz.com/imgs/201404/18/NNNN2dH47U1zHFTAN720.jpg","hotelDes":"大床房C（位于文教区商圈）"}],
+            "广州":[{"hotelId":"guangzhou_11839","hotelName":"广州顺发快捷酒店","img":"http://himg1.qunarzz.com/imgs/201410/22/66I5P26WzVY_L4e66720.jpg","hotelDes":"商务双人间（位于罗冲围、金沙洲）"},
+                {"hotelId":"guangzhou_19573","hotelName":"广州南国小栈青年旅舍北京路海珠广场店","img":"http://himg1.qunarzz.com/imgs/201509/08/66I5P25K20NMYwrH6720.jpg","hotelDes":"男生六人床位间（位于北京路商圈）"},
+                {"hotelId":"guangzhou_18782","hotelName":"广州易成国际酒店公寓广州番禺万达长隆店","img":"http://himg3.qunarzz.com/imgs/201506/26/JhS1_thMaQQmV-n6J720.jpg","hotelDes":"至尊城景双床间（位于番禺长隆区域）"},
+                {"hotelId":"guangzhou_2858","hotelName":"广州好主题酒店天健店","img":"http://himg2.qunarzz.com/imgs/201212/03/nz078uvcXVihgWWVv720.jpg","hotelDes":"豪华房（位于白云山风景区）"},
+                {"hotelId":"guangzhou_9510","hotelName":"星和精品酒店广州省汽车客运站店","img":"http://himg3.qunarzz.com/imgs/201207/04/Z7S8IZkDte6LHSU4Z720.jpg","hotelDes":"豪华单人间（位于火车站商圈）"},
+                {"hotelId":"guangzhou_10084","hotelName":"7天酒店广州天河客运站二店","img":"http://himg3.qunarzz.com/imgs/201308/19/NNNN2dc984AxEJP5N720.jpg","hotelDes":"自主大床房（位于天河客运站商圈）"},
+                {"hotelId":"guangzhou_13677","hotelName":"广州时代酒店公寓","img":"http://himg2.qunarzz.com/imgs/201407/29/NNNN2dHQ-7I9Bs7EN720.jpg","hotelDes":"温馨双床房（位于珠江南商圈）"},
+                {"hotelId":"guangzhou_15130","hotelName":"广州亨华商务酒店","img":"http://himg4.qunarzz.com/imgs/201411/07/C._M0DCiiD-CWWVi8Zi720.jpg","hotelDes":"麻将单人间（位于从化区）"},
+                {"hotelId":"guangzhou_9916","hotelName":"广州名中客酒店","img":"http://himg2.qunarzz.com/imgs/201507/20/JhS1_thG56JE8O2rJ720.jpg","hotelDes":"标准单人间（位于番禺长隆区域）"},
+                {"hotelId":"guangzhou_11976","hotelName":"广州站西酒店","img":"http://himg3.qunarzz.com/imgs/201312/27/NNNN2dci2gP5hKdUN720.jpg","hotelDes":"标准单人房（位于火车站商圈）"},
+                {"hotelId":"guangzhou_16229","hotelName":"广州花田错连锁公寓","img":"http://himg4.qunarzz.com/imgs/201412/11/66I5P26VWU5X_D0j6720.jpg","hotelDes":"大床房（位于广州大学城地区）"},
+                {"hotelId":"guangzhou_17214","hotelName":"怡莱酒店广州番禺市桥步行街店","img":"http://himg4.qunarzz.com/imgs/201412/17/66I5P26R6i0W0K5U6720.jpg","hotelDes":"大床房（位于番禺市桥区域）"},
+                {"hotelId":"guangzhou_5310","hotelName":"私享家连锁酒店公寓广州中山医北门时代u店","img":"http://himg4.qunarzz.com/imgs/201207/04/JhS1_t5v3Uwf6_xjJ720.jpg","hotelDes":"豪华大床房（位于环市东路地区）"},
+                {"hotelId":"guangzhou_12723","hotelName":"汉庭酒店广州天平架店","img":"http://himg1.qunarzz.com/imgs/201503/14/66I5P26Ae5Z0lhvf6720.jpg","hotelDes":"大床房（位于天河客运站商圈）"}],
+            "成都":[{"hotelId":"chengdu_8861","hotelName":"成都埃尔缘主题酒店","img":"http://himg2.qunarzz.com/imgs/201404/26/JhS1_t5XVh3WmVu0J720.jpg","hotelDes":"沉淀清幽房（位于龙泉驿地区）"},
+                {"hotelId":"chengdu_9260","hotelName":"成都春熙时代短租公寓","img":"http://himg4.qunarzz.com/imgs/201505/17/66I5P2612Tt54XPU6720.jpg","hotelDes":"大床房（位于春熙路商业区）"},
+                {"hotelId":"chengdu_5386","hotelName":"成都洛带蓝海茶旅社","img":"http://himg4.qunarzz.com/imgs/201506/16/66I5P25-J2KKQosY6720.jpg","hotelDes":"三人间（位于洛带古镇）"},
+                {"hotelId":"chengdu_10150","hotelName":"成都龙生商务酒店","img":"http://himg1.qunarzz.com/imgs/201511/28/66I5P25c8EGKKzXK6720.jpg","hotelDes":"单人间（位于天府广场地区）"},
+                {"hotelId":"chengdu_11268","hotelName":"成都桔子假日连锁精品公寓宽窄巷子店","img":"http://himg3.qunarzz.com/imgs/201506/26/8q41fF9VtBCSBRoSZ720.jpg","hotelDes":"宽窄巷子优选特价套房（位于宽窄巷子区域）"},
+                {"hotelId":"chengdu_8879","hotelName":"成都三河内江吉祥公寓","img":"http://himg2.qunarzz.com/imgs/201512/21/66I5P25bEGCY7hh56720.jpg","hotelDes":"四人间（位于新都区）"},
+                {"hotelId":"chengdu_15078","hotelName":"成都丹枫旅馆电子科大店","img":"http://himg3.qunarzz.com/imgs/201507/21/66I5P25hKUoXZXJC6720.jpg","hotelDes":"外窗单人间（位于建设路商圈）"},
+                {"hotelId":"chengdu_13020","hotelName":"成都高新区如意住宿","img":"http://himg1.qunarzz.com/imgs/201502/10/66I5P26BHw5THYGZ6720.jpg","hotelDes":"豪华单人间（位于国防乐园商圈）"},
+                {"hotelId":"chengdu_8718","hotelName":"成都青城山建均农家乐","img":"http://himg2.qunarzz.com/imgs/201404/17/JhS1_t58XlVpND1DJ720.jpg","hotelDes":"单人间（位于都江堰市）"},
+                {"hotelId":"chengdu_5103","hotelName":"成都熊猫先生国际青年旅馆正府街文殊坊店","img":"http://himg3.qunarzz.com/imgs/201405/02/_LJuo_jgLfJ7xD0D_720.jpg","hotelDes":"单人房（位于宽窄巷子区域）"},
+                {"hotelId":"chengdu_15842","hotelName":"成都唯爱之旅短租公寓春熙路店","img":"http://himg3.qunarzz.com/imgs/201509/23/66I5P25fgKkCHh4u6720.jpg","hotelDes":"家庭房（位于九眼桥区域）"},
+                {"hotelId":"chengdu_8824","hotelName":"成都万顺时尚酒店九眼桥店","img":"http://himg2.qunarzz.com/imgs/201408/07/Z7-ECTkg8n4vNh40Z720.jpg","hotelDes":"标准房（位于九眼桥区域）"},
+                {"hotelId":"chengdu_2944","hotelName":"如家快捷成都春熙路玉沙店","img":"http://himg2.qunarzz.com/imgs/201510/15/66I5P25UGYAdC5i46720.jpg","hotelDes":"促销双人房（位于春熙路商业区）"},
+                {"hotelId":"chengdu_7503","hotelName":"汉庭酒店成都骡马市店","img":"http://himg2.qunarzz.com/imgs/201501/30/66I5P26EzOt_CHki6720.jpg","hotelDes":"大床房（位于天府广场地区）"}],
+            "昆明":[{"hotelId":"kunming_3393","hotelName":"昆明银河宾馆长水机场店","img":"http://himg1.qunarzz.com/imgs/201506/17/66I5P25N5Zmie3Rp6720.jpg","hotelDes":"三人标间位于（南方缘大饭店旁）"},
+                {"hotelId":"kunming_3571","hotelName":"昆明世洲酒店小菜园店","img":"http://himg1.qunarzz.com/imgs/201408/15/0IqS0A0ica1N_mtLA720.jpg","hotelDes":"大床房位于（五华区鼓楼路249号）"},
+                {"hotelId":"kunming_7026","hotelName":"昆明航福宾馆长水机场店","img":"http://himg4.qunarzz.com/imgs/201503/29/66I5P26zT0QbrVfR6720.jpg","hotelDes":"标准间（位于官渡区长水机场长港路）"},
+                {"hotelId":"kunming_4819","hotelName":"昆明鸿腾道酒店世纪城店","img":"http://himg2.qunarzz.com/imgs/201409/12/66I5P26ts367MJCH6720.jpg","hotelDes":"豪华大床房（位于官渡区世纪城金源大道海伦国际1期1栋）"},
+                {"hotelId":"kunming_3814","hotelName":"石林莲花慈度假温泉酒店","img":"http://himg4.qunarzz.com/imgs/201503/31/66I5P26zZ0_m-bqZ6720.jpg","hotelDes":"三人间（石林彝族自治县莲花路）"},
+                {"hotelId":"kunming_2393","hotelName":"昆明鑫元酒店","img":"http://himg2.qunarzz.com/imgs/201505/25/66I5P26ZqKtop-_u6720.jpg","hotelDes":"普通电脑房（官渡区春城路250号）"},
+                {"hotelId":"kunming_3496","hotelName":"昆明8天快捷酒店","img":"http://himg2.qunarzz.com/imgs/201508/29/JhS1_thZCPURHdfqJ720.jpg","hotelDes":"特价大床房（呈贡大学城书香大地小区b01栋1号农业银行旁）"},
+                {"hotelId":"kunming_4713","hotelName":"昆明馨心缘招待所","img":"http://himg1.qunarzz.com/imgs/201412/16/HJI_JODfn3iifxSPD720.jpg","hotelDes":"标准间（盘龙区小窑新村48号）"},
+                {"hotelId":"kunming_3594","hotelName":"昆明航城宾馆长水机场店","img":"http://himg1.qunarzz.com/imgs/201408/28/HJI_JOpQJnobNG7cD720.jpg","hotelDes":"单人间（官渡区大板桥社区三甲小组128号）"},
+                {"hotelId":"kunming_6905","hotelName":"昆明铁马青年旅舍市中心南屏街店","img":"http://himg3.qunarzz.com/imgs/201505/27/66I5P26b0zMaEvE56720.jpg","hotelDes":"女生四人床位间（五华区威远街和正义路交口）"}]
+        };
+
+        var hNav = $("#worldcup_secKill .nav"),
+                hCon = $("#worldcup_secKill .hotel_list"),
+                city_tplHtml = $("#city_hotelTpl").html(),
+                currentCity = '',
+                bdSource = getUrlItem('bd_source') || '',
+                fromforlog = function () {
+                    switch (bdSource) {
+                        case 'hotel_tehuia': return '21';
+                        case 'hotel_tehuib': return '22';
+                        case 'hotel_tehuic': return '23';
+                        case 'hotel_tehuid': return '24';
+                        case 'hotel_tehuie': return '25';
+                        default : return '';
+                    }
+                }(),
+                num1 = 0;
+
+        // 定位当前城市
+        var myCity = new BMap.LocalCity();
+        myCity.get(function(result) {
+            var cityName = result && result.name;
+            if (!cityName) {
+                cityName = '';
+            } else if (/香港/.test(cityName)) {
+                cityName = '香港';
+            } else if (/澳门/.test(cityName)) {
+                cityName = '澳门';
+            } else {
+                cityName = cityName.split('市')[0];
+            }
+
+            currentCity = cityName;
+            init();
+        });
+
+        //酒店酒店详情url
+        var hrefPrefix = function(){
+            var date = new Date(),
+                    fromDate = $.getDateString(date);
+            date.setDate(date.getDate()+1);
+            var toDate = $.getDateString(date);
+            var href = '://hotel/lastmindetail?fromForLog='+ fromforlog +'&fromDate='+ fromDate +'&toDate='+ toDate +'&ids=';
+            if(qua.iphonePro) return "qunariphonepro" + href;
+            if(qua.iphoneLife) return "qunariphonelife" + href;
+            if(qua.iphone) return "qunariphone" + href;
+            if(qua.androidLife) return "qunaraphonelife" + href;
+            if(qua.android) return "qunaraphone" + href;
+            return 'http://touch.qunar.com/h5/hotel/hoteldetail?isLM=1&type=1&&checkInDate=' + fromDate + '&checkOutDate=' + toDate + '&bd_source=' + bdSource + '&seq=';
+        }();
+
+        function init() {
+            if(currentCity) {
+                var $curNav = $.grep($('.nav span'),function(item){
+                    return currentCity == $(item).html();
+                });
+
+                if($curNav.length) {
+                    getData($($curNav).html());
+                    $('.nav span').removeClass('cur');
+                    $($curNav).addClass('cur');
+                }
+            }else {
+                $('.nav span').eq(0).addClass('cur');
+                getData($('.nav span').eq(0).html());
+            }
+        }
+
+        // 获取报价数据
+        function getData(city) {
+            var param = [];
+
+            $.each(city_hotel_data,function(index,item){
+                if(index != city) return true;
+                param.push( $.map(item,function(hotel){
+                    return hotel.hotelId;
+                }) );
+            });
+
+            $.ajax({
+                url     : 'http://touch.qunar.com/h5/hotel/activity/SpringFestivalLmPromo',
+                data    : {seqs: param.join(',')},
+                dataType: 'json',
+                success : function (res) {
+                    if(res.data && res.data.length) {
+                        var html = ['<section class="item2">']
+                        $.each(res.data,function(index,item){
+                            var content = {};
+                            content = $.map(city_hotel_data[city],function(hotel){
+                                if (hotel.hotelId === item.seq) {
+                                    return hotel;
+                                }
+                            });
+
+                            if(content.length) {
+                                content = content[0];
+                                content.price = item.lowestPrice === 2147483647 ? '已售空': item.lowestPrice;
+                                content["href"] = hrefPrefix + content.hotelId + "&cityUrl=" + content.hotelId.split("_")[0] + "&needRoomVendor=0";
+                                html.push(_.template(city_tplHtml,{ hotel:content } ));
+                            }
+                        });
+                        html.push('</section>');
+                        hCon.append(html.join(''));
+                        $('.lazy-load').lazyload();
+                    }else {
+                        console.log('查询报价失败');
+                    }
+                },
+                error   : function () {
+                    console.log('网络错误，请稍后重试！');
+                }
+            });
+        }
+
+        //秒杀nav的click事件处理函数
+        $(".nav").delegate("span","click",function(){
+            //nav头变化
+            var me = $(this);
+            $(".nav span").removeClass("cur");
+            me.addClass("cur");
+            //相应list内容变化
+            $(".item2").hide();
+            getData($(this).html());
+        });
+
+        // footer部分 跳转到夜宵list页
+        $('.footerbtn').click(function() {
+            var href = '://hotel/lastminList?fromForLog='+ fromforlog;
+            if(qua.iphonePro) {
+                location.href = "qunariphonepro" + href;
+            }else if(qua.iphoneLife) {
+                location.href = "qunariphonelife" + href;
+            }else if(qua.iphone) {
+                location.href = "qunariphone" + href;
+            }else if(qua.androidLife) {
+                location.href = "qunaraphonelife" + href;
+            }else if(qua.android) {
+                location.href = "qunaraphone" + href;
+            }else {
+                location.href = 'http://touch.qunar.com/h5/hotel/hotellist?isLM=1&bd_source='+ bdSource +'&city='+ encodeURIComponent($('.nav span.cur').html());
+            }
+        });
+
+        // 置顶
+        var goTopBar = $(".goTop");
+        goTopBar.click(function(){
+            window.scroll(0,1);//返回顶部
+        });
+        $(window).on('scroll', scrollCallback);
+        function scrollCallback() {
+            var Zthis=$(this);
+            Zthis.off('scroll',scrollCallback);
+            setTimeout(function(){
+                if(Zthis.scrollTop()>$(window).height()){
+                    goTopBar.hasClass('hide')&&goTopBar.removeClass('hide');
+                }else{
+                    !goTopBar.hasClass('hide')&&goTopBar.addClass('hide');
+                }
+                Zthis.on('scroll',scrollCallback);
+            },300);
+        }
+
+        // 获取url参数
+        function getUrlItem(name){
+            var searchStr = location.search.substring(1),
+                    result=[],
+                    arr = searchStr.split("&");
+            for (var i= 0,len = arr.length;i<len;i++){
+                var item = arr[i].split("=");
+                result[item[0]] = decodeURIComponent(item[1]);
+            }
+            return name?result[name]:result;
+        }
+    });
+
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

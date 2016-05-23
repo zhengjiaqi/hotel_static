@@ -1,0 +1,1122 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+    <title>钟点房一元秒杀</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection" />
+    <!-- UC默认竖屏 ，UC强制全屏 -->
+    <meta name="full-screen" content="yes"/>
+    <meta name="browsermode" content="application"/>
+    <!-- QQ强制竖屏 QQ强制全屏 -->
+    <meta name="x5-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="x5-page-mode" content="app"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" />
+    <script>
+
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style type="text/css">
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #b93a7b;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            display: inline-block;
+            float: left;
+            padding-bottom: ;
+        }
+        /*.content{height: 100px}*/
+        ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .main{
+            font-size:0;
+        }
+        .img_div>img{
+            width:100%;
+        }
+        /*.miaosha_content{*/
+        /*background: #fef68f;*/
+        /*padding-top: 1.25rem;*/
+        /*}*/
+        .miaosha_content_div{
+            padding:1rem 0.625rem;
+            /*border-top: 1px dashed #ff5d57;*/
+            position: relative;
+            background: #b93a7b;
+            padding-bottom: 5.025rem;
+        }
+        .miaoshaqu{
+            position: absolute;
+            height: 1.5rem;
+            width:6.5rem;
+            top:-0.75rem;
+            left:50%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .miaoshaqu>img{
+            width: 100%;
+        }
+        .hotel_img{
+            height: 7rem;
+            position: relative;
+            background: #ddd;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_img>img{
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 8px  0 0;
+        }
+        .hotel_txt{
+            font-size: .7rem;
+            background: #fff;
+            padding: 10px;
+            border-radius:0 0 8px 8px;
+        }
+        .hotel_title{
+            font-size: 0.8rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .hotel_address{
+            font-size: 0.6rem;
+            line-height: 1rem;
+            color:#666 ;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .qi{
+            display: inline-block;
+            width: 2.25rem;
+            height: 1.125rem;
+        }
+        .qi>img{
+            width: 100%;
+            height: 100%;
+        }
+        .xiangqing{
+            display: inline-block;
+            padding: .5rem 1rem;
+            color:#fff;
+            /*float: right;*/
+            background: #ff5d57;
+            border-radius: 8px;
+        }
+        .disable{
+            color: #ddd;
+            background: #a3a3a3;
+        }
+        .look:active,.list_hotel_watch_div:active{
+            color: #ddd;
+            background: #f1332b;
+        }
+        .price_div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            position: relative;
+        }
+        .qi_div{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        #hotelmask{
+            position: absolute;
+            font-size: .7rem;
+            right: .4rem;
+            top:-.15rem;
+            height: 3.625rem;
+            width: 3rem;
+            /*background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yijishu.png) 0 0 no-repeat;*/
+            background-size:100% 100%;
+            /*color:#d4d4d4;*/
+        }
+        #hotelmask>div{
+            position: absolute;
+            width: 2.25rem;
+            top:40% ;
+            text-align: center;
+            left:45%;transform: translate(-50%,0);-webkit-transform: translate(-50%,0);
+        }
+        .jieshu{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_js.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#d4d4d4;
+        }
+        .jinxing{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_jx.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+        .kaimiao{
+            background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_ks2.png) 0 0 no-repeat;
+            background-size:100% 100%;
+            color:#fff;
+        }
+
+        .tehui_content{
+            padding: 1.25rem 0.325rem;
+            border-top: 1px dashed #19a870;
+            position: relative;
+            background: #250749;
+        }
+        .nav{
+            font-size: .7rem;
+            color:#fff;
+            line-height: 1.5rem;
+        }
+        .nav_table {
+            width: 100%;
+            padding: .15rem;
+            font-size: 0;
+            box-sizing: border-box;
+            background: #72224f;
+        }
+        .nav_table div:not(.more_city_div) {
+            line-height: 1.5rem;
+            text-align: center;
+            vertical-align: middle;
+            /*border:3px solid transparent;*/
+            background: #ba397f;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 24.9%;
+            font-size: .7rem;
+            border:.15rem solid #722250
+        }
+        /*tbody,tr{display: block;box-sizing: border-box;font-size: 0}*/
+        /*div{}*/
+        .list_hotel_img{
+            height:4.75rem;
+            width: 100%;
+            background: #ddd;
+        }
+        .list_hotel_img>img{
+            height:100%;
+            width: 100%;
+        }
+        /*.hotel_list{*/
+        /*padding: 1px;*/
+        /*overflow: hidden;*/
+        /*}*/
+        .list{
+            /*padding: 1px;*/
+            /*overflow: hidden;*/
+            font-size: 0;
+        }
+        .list >div{
+            display: inline-block;
+            width: 49.9%;
+            padding: .3rem;
+            box-sizing: border-box;
+        }
+        .list_hotel_txt{
+            padding: .25rem;
+            background: #fff;
+            border-radius: 0 0 5px 5px;
+        }
+        .list_hotel_title{
+            font-size: .7rem;
+            line-height: 1rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_address{
+            font-size: .6rem;
+            line-height: 1rem;
+            color:#666;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .list_hotel_priceDiv{
+            font-size: .7rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .list_hotel_price{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            font-size: .6rem;
+        }
+        .list_hotel_watch_div{
+            padding: .3rem .4rem;
+            background: #ff5d57;
+            color:#fff;
+        }
+        .list_hotel_watch{
+            border:.05rem solid #ff5d57;
+            padding: .05rem;
+        }
+        .list_hotel_price{
+            color:#666;
+
+        }
+        .yen{
+            font-size: .6rem;
+            color:#ff5d57 ;
+        }
+        .price{
+            font-size: .9rem;
+            color:#ff5d57 ;
+            position: relative;
+            top:.05rem
+        }
+        .nav_table .nav_active{
+            background: #eed123!important;
+            color:#c44a02;
+        }
+        .nav_table div:not(.more_city_div):active{
+            background: #eed123!important;
+        }
+        .alert {
+            position: fixed;
+            z-index: 1001;
+            width: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            background: #fff;
+            ##display: none;
+            background: #fff;
+            ##min-height:100px;
+            font-size:14px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+        .alt-mask{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            ##display: none;
+            background: rgba(0,0,0,.5);
+        }
+        .al-title{
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 20px;
+            box-sizing: border-box;
+            padding:10px;
+            position: relative;
+            text-align:center
+        }
+        .al-txt{
+            font-size: 14px;
+            line-height: 20px;
+            color: #888888;
+            box-sizing: border-box;
+
+        }
+        .msg{
+            width:100%;
+            box-sizing: border-box;
+            padding:0 15px 15px 15px
+        }
+        .al-txtDiv{
+            min-height:30px;
+        }
+
+        .hidden{display:none}
+        .more_city_div{
+            height:0px;
+            overflow: hidden;
+            transition:height .7s;
+            -webkit-transition:height .7s;
+        }
+        .more_city_div_show{
+            /*height:auto;*/
+            /*height:5.6rem;*/
+        }
+        .kaimiao >div{
+            top: 33% !important;
+            left: 47% !important;
+        }
+        .hotel_area{
+            padding:.25rem;
+        }
+        .tip-mask{color:#fff;font-size:14px;position: fixed;top:0;width: 100%;height: 100%;z-index: 1000;background: rgba(0,0,0,.5);}
+        .mask_div{width:100%;text-align:center}
+        .fenxiang{line-height:80px;width:180px;margin:0 auto}
+        .right_top{padding-top:100px;background: url(http://source.qunar.com/site/images/wap/touch/images/v2/images1x/lb_arrows.png) right 10px no-repeat;background-size:75px 100px;margin:0 10px;line-}
+
+        .yuan_div{
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            position: absolute;
+            top:0
+        }
+        /*.qi_div span{display: inline-block}*/
+        .yuan{color:#ff5d57;font-size: 1.5rem;font-weight: bolder;font-style:oblique;}
+        .yuanqi{color:#888;padding-top: .4rem;padding-left:3px}
+        /*.miaosha_disable{position: relative}*/
+        .miaosha_disable .yuan{color:#666;}
+        .miaosha_disable:after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #888;
+            position: absolute;
+            left: 0;
+            top:50%
+        }
+        .goto_zhongdianfang{
+            background: #ff9000;
+            font-size: .9rem;
+            line-height: 2rem;
+            text-align: center;
+            color:#fff;
+            border-radius: 5px;
+            margin:.5rem .25rem 0 .25rem;
+        }
+    </style>
+    <script type="text/javascript" src="http://m.qunar.com/zhuanti/20150129-topDownLoad.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="img_div">
+        <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanzhongdianfang2.png">
+    </div>
+    <div class="miaosha_content hidden">
+        <div class="miaosha_content_div">
+            <div class="miaoshaqu hidden">
+                <img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/miaosha_yiyuan.png">
+            </div>
+            <div class="nav">
+                <div class="nav_table">
+
+                </div>
+            </div>
+            <div class="miaosha_list">
+
+            </div>
+            <div class="goto_zhongdianfang">去钟点房看看</div>
+
+        </div>
+
+    </div>
+    <div class="alert hidden">
+        <div class="al-title">去哪儿网温馨提示：</div>
+        <div class="al-txtDiv">
+            <!--<div class="al-txt msg">请输入11位有效手机号</div>-->
+        </div>
+    </div>
+    <div class="alt-mask hidden"></div>
+    <div class="tip-mask hidden">
+        <div class="mask_div">
+            <div class="right_top">1、点击右上角&nbsp;•••</div>
+            <div class="fenxiang">2、在浏览器中打开</div>
+        </div>
+
+    </div>
+</div>
+<script type="text/template" id="citytpl">
+    <%
+    var n=0,length=count(data);
+    _.each(data,function(item,index){
+    %>
+    <%if(length>8 && n==7){%>
+    <div class="moreCity">更多城市</div>
+    <div class="more_city_div">
+        <%}%>
+        <div class="<%if(n==0){%>td1<%}%>" name="<%=index%>"><%=index%></div>
+        <%
+        n++;
+        });
+        %>
+        <%if(data.length>8){%>
+    </div>
+    <%}
+    function count(o){
+    var t = typeof o;
+    if(t == 'string'){
+    return o.length;
+    }else if(t == 'object'){
+    var n = 0;
+    for(var i in o){
+    n++;
+    }
+    return n;
+    }
+    return false;
+    };
+    %>
+</script>
+<script type="text/template" id="miaoshatpl">
+    <%_.each(data,function(item,index){%>
+    <div class="hotel_area" data-startTime="<%=item.startTime%>" data-endTime="<%=item.endTime%>" data-hotelId="<%=item.hotelId%>" data-wrapperId="<%=item.wrapperId%>" data-roomId="<%=item.roomId%>" data-checkInDate="<%=item.checkInDate%>" data-checkOutDate="<%=item.checkOutDate%>" data-seq="<%=item.seq%>">
+        <div class="hotel_img">
+            <img lazy_src="<%=item.img%>">
+            <div id='hotelmask' class="kaimiao">
+                <div class="mask_txt"><%=item.startTime%><br>开&nbsp;抢</div>
+            </div>
+        </div>
+        <div class="hotel_txt">
+            <div class="hotel_title"><%=item.hotelName%></div>
+            <div class="hotel_address"><%=item.hotelAddress%></div>
+            <div class="price_div">
+                <div class="qi_div">
+                    <div class="yuan_div ">
+                        <div class="yuan">1</div>
+                        <div class="yuanqi">元起</div>
+                    </div>
+
+                    <!--<div class="qi">-->
+                    <!--<img src="http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png">-->
+                    <!--</div>-->
+                </div>
+                <div class="xiangqing disable" data-hotelId="<%=item.hotelId%>" data-wrapperId="<%=item.wrapperId%>" data-roomId="<%=item.roomId%>" data-checkInDate="<%=item.checkInDate%>" data-checkOutDate="<%=item.checkOutDate%>" data-seq="<%=item.seq%>">立即秒杀</div>
+            </div>
+        </div>
+    </div>
+    <%});%>
+
+</script>
+</body>
+<script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
+<!--<script type="text/javascript" src="http://m.qunar.com/zhuanti/zhongdianfangmiaosha.js"></script>-->
+<script>
+
+    $(function() {
+        var ua = navigator.userAgent;
+        var	v = ua.match(/[qQ]unar.*\/(\d{8})/g);
+        var	version = !!v && (parseInt( v[0].split('/')[1]));
+        var type=typeof(version);
+        if(ua.toLowerCase().indexOf('iphone')!=-1 ){
+            if(type=='number'&&version<80011092 ){
+                alert('请将客户端升级至最新版本参加本活动');
+            }
+        }
+
+
+
+        var bdSource=getUrlParam('bd_source') || 'zhongdianfangl_hotel',
+                city=getUrlParam('city');
+        var reg = new RegExp("[\\u4E00-\\u9FFF]+","g");
+        if(!reg.test(city)){
+            city=decodeURIComponent(city);
+        }
+        var FromForLog={
+            'zhongdianfangl_hotel':106,
+            'zhongdianfangd_hotel':107,
+            'zhongdianfangf_hotel':108,
+            'zhongdianfangs_hotel':109,
+            'zhongdianfangw_hotel':110,
+            'zhongdianfangz_hotel':111,
+            'zhongdianfangx_hotel':112,
+            'zhongdianfangy_hotel':113
+        };
+        var  fromForLog=FromForLog[bdSource] || 106;
+        var qua = function () {
+            var ua = navigator.userAgent;
+            return {
+                iphonePro  : ua.indexOf("QunariPhonePro") !== -1,
+                iphoneLife : ua.indexOf("QunariPhoneLife") !== -1,
+                iphone     : ua.indexOf("QunariPhone") !== -1,
+                androidLife: ua.indexOf("qunaraphonelife") !== -1,
+                android    : ua.indexOf("qunaraphone") !== -1,
+                ipad       : /ipad/ig.test(ua)
+            }
+        }();
+//    var miaosha_data={
+//        '2015-10-02': {
+//            "北京": [{
+//                "startTime"   : "19:00",
+//                "endTime"     : "23:59",
+//                "hotelName"   : "北京广州大厦",
+//                "img"         : "http://himg1.qunarzz.com/imgs/201212/05/nz078uvZVq8WOqmkv480s.jpg",
+//                "hotelAddress": "普通双床间-国庆特惠",
+//                "hotelId"     : "5296154",
+//                "wrapperId":"qtav2000001",
+//                "roomId":"9530753_63701",
+//                "checkInDate":"2015-10-01",
+//                "checkOutDate":"2015-10-02",
+//                "seq":"beijing_city_107",
+//            },
+//                {
+//                    "startTime"   : "19:00",
+//                    "endTime"     : "23:59",
+//                    "hotelName"   : "北京广州大厦",
+//                    "img"         : "http://himg1.qunarzz.com/imgs/201212/05/nz078uvZVq8WOqmkv480s.jpg",
+//                    "hotelAddress": "普通双床间-国庆特惠",
+//                    "hotelId"     : "5296155",
+//                    "wrapperId":"qtav2000001",
+//                    "roomId":"9530753_637012",
+//                    "checkInDate":"2015-10-01",
+//                    "checkOutDate":"2015-10-02",
+//                    "seq":"beijing_city_107",
+//                },
+//                {
+//                    "startTime"   : "19:00",
+//                    "endTime"     : "23:59",
+//                    "hotelName"   : "北京广州大厦",
+//                    "img"         : "http://himg1.qunarzz.com/imgs/201212/05/nz078uvZVq8WOqmkv480s.jpg",
+//                    "hotelAddress": "普通双床间-国庆特惠",
+//                    "hotelId"     : "5296155",
+//                    "wrapperId":"qtav2000001",
+//                    "roomId":"9530753_637010",
+//                    "checkInDate":"2015-10-01",
+//                    "checkOutDate":"2015-10-02",
+//                    "seq":"beijing_city_107",
+//                },
+//            {
+//                "startTime"   : "19:00",
+//                "endTime"     : "13:59",
+//                "hotelName"   : "北京柏悦酒店",
+//                "img"         : "http://himg1.qunarzz.com/imgs/201301/25/oEPFzoo4mtGelJPqo480s.jpg",
+//                "hotelAddress": "国庆1元秒杀",
+//                "hotelId"     : "4493300",
+//                "wrapperId":"qtav200001",
+//                "roomId":"9522746_524480",
+//                "checkInDate":"2015-09-30",
+//                "checkOutDate":"2015-10-01",
+//                "seq":"beijing_city_3446",
+//            },
+//            {
+//                "startTime"   : "04:00",
+//                "endTime"     : "24:00",
+//                "hotelName"   : "广州珠江国际酒店1",
+//                "img"         : "http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg",
+//                "hotelAddress": "地处长隆旅游度假区的中心",
+//                "hotelId"     : "491539",
+//                "wrapperId":"qtav200001",
+//                "roomId":"9581504_314086",
+//                "checkInDate":"2015-10-01",
+//                "checkOutDate":"2015-10-02",
+//                "seq":"test_only2_4",
+//            }],
+//
+//            "上海": [{
+//                "startTime"   : "13:30",
+//                "endTime"     : "20:00",
+//                "hotelName"   : "伊思德国际公寓·广州保利世贸中心",
+//                "img"         : "http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg",
+//                "hotelAddress": "地处长隆旅游度假区的中心",
+//                "hotelId"     : "2453471",
+//                "wrapperId":"qtav200001",
+//                "roomId":"8359169_468017",
+//                "checkInDate":"2015-10-01",
+//                "checkOutDate":"2015-10-02",
+//                "seq":"beijing_city_3016",
+//            },
+//                {
+//                    "startTime"   : "17:30",
+//                    "endTime"     : "18:00",
+//                    "hotelName"   : "广州嘉福国际大酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "seq":"guangzhou_3998",
+//                },
+//                {
+//                    "startTime"   : "12:00",
+//                    "endTime"     : "13:00",
+//                    "hotelName"   : "广州珠江国际酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/11/nz078uvDChamqK1Dv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "seq":"guangzhou_9763",
+//                }],
+//        },
+//        '2015-09-26': {
+//            "广州": [{
+//                "startTime"   : "13:30",
+//                "endTime"     : "20:00",
+//                "hotelName"   : "伊思德国际公寓·广州保利世贸中心",
+//                "img"         : "http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg",
+//                "hotelAddress": "地处长隆旅游度假区的中心",
+//                "hotelId"     : "2453471",
+//                "wrapperId":"qtav200001",
+//                "roomId":"8359169_468017",
+//                "checkInDate":"2015-10-01",
+//                "checkOutDate":"2015-10-02",
+//                "seq":"beijing_city_3016",
+//            },
+//                {
+//                    "startTime"   : "17:30",
+//                    "endTime"     : "18:00",
+//                    "hotelName"   : "广州嘉福国际大酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "seq":"guangzhou_3998",
+//                },
+//                {
+//                    "startTime"   : "12:00",
+//                    "endTime"     : "13:00",
+//                    "hotelName"   : "广州珠江国际酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/11/nz078uvDChamqK1Dv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "seq":"guangzhou_9763",
+//                }],
+//
+//            "上海": [{
+//                "startTime"   : "10:00",
+//                "endTime"     : "10:30",
+//                "hotelName"   : "上海伊思德国际公寓·广州保利世贸中心",
+//                "img"         : "http://userimg.qunar.com/imgs/201505/29/8q41fFZDDLBQ6bpeZ720.jpg",
+//                "hotelAddress": "地处长隆旅游度假区的中心",
+//                "hotelId"     : "guangzhou_97"
+//            },
+//                {
+//                    "startTime"   : "14:30",
+//                    "endTime"     : "15:00",
+//                    "hotelName"   : "上海广州嘉福国际大酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/12/nz078uvDJGQVsbGLv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "hotelId"     : "guangzhou_39"
+//                },
+//                {
+//                    "startTime"   : "11:00",
+//                    "endTime"     : "12:00",
+//                    "hotelName"   : "上海广州珠江国际酒店",
+//                    "img"         : "http://userimg.qunar.com/imgs/201212/11/nz078uvDChamqK1Dv720.jpg",
+//                    "hotelAddress": "地处长隆旅游度假区的中心",
+//                    "hotelId"     : "guangzhou_97"
+//                }]
+//        },
+//
+//    };
+        var date=$.getDateString(new Date());
+
+        dynamicLoad();
+        function dynamicLoad(){
+            var _doc=document.getElementsByTagName('head')[0];
+            var script=document.createElement('script');
+            script.setAttribute('type','text/javascript');
+            script.setAttribute('src','http://m.qunar.com/zhuanti/zhongdianfangmiaosha.js?data='+new Date().getTime());
+            _doc.appendChild(script);
+            script.onload=script.onreadystatechange=function(){
+                if(!this.readyState||this.readyState=='loaded'||this.readyState=='complete'){
+                    var data=miaosha_data;
+                    if(data){bulidTemple({data:miaosha_data},'.nav_table','#citytpl');}
+                    setTimeout(function(){
+                        var $chick=$('.nav_table div[name="'+city+'"]'),
+                                $parent=$chick.parents('.more_city_div');
+                        $parent.length>0?$('.moreCity').trigger('click'):'';
+                        $chick.length>0?$chick.trigger('click'):$('.td1').trigger('click');
+                        if(ua.toLowerCase().indexOf('micromessenger')!=-1){
+                            showTipMask();
+                        }
+                        window.onscroll =throttle(lazy,300);
+                        lazy();
+
+                    },1000)
+                }
+            }
+        }
+//    var data=miaosha_data[date];
+////    bulidTemple({data:data},'.hotel_list','#hoteltpl');
+//    if(data){bulidTemple({data:miaosha_data[date]},'.nav_table','#citytpl');}
+//    bulidTemple({data:data},'.nav_table','#citytpl');
+
+        function showTipMask(){
+            var _alt_mask=$('.tip-mask');
+            _alt_mask.removeClass('hidden');
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alt_mask.addClass('hidden');
+                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+                e.preventDefault();
+            });
+        }
+
+        function bulidTemple(data,element,tpl){
+            var element = $(element);
+            var tpl = $(tpl).html();
+            var render = _.template(tpl);
+            var html = render(data);
+            element.append(html);
+        }
+        function isEmptyObject(obj){
+            if(obj && typeof(obj)=='object'){
+                for(var n in obj){return false}
+            }
+            return true;
+        }
+        var intervalList={},roomIdList=[];
+        var seqString='';
+        $('.main').on('click','.nav_table div:not(.more_city_div)',function(){
+            if($(this).attr('class')!='moreCity'){
+
+                var city=$(this).html();
+                $('.nav_table div').removeClass('nav_active');
+                $(this).addClass('nav_active');
+
+                $('.miaosha_list').html('');
+                var miaoshaData=miaosha_data[city];
+                if(!isEmptyObject(miaoshaData)){
+                    $('.miaosha_content').removeClass('hidden');
+                    bulidTemple({data:miaoshaData},'.miaosha_list','#miaoshatpl');
+                    $.each(intervalList,function(index,item){
+//                    console.log(item);
+                        item.stopInterval();
+                    })
+                    intervalList={},roomIdList=[];
+                    seqString='';
+                    $.each(miaoshaData,function(index,item){
+                        var seq=item.seq;
+                        var roomId=item.roomId;
+//                    debugger
+                        roomIdList.push(roomId);
+                        seqString=seqString+seq+'|'+roomId+',';
+//                    var $hotel=$('.hotel_area[data-roomId="'+roomId+'"]');
+//                    debugger
+                        var buildmiaosha =new buildMiaosha('.hotel_area[data-roomid="'+roomId+'"]','.miaosha_list');
+                        intervalList[roomId]=buildmiaosha;
+                    })
+
+
+                    $.ajax({
+                        url: 'http://touch.qunar.com/h5/hotel/activity/HotelPromoZDF?seq='+seqString,
+                        type: 'GET',
+                        dataType: "json",
+//                    data: {
+//                        'seq':seqString
+//                    },
+                        error: function (xhr) {
+                            console.log('無法取得資料!');
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            $.each(response,function(index,item){
+                                var price=item.price,
+                                        roomId=item.roomId;
+                                if(price==0){
+                                    intervalList[roomId].setEnd();
+                                }else{
+                                    intervalList[roomId].setStart(price);
+                                }
+                            })
+                            lazy();
+
+                        }
+                    });
+                }
+
+
+            }else{
+                var $more_city_div=$('.more_city_div');
+                if($more_city_div.hasClass('more_city_div_show')){
+                    $more_city_div.removeClass('more_city_div_show');
+                    $more_city_div.css({height:'0'});
+                    $(this).html('更多城市');
+                }else{
+                    $more_city_div.addClass('more_city_div_show');
+//                $more_city_div.css({height:'100px'});
+
+                    $more_city_div.css({height:Math.ceil((count(miaosha_data)-7)/4)*1.8+'rem'});
+                    $(this).html('收起城市');
+                }
+            }
+
+        })
+        function count(o){
+            var t = typeof o;
+            if(t == 'string'){
+                return o.length;
+            }else if(t == 'object'){
+                var n = 0;
+                for(var i in o){
+                    n++;
+                }
+                return n;
+            }
+            return false;
+        };
+
+        function showAlert(msg,title){
+            var _alert=$('.alert'),_alt_mask=$('.alt-mask');
+            _alert.removeClass('hidden');
+            _alt_mask.removeClass('hidden');
+            $('.al-title').html(title || '去哪儿网温馨提示：');
+            $('.msg').html(msg);
+            $('.main').one('click',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                _alert.addClass('hidden');
+                _alt_mask.addClass('hidden');
+                $('.main').unbind('touchmove');
+            }).on('touchmove',function(e){
+                e.preventDefault();
+            });
+        }
+
+
+
+        function buildMiaosha(dom,list){
+            this.$dom=$(dom);
+            this.$list=$(list)
+            this.interval= 0;
+            this.init();
+        }
+        buildMiaosha.prototype = {
+            init:function(price){
+                var me=this,$dom=this.$dom;
+                if(price && price>0){$($dom.find('.yuan')).html(price);}
+                setState();
+                clearInterval(me.interval);
+                if($($dom.find('.mask_txt')).html()!='已结束'){
+                    me.interval=setInterval(setState,1000);
+                }
+                function setState(){
+                    var Time=getTime(),startTime=$dom.attr('data-startTime').replace('：', ':'),endTime=$dom.attr('data-endTime').replace('：', ':');
+//                console.log(Time+';startTime:'+startTime+';endTime:'+endTime);
+                    if(Time>=startTime&&Time<=endTime&&$($dom.find('.mask_txt')).html()!='进行中'){
+//            clearInterval(Interval);
+                        $($dom.find('.mask_txt')).html('进行中');
+                        $($dom.find('#hotelmask')).attr('class','jinxing');
+                        $($dom.find('.xiangqing')).removeClass('disable').addClass('look').html('立即秒杀');
+//                    $($dom.find('.qi>img')).attr('src','http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png');
+                        $($dom.find('.yuan_div')).removeClass('miaosha_disable')
+                    }else if(Time>endTime&&$($dom.find('.mask_txt')).html()!='已结束'){
+                        me.end();
+
+                    }else if(Time<startTime){
+                        $($dom.find('.mask_txt')).html(startTime+'<br>开&nbsp;抢');
+                        $($dom.find('#hotelmask')).attr('class','kaimiao');
+                        $($dom.find('.xiangqing')).addClass('disable').removeClass('look').html('立即秒杀');
+//                    $($dom.find('.qi>img')).attr('src','http://source.qunar.com/site/images/wap/touch/images/v2/images1x/yiyuanqi.png');
+                        $($dom.find('.yuan_div')).removeClass('miaosha_disable')
+                    }
+                }
+            },
+            stopInterval:function(){
+                clearInterval(this.interval);
+            },
+            end:function(){
+                var me=this,$dom=this.$dom;
+                $($dom.find('.mask_txt')).html('已结束');
+                $($dom.find('#hotelmask')).attr('class','jieshu');
+                $($dom.find('.xiangqing')).removeClass('disable').addClass('look').html('查看详情');
+                $($dom.find('.yuan_div')).addClass('miaosha_disable');
+                setTimeout(function(){
+                    me.$list.append($dom);
+                },1);
+                clearInterval(me.interval);
+            },
+            setEnd:function(){
+                var me=this,$dom=this.$dom;
+                var Time=getTime(),startTime=$dom.attr('data-startTime').replace('：', ':');
+                if(Time>startTime){
+                    me.end();
+                }
+
+            },
+            setStart:function(price){
+                var $dom=this.$dom;
+                this.init(price);
+                this.$list.prepend($dom);
+
+            }
+        }
+
+        $('.main').on('click','.xiangqing,.list_hotel_watch_div,.hotel_area,.list>div',function(){
+            var $this=$(this);
+            if(!$this.hasClass('disable')){
+                var seq=$(this).attr('data-seq'),
+                        wrapperId=$(this).attr('data-wrapperId'),roomId=$(this).attr('data-roomId'),
+                        planId=$(this).attr('data-planId'),checkInDate=$(this).attr('data-checkInDate'),
+                        checkOutDate=$(this).attr('data-checkOutDate'),hotelId=$(this).attr('data-hotelId');
+
+                var href='',scheme='';
+//            if($this.html()=='立即秒杀'){
+//                scheme='hotel/orderfill?fromDate='+checkInDate+'&toDate='+checkOutDate+'&vendorOrderInfo='+encodeURIComponent('{"wrapperId":"'+wrapperId+'","hotelId":"'+hotelId+'","roomId":"'+roomId+'","planId":"MOBILE_WX_HD","price":"1"}')+'&roomOrderInfo='+encodeURIComponent('{}')+'&detailOrderInfo='+encodeURIComponent('{"hotelSeq":"'+seq+'"}')+'&fromForLog='+fromForLog+'&cat='+bdSource;
+//                href='://'+scheme;
+//            }else{
+//                scheme='hotel/detail?ids='+seq+'&needRoomVendor=0'+'&fromForLog='+fromForLog+'&cat='+bdSource;
+//                href='://'+scheme;
+//
+//            }
+                scheme='hotel/hourRoomDetail?ids='+seq+'&needRoomVendor=0&fromDate='+date+'&cat='+bdSource+'&fromForLog='+fromForLog;
+                href='://'+scheme;
+                var url="";
+                if(qua.iphonePro){
+                    url="qunariphonepro" + href;
+                }else if(qua.iphoneLife){
+                    url="qunariphonelife" + href;
+                }else if(qua.iphone){
+                    url="qunariphone" + href;
+                }else if(qua.androidLife){
+                    url="qunaraphonelife" + href;
+                }else if(qua.android){
+                    url="qunaraphone" + href;
+                }else{
+//                url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl=download?bd_source='+bdSource;
+                    url = 'http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+encodeURIComponent(scheme)+'&touchUrl=download?bd_source='+bdSource;
+                }
+                window.location.href =url;
+            }
+        });
+        $('.main').on('click','.goto_zhongdianfang',function(){
+            var cityName=$('.nav_active').html() || '北京',
+                    cityUrl='';
+            $.ajax({
+                url     : 'http://touch.qunar.com/h5/commonControl?action=getCityUrlByName',
+                data    : {
+                    cityName: cityName
+                },
+                dataType: 'json',
+                success : function (data) {
+                    cityUrl=data.cityUrl;
+                    var href='hotel/hourRoomList?city='+encodeURI(cityName)+'&cityUrl='+encodeURI(cityUrl)+'&cat='+bdSource+'&fromForLog='+fromForLog;
+                    var url="";
+                    if(qua.iphonePro){
+                        url="qunariphonepro://" + href;
+                    }else if(qua.iphoneLife){
+                        url="qunariphonelife://" + href;
+                    }else if(qua.iphone){
+                        url="qunariphone://" + href;
+                    }else if(qua.androidLife){
+                        url="qunaraphonelife://" + href;
+                    }else if(qua.android){
+                        url="qunaraphone://" + href;
+                    }else{
+//                    var url1='hotel/hotellist?city='+encodeURI(cityName)+'&type=2&bd_source='+bdSource;
+                        var url1='download?bd_source='+bdSource;
+                        var scheme=encodeURIComponent(href);
+                        var touchUrl=encodeURIComponent(url1);
+                        var url ='http://touch.qunar.com/h5/client?bd_source='+bdSource+'&sScheme=0&scheme='+scheme+'&touchUrl='+touchUrl;
+                        window.location.href=url;
+                    }
+                    window.location.href =url;
+                },
+                error   : function () {
+                    console.log('网络错误，请稍后重试！');
+                }
+            })
+
+        })
+        function getTime(){
+            var date=new Date();
+            return fixZero(date.getHours())+":"+fixZero(date.getMinutes());
+
+            function fixZero(num){
+                if(num<10){return '0'+num;}
+                return num;
+            }
+        }
+        function getfromForLog(bdSource) {
+            var bd_source= bdSource || 0;
+            return 1000 + parseInt(bd_source.replace('huodong', '') || 0);
+        };
+
+
+        function getUrlParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = decodeURIComponent(window.location.search.substr(1)).match(reg);  //匹配目标参数
+            if (r!=null) return unescape(r[2]); return ''; //返回参数值
+        }
+        function lazy(){
+            var p=0;
+            var wSize=getWindowSize();
+            var imgCollection = $('.miaosha_list .hotel_img>img');
+            $.each(imgCollection,function(index,item){
+                p=item.getBoundingClientRect().top;
+//            console.log('p:'+p+'    pageHeight:'+wSize.pageHeight+'       offsetTop:'+$(item).offset().top)
+                if(p>=0&&p<wSize.pageHeight){
+                    $(item).attr('src',$(item).attr('lazy_src'));
+                }
+//            console.log(item)
+            })
+
+        }
+
+        function throttle(fn, delay) {
+            var timer = null;
+            return function () {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    fn.apply(context, args);
+                }, delay);
+            };
+        }
+        function getWindowSize(){
+            var pageWidth = window.innerWidth;
+            var pageHeight = window.innerHeight;
+            if(typeof pageWidth !="number"){
+                if(document.compatMode =="CSS1Compat"){
+                    pageWidth = document.documentElement.clientWidth;
+                    pageHeight = document.documentElement.clientHeight;
+                }else{
+                    pageWidth = document.body.clientWidth;
+                    pageHeight = document.body.clientHeight;
+                }
+            }
+            return {pageWidth:pageWidth,pageHeight:pageHeight};
+        }
+
+
+    });
+
+
+    (function() {
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        var hm = document.createElement("script");
+        hm.src = _bdhmProtocol + "hm.baidu.com/hm.js?98424ac1dde4320fb674fadfc53363c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</html>
