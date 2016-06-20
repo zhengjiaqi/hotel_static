@@ -2,7 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=360,user-scalable=no">
     <title></title>
+    <div class="wrap1">
+      <div class="wrap1">
+        <div class="a">aaaa</div>
+        <div class="a">aaaa</div>
+        <div class="a">aaaa</div>
+      </div>
+    </div>
+    <div style="overflow: hidden">
+      <div style="float: left;background: blue">a</div>
+      <div style="height: 100px;float: right;background: green">c</div>
+      <div style="height: 50px;background: red;overflow: hidden">b</div>
+    </div>
+    <div >
+      <div style="float: left;background: blue;width: 100%">a</div>
+      <div style="float: left;height: 100px;background: green;margin-left: -100%">c</div>
+      <div style="float: left;height: 50px;background: red;width:200px;margin-left: -200px">b</div>
+    </div>
+
+    <div>
+      <div style="background:aqua;position: absolute;width: 2em;height: 2em;top:0;bottom:0;left:0;right:0;margin: auto">aaaa</div>
+    </div>
+
 </head>
 <body>
 <script type="text/javascript" src="http://qunarzz.com/mobile_touch/prd/v2/js/zepto-2014012117315602.js"></script>
@@ -14,5 +37,114 @@
     xhr.send(null);
 
 </script>
+<script>
+  var str = '';
+  var domList = document.querySelectorAll('.a');
+  for(var i = 0 ;i<domList.length;i++){
+//    setTimeout(function(){
+//      console.log(i)
+//    },0);
+    domList[i].onclick = (function(i){
+      return function(e){
+//        debugger
+        alert(i)
+      }
+    })(i)
+    str +=i;
+  };
+  console.log(str)
+
+  recursive(5);
+
+  function recursive(num){
+    var res = 1;
+    for(var i = 1;i<=num;i++){
+      console.log(i)
+      res *=i;
+    }
+    console.log(res)
+  }
+
+  document.querySelector('.wrap1').addEventListener('click',function(e){
+//    debugger
+  },false)
+
+
+  console.log('**********');
+//  var aa=1;
+//  var obj={
+//    aa:2,
+//    log:function(){
+//      console.log(this.aa)
+//    }
+//  }
+//  obj.log();
+//
+//  var obj2 ={
+//    aa:3
+//  }
+//  var c = obj.log;
+//  c();
+//  obj2.log=obj.log;
+//  obj2.log();
+//  var aa=1;
+//  function obj(){
+//    this.aa = 2;
+//    this.log=function(){
+//      console.log(this.aa)
+//    }
+//  }
+//  new obj().log();
+//  var c=new obj().log;
+//  c();
+
+
+//  supertype.prototype = {
+//    log:function(){
+//      console.log(this.a)
+//    }
+//  }
+  function supertype(){
+    this.a=1;
+  }
+  supertype.prototype.log =function(){
+    console.log(this.a)
+  }
+
+  function subType(){
+    this.a=2
+  }
+  subType.prototype =new supertype();
+  subType.prototype.log =function(){
+    console.log('subType');
+  }
+
+  var obj1 = new supertype();
+
+
+  supertype.prototype = {
+    log:function(){
+      console.log('sss')
+    }
+  }
+  var obj2 = new subType();
+  obj1.log();
+  obj2.log();
+</script>
+<div class="div">
+  <div class="div1"></div>
+  <div class="div2">大的撒打算打算打算打算打算的实打实的的实打实大叔大婶实打实大师大的撒大大大都普及普及精品配件及 </>
+</div>
+<style>
+  .div1{
+    width: 30px;
+    height: 30px;
+    background: pink;
+    float:left;
+  }
+  .div2{
+    /*overflow: auto;*/
+  }
+</style>
 </body>
 </html>
