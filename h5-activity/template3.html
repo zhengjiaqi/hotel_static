@@ -3,7 +3,7 @@
 <head>
     <title>H5</title>
     <meta charset="UTF-8">
-    <meta content="width=device-width,minimum-scale=1.00001,maximum-scale=1.00001,shrink-to-fit=no,user-scalable=no,minimal-ui" name="viewport">
+    <meta content="width=device-width,minimum-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui" name="viewport">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta content="telephone=no" name="format-detection" />
     <!-- UC默认竖屏 ，UC强制全屏 -->
@@ -56,10 +56,10 @@
                                 <img class="" src="http://source.qunar.com/site/images/wap/home/recommend/small/Clarins.jpg">
                             </li>
                             <li>
-                                <img class="" data-src="http://source.qunar.com/site/images/wap/home/recommend/small/xcgz2.jpg">
+                                <img class="" src="http://source.qunar.com/site/images/wap/home/recommend/small/xcgz2.jpg">
                             </li>
                             <li>
-                                <img class="" data-src="http://source.qunar.com/site/images/wap/home/recommend/small/tqhd326.jpg">
+                                <img class="" src="http://source.qunar.com/site/images/wap/home/recommend/small/tqhd326.jpg">
                             </li>
                         </ul>
                     </div>
@@ -94,7 +94,7 @@
             limit:0.1,
             transitionTime:.5,
         };
-        var qswiper=new QSwiper('.init',config);
+        var qswiper = window.qswiper =new QSwiper('.init',config);
 
         qswiper.onSlideChange(function(pos){
 
@@ -105,7 +105,7 @@
 
         });
         $('.init').on('tap','.toNext',function(){
-            qswiper.slideNext();
+            qswiper.slideTo(0);
         })
         $('.init').on('tap','.swing',function(){
             qswiper.slidePrev();
